@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once ('./include/online.php');
+offline_alert();
+?>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

@@ -98,7 +98,7 @@ require_once './controller/goodsManage.php';
                 <a href="myinfo.php">我的信息</a>
             </li>
             <li class="header-right-tit">
-                <a href="post_trade.html">发布商品</a>
+                <a href="post_trade.php">发布商品</a>
                 <?php
                 }
                 ?>
