@@ -36,7 +36,7 @@ offline_alert();
 <div class="container-fluid cfh_top">
   <div class="container"><a href="index.php">跳蚤市场</a>
     <ul class="list-inline">
-      <li><a href="index.html" target="_self">你好，<?php echo $_SESSION['nick']; ?></a></li>
+      <li><a href="myinfo.php" target="_self">你好，<?php echo $_SESSION['nick']; ?></a></li>
       <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><a href="" target="_blank">&nbsp;切换账号&nbsp;</a></li>
       <li id="login" onMouseMove="login_but_bg(3)" onMouseOut="login_but_bg(4)"><a href="myinfo.php" target="_blank">&nbsp;注销&nbsp;</a></li>
     </ul>

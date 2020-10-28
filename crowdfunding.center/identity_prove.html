@@ -34,27 +34,21 @@
     <li id="listClick_4" onClick="listClick(4)">修改密码</li>
   </ul>
 </div>
-<div class="my_info_content">
-  <div class="my_info_content_care">您还未申请身份认证！<br>
-某经融公司众筹平台郑重承诺：您的个人信息只做为投融资和有限合伙企业设立时使用，感谢您对某经融公司众筹平台的信任和支持！ </div>
-  <table class="my_info_content_care_table">
-    <tbody>
+<form action="../controller/indentify.php" enctype="multipart/form-data" method="post">
+  <div class="my_info_content">
+    <div class="my_info_content_care">您还未申请身份认证！<br>
+      某经融公司众筹平台郑重承诺：您的个人信息只做为投融资和有限合伙企业设立时使用，感谢您对某经融公司众筹平台的信任和支持！ </div>
+    <table class="my_info_content_care_table">
+      <tbody>
       <tr>
-        <td width="300" align="right" class="color555">上传身份证正面照：</td>
-        <td class="color555"><input class="my_info_content_care_table_file" name="" type="file"></td>
+        <td width="300" align="right" class="color555">上传校园卡正面照：</td>
+        <td class="color555"><input class="my_info_content_care_table_file" name="face" type="file" ></td>
       </tr>
       <tr>
         <td align="right" class="color555">&nbsp;</td>
         <td class="color555"><img id="cardimg" width="215" height="110" src="../img/member_center/default_idcard.jpg"></img></td>
       </tr>
-      <tr>
-        <td align="right" class="color555">上传身份证背面照：</td>
-        <td class="color555"><input class="my_info_content_care_table_file" name="" type="file"></td>
-      </tr>
-      <tr>
-        <td align="right" class="color555">&nbsp;</td>
-        <td class="color555"><img id="cardimg" width="215" height="110" src="../img/member_center/default_idcard.jpg"></img></td>
-      </tr>
+
       <tr>
         <td align="right" class="color555">&nbsp;</td>
         <td class="color555"><span class="color959595 margin_left10 font_size12">温馨提示：请上传JPG/GIF/PNG格式图片，文件大小请控制在1M以内！</span></td>
@@ -62,9 +56,11 @@
       <tr>
         <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name="" type="submit" value="申请认证"></td>
       </tr>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+</form>
+
 
 <!-- 结束 --> 
 <script src="../js/jquery-2.1.1.min.js"></script> 
