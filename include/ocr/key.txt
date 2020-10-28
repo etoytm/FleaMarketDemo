@@ -1,0 +1,7 @@
+access key:
+321719fedf3f41cfb714ed7b82708447
+secret key:
+317a300156ff4acd9b91ff710361efc6
+appid
+
+2d7f005abb434e76a18582bf4afd8089
