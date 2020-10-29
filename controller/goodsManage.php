@@ -49,6 +49,7 @@ function getGoodsList()
  */
 function echoGoodsInHtml($goods, $type)
 {
+    $gid = $goods->getGid();
     $name = $goods->getName();
     $preview = $goods->getPreview();
     $priceNow = $goods->getPriceNow();
@@ -67,7 +68,7 @@ function echoGoodsInHtml($goods, $type)
                     <p><span>{$priceNow}元</span>
                         <del>{$goods->getPriceOld()}元</del>
                     </p>
-                    <button>即将开始</button>
+                    <button onclick="buy({$gid})">去购买</button>
                 </div>
             </div>
         </li>
@@ -80,7 +81,7 @@ ETO;
             <div class="main-detail">
                 <div class="detail-title">{$goods->getName()}</div>
                 <div class="detail-price"><b class="price">¥{$goods->getPriceNow()}</b>
-                    <div class="detail-car">加入购物车</div>
+                    <div class="detail-car" onclick="buy($gid)">去购买</div>
                 </div>
             </div>
         </li>

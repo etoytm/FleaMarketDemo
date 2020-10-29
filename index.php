@@ -22,7 +22,7 @@ require_once './controller/goodsManage.php';
 
 
 <!-- 顶部 -->
-<?php require_once ('./include/echo_header.php')?>
+<?php require_once('./include/echo_header.php') ?>
 <div class="right">
     <ul class="wrap1">
         <li><a href="myinfo.php"><span class="iconfont icon-ren-copy"></span></a></li>
@@ -225,4 +225,9 @@ require_once './controller/goodsManage.php';
 </footer>
 <script src="js/swiper.min.js"></script>
 <script src="js/index.js"></script>
+<script>
+    function buy(gid) {
+        location.href = 'confirm_order.php?gid=' + gid;
+    }
+</script>
 </body>
