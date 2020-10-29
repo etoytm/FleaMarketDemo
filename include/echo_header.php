@@ -8,17 +8,17 @@
 
 require_once('./include/online.php');
 
-            $href = array(2);
-            $show = array(2);
-            // 如果没有登陆
-            if (!online()){
-                $href = ['login.html','signin.html'];
-                $show = ['请登录','注册有礼'];
+$href = array(2);
+$show = array(2);
+// 如果没有登陆
+if (!online()) {
+    $href = ['login.html', 'signin.html'];
+    $show = ['请登录', '注册有礼'];
 
-            }else {
-                $href = ['myinfo.php','post_trade.php'];
-                $show = ['我的信息','发布物品'];
-            }
+} else {
+    $href = ['myinfo.php', 'post_trade.php'];
+    $show = ['我的信息', '发布物品'];
+}
 echo <<<ETO
     <link href="./css/index.css" rel="stylesheet">
     <link href="http://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
@@ -82,7 +82,7 @@ echo <<<ETO
         <!-- 右边 -->
         <ul class="header-right">
             <li class="header-right-tit">
-                <a href="{$href[0]}" id="header-user">{$show[0]}</a>
+                <a href="{$href[0]}">{$show[0]}</a>
             </li>
             <li class="header-right-tit">
                 <a href="{$href[1]}">{$show[1]}</a>
