@@ -37,7 +37,7 @@ offline_alert();
             <div style="padding: 0" class="eleven wide column">
                 <!--header-->
 
-                <!--博客主题-->
+                <!--市场主题-->
                 <div style="min-height: 600px; margin-top: 50px;z-index: 0;" class="ui attached segment">
                     <div class="page-body">
                         <div class="row">
@@ -46,25 +46,52 @@ offline_alert();
                                     <div class="widget-header bordered-bottom bordered-themeprimary">
                                     </div>
                                     <div class="widget-body">
-                                        <form action="upload_article.php" method="post" class="form-horizontal">
+                                        <form action="./controller/issueGood.php" method="post" class="form-horizontal">
+                                            <div style="width: 100px;">
+                                                <input name="tag" style="margin-left = 50px;float: left;" class="form-control" list="gtype"     placeholder="选择发布类型"/>
+                                                <datalist id="gtype">
+                                                    <option value="生活用品">
+                                                    <option value="影票场票">
+                                                    <option value="美妆彩妆">
+                                                    <option value="取个快递">
+                                                    <option value="砍并夕夕">
+                                                    <option value="拼车组团">
+                                                </datalist>
+                                                <input name="price_now" style="margin-left = 50px;float: right;" class="form-control" list="price_now"     placeholder="出手价"/>
+                                                <datalist id="price_now">
+                                                    <option value="0.5">
+                                                    <option value="1">
+                                                    <option value="5">
+                                                    <option value="10">
+                                                    <option value="20">
+                                                    <option value="50">
+                                                    <option value="议价">
+                                                </datalist>
+                                                <input name="price_old" style="margin-left = 50px;float: right;" class="form-control" list="price_old"     placeholder="入手价"/>
+                                                <datalist id="price_old">
+                                                    <option value="20">
+                                                    <option value="50">
+                                                </datalist>
+
+                                            </div>
                                             <div class="form-group">
                                                 <label for="title" class="control-label col-sm-2">标题</label>
                                                 <div class="col-sm-6">
                                                     <input type="text" class="form-control" id="title" name="title" placeholder="出二手自行车八成新" />
                                                 </div>
+
                                             </div>
 
                                             <div  class="form-group">
-                                                <label for="content" class="control-label col-sm-2">详细信息</label>
+                                                <label for="description" class="control-label col-sm-2">详细信息</label>
                                                 <div class="col-sm-6">
-                                                    <textarea style="width: 600px; height: 350px" name="article_content" id="content" cols="60" rows="10" class=""></textarea>
+                                                    <textarea style="width: 600px; height: 350px" name="content" id="content" cols="60" rows="10" class=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-6">
                                                     <!--                                                    <button class="btn btn-primary">添加</button>-->
-                                                    <input style="background-color: #00a0e9" type="submit" value="发布">
-                                                    <lable><input type="checkbox" checked="checked" name="public">公开</lable>
+                                                    <input style="background-color: #00a0e9;width: 50px;" type="submit" value="发布">
 
                                                 </div>
                                             </div>
@@ -80,12 +107,10 @@ offline_alert();
 
                 </div>
 
-                <!--博客底部-->
+                <!--市场底部-->
                 <div class="ui bottom attached segment">
                     <div class="ui middle aligned two column grid">
                         <div class="column">
-                        </div>
-                        <div class="right aligned column">
                         </div>
                     </div>
                 </div>
@@ -98,54 +123,33 @@ offline_alert();
                             <div class="column">
                                 <i class="idea icon"></i>待添加
                             </div>
-                            <div class="right aligned column">
-                                <a href="#">more >></a>
-                            </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
                         <div class="ui fluid vertical menu">
-                            <form action="upload_file.php" method="post" enctype="multipart/form-data">
-                                <input type="file" name="face" />
-                                <lable><input type="checkbox" checked="checked" name="public">公开</lable>
-                                <input type="submit" value="确认上传" />
-                            </form>
+<!--                            右边栏内容-->
                         </div>
                     </div>
                 </div>
-                <!--上传图片-->
                 <div class="ui segments">
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
-                            <div class="column">
-                                <i class="idea icon"></i>待添加
-                            </div>
-                            <div class="right aligned column">
-                                <a href="#">more >></a>
-                            </div>
+
                         </div>
                     </div>
                     <div class="ui teal segment">
                         <div class="ui fluid vertical menu">
-                            <form action="upload_image.php" method="post" enctype="multipart/form-data">
-                                <input type="file" name="face"/>
-                                标签：<input type="text" name="tag" placeholder="无">
-                                <lable><input type="checkbox" checked="checked" name="public">公开</lable>
-                                <input type="submit" value="确认上传" />
-                            </form>
+
                         </div>
                     </div>
                 </div>
-                <!--标签-->
                 <div class="ui segments">
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
                                 <i class="tags icon"></i>标签
                             </div>
-                            <div class="right aligned column">
-                                <a href="#">more >></a>
-                            </div>
+
                         </div>
                     </div>
                     <div class="ui teal segment">
@@ -168,7 +172,7 @@ offline_alert();
                 </div>
             </div>
             <div class="four wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h5>
+                <h5 class="ui inverted header m-text-thin m-text-spaced ">最新市场</h5>
                 <div class="ui inverted link list">
                     <a href="#" class="item">人生导师(my story)</a>
                     <a href="#" class="item">心灵鸡汤(my video)</a>
@@ -178,13 +182,11 @@ offline_alert();
             <div class="four wide column">
                 <h5 class="ui inverted header m-text-thin m-text-spaced ">个人信息</h5>
                 <div class="ui inverted link list">
-                    <a href="#" class="item">WeChat:Yi-0802</a>
-                    <a href="#" class="item">QQ:1692774581</a>
                 </div>
             </div>
             <div class="five wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">博客</h5>
-                <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人博客，会定期分享我的故事,我对于自身的认识，希望可以给看我博客的人带来快乐</p>
+                <h5 class="ui inverted header m-text-thin m-text-spaced ">市场</h5>
+                <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人市场，会定期分享我的故事,我对于自身的认识，希望可以给看我市场的人带来快乐</p>
             </div>
         </div>
         <div class="ui inverted section divider"></div>
