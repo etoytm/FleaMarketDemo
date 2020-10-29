@@ -3,142 +3,237 @@ session_start();
 require_once ('./include/online.php');
 offline_alert();
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>图片上传本地预览</title>
-    <style type="text/css">
-        .input_items div {
-            position: absolute;
-        }
 
-        #sub_btn {
-            position: absolute;
-            top: 430px;
-            right: 100px;
-            width: 100px;
-            height: 44px;
-            margin-top: 21px;
-            text-align: center;
-            color: #fff;
-            line-height: 35px;
-            background: #5FB878;
-            border-radius: 10px;
-            margin-left: 20px;
-        }
+    <!--  写作编辑框 的css  BEGIN-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./admin/assets/img/logo.jpg" type="image/x-icon">
+    <link href="./css/ueditorcss/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/ueditorcss/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="./css/ueditorcss/css/weather-icons.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="./css/ueditorcss/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <!--  写作编辑框 的css  END-->
+    <meta charset="UTF-8">
+    <title>我的创作</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+<!--    <link rel="stylesheet" href="./css/ueditorcss/css/style.css">-->
+<!--    <link rel="stylesheet" href="./css/ueditorcss/css/write.css">-->
 
-        .input_review_pic {
-            position: absolute;
-            top: 200px;
-            right: 44%;
-        }
-
-        #preview {
-            width: 260px;
-            height: 190px;
-            border: 1px solid #000;
-            overflow: hidden;
-        }
-
-        #imghead {
-            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);
-        }
-    </style>
-    <script type="text/javascript">
-        //图片上传预览    IE是用了滤镜。
-        function previewImage(file) {
-            var MAXWIDTH = 260;
-            var MAXHEIGHT = 180;
-            var div = document.getElementById('preview');
-            if (file.files && file.files[0]) {
-                div.innerHTML = '<img id=imghead>';
-                var img = document.getElementById('imghead');
-                img.onload = function () {
-                    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-                    img.width = rect.width;
-                    img.height = rect.height;
-//                 img.style.marginLeft = rect.left+'px';
-                    img.style.marginTop = rect.top + 'px';
-                }
-                var reader = new FileReader();
-                reader.onload = function (evt) {
-                    img.src = evt.target.result;
-                }
-                reader.readAsDataURL(file.files[0]);
-            } else //兼容IE
-            {
-                var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-                file.select();
-                var src = document.selection.createRange().text;
-                div.innerHTML = '<img id=imghead>';
-                var img = document.getElementById('imghead');
-                img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-                status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
-                div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
-            }
-        }
-
-        function clacImgZoomParam(maxWidth, maxHeight, width, height) {
-            var param = {top: 0, left: 0, width: width, height: height};
-            if (width > maxWidth || height > maxHeight) {
-                rateWidth = width / maxWidth;
-                rateHeight = height / maxHeight;
-
-                if (rateWidth > rateHeight) {
-                    param.width = maxWidth;
-                    param.height = Math.round(height / rateWidth);
-                } else {
-                    param.width = Math.round(width / rateHeight);
-                    param.height = maxHeight;
-                }
-            }
-
-            param.left = Math.round((maxWidth - param.width) / 2);
-            param.top = Math.round((maxHeight - param.height) / 2);
-            return param;
-        }
-    </script>
 </head>
+
 <body>
-<form method="post" action="#">
-    <div class="input_items" style="position: relative">
-        <div style="right: 44%">
-            <label>商品名字：</label>
-            <input name="name" type="text" value="">
-        </div>
-        <div style="right: 44%;top:32px">
-            <label>商品描述：</label>
-            <input name="description" type="text" value="">
-        </div>
-        <div style="right: 44%;top:64px">
-            <label>原价(￥)：</label>
-            <input name="old" type="number" value="">
-        </div>
-        <div style="right: 44%;top:96px">
-            <label>现价(￥)：</label>
-            <input name="now" type="number" value="">
-        </div>
-        <div style="right: 44%;top:128px">
-            <label>货余量：</label>
-            <input name="remain" type="number" value="">
-        </div>
-        <div style="right: 44%;top:160px">
-            <label>
-                是否为抢购商品：
-                <input name="type" value="1" type="checkbox">
-            </label>
+<!--导航-->
+<?php
+    require_once ('./include/echo_header.php');
+?>
+<div class="m-padded-tb-max">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <!--左边-->
+            <div style="padding: 0" class="eleven wide column">
+                <!--header-->
+
+                <!--博客主题-->
+                <div style="min-height: 600px; margin-top: 50px;z-index: 0;" class="ui attached segment">
+                    <div class="page-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="widget radius-bordered">
+                                    <div class="widget-header bordered-bottom bordered-themeprimary">
+                                    </div>
+                                    <div class="widget-body">
+                                        <form action="upload_article.php" method="post" class="form-horizontal">
+                                            <div class="form-group">
+                                                <label for="title" class="control-label col-sm-2">标题</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" class="form-control" id="title" name="title" placeholder="出二手自行车八成新" />
+                                                </div>
+                                            </div>
+
+                                            <div  class="form-group">
+                                                <label for="content" class="control-label col-sm-2">详细信息</label>
+                                                <div class="col-sm-6">
+                                                    <textarea style="width: 600px; height: 350px" name="article_content" id="content" cols="60" rows="10" class=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-6">
+                                                    <!--                                                    <button class="btn btn-primary">添加</button>-->
+                                                    <input style="background-color: #00a0e9" type="submit" value="发布">
+                                                    <lable><input type="checkbox" checked="checked" name="public">公开</lable>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <!--博客底部-->
+                <div class="ui bottom attached segment">
+                    <div class="ui middle aligned two column grid">
+                        <div class="column">
+                        </div>
+                        <div class="right aligned column">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右边-->
+            <div class="five wide column">
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>上传文件
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#">more >></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <div class="ui fluid vertical menu">
+                            <form action="upload_file.php" method="post" enctype="multipart/form-data">
+                                <input type="file" name="face" />
+                                <lable><input type="checkbox" checked="checked" name="public">公开</lable>
+                                <input type="submit" value="确认上传" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--上传图片-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="idea icon"></i>上传图片
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#">more >></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                        <div class="ui fluid vertical menu">
+                            <form action="upload_image.php" method="post" enctype="multipart/form-data">
+                                <input type="file" name="face"/>
+                                标签：<input type="text" name="tag" placeholder="无">
+                                <lable><input type="checkbox" checked="checked" name="public">公开</lable>
+                                <input type="submit" value="确认上传" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--标签-->
+                <div class="ui segments">
+                    <div class="ui secondary segment">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <i class="tags icon"></i>标签
+                            </div>
+                            <div class="right aligned column">
+                                <a href="#">more >></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui teal segment">
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
-    <div class="input_review_pic">
-        <div id="preview">
-            <img id="imghead" style="width:100%; height:100%" src='images/NoPreview.png'>
+</div>
+<!--底部-->
+<footer class="ui inverted vertical segment m-padded-tb-max">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="image/wechat.jpg" class="ui rounded image" alt="" style="width: 100px;">
+                    </div>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h5 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h5>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">人生导师(my story)</a>
+                    <a href="#" class="item">心灵鸡汤(my video)</a>
+                    <a href="#" class="item">自我认知(my feel)</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h5 class="ui inverted header m-text-thin m-text-spaced ">个人信息</h5>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">WeChat:Yi-0802</a>
+                    <a href="#" class="item">QQ:1692774581</a>
+                </div>
+            </div>
+            <div class="five wide column">
+                <h5 class="ui inverted header m-text-thin m-text-spaced ">博客</h5>
+                <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人博客，会定期分享我的故事,我对于自身的认识，希望可以给看我博客的人带来快乐</p>
+            </div>
         </div>
-        <input type="file" name="现在" value="选择预览图" onchange="previewImage(this)"/>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020 Rownn Designed by Rownn</p>
     </div>
-    <div style="position: absolute; top:0; right: 43%;">
-        <input type="submit" value="确认发布" id="sub_btn">
-    </div>
-</form>
+</footer>
+<!--begin-->
+
+<script src="./js/ueditorjs/skins.min.js"></script>
+<!--Basic Scripts-->
+<script src="./js/ueditorjs/jquery.min.js"></script>
+<script src="./js/ueditorjs/bootstrap.min.js"></script>
+<script src="./js/ueditorjs/slimscroll/jquery.slimscroll.min.js"></script>
+<!--Beyond Scripts-->
+<script src="./js/ueditorjs/beyond.js"></script>
+<script src="./js/ueditorlib/ueditor/ueditor.config.js"></script>
+<script src="./js/ueditorlib/ueditor/ueditor.all.js"></script>
+<script>
+    UE.getEditor('content');
+</script>
+<script>
+    $(window).bind("load", function () {
+
+        /*Sets Themed Colors Based on Themes*/
+        themeprimary = getThemeColorFromCss('themeprimary');
+        themesecondary = getThemeColorFromCss('themesecondary');
+        themethirdcolor = getThemeColorFromCss('themethirdcolor');
+        themefourthcolor = getThemeColorFromCss('themefourthcolor');
+        themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+    });
+</script>
+<!--end-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide')
+    })
+
+    // document.onmousedown = function(){
+    //     if(event.button == 2){
+    //         alert("当前页面不能使用右键！");
+    //         return false;
+    //     }
+    // }
+</script>
 </body>
-</html>
+</html>>
+
+

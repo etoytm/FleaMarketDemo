@@ -33,16 +33,10 @@ offline_alert();
 </head>
 <body>
 <!-- top + banner 开始 -->
-<div class="container-fluid cfh_top">
-  <div class="container"><a href="index.php">跳蚤市场</a>
-    <ul class="list-inline">
-      <li><a href="myinfo.php" target="_self">你好，<?php echo $_SESSION['nick']; ?></a></li>
-      <li id="register" onMouseMove="login_but_bg(1)" onMouseOut="login_but_bg(2)"><a href="" target="_blank">&nbsp;切换账号&nbsp;</a></li>
-      <li id="login" onMouseMove="login_but_bg(3)" onMouseOut="login_but_bg(4)"><a href="myinfo.php" target="_blank">&nbsp;注销&nbsp;</a></li>
-    </ul>
-  </div>
-</div>
-<div class="container-fluid cfh_banner">
+<?php
+    require_once ('./include/echo_header.php')
+?>
+<div style="z-index: -1" class="container-fluid cfh_banner">
   <div class="container"><a href="index.php"><img src="images/logo.png" width="210px"></a>
     <ul class="list-inline">
       <li><a href="index.html" target="_self">首页</a></li>
