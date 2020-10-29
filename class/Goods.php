@@ -36,6 +36,7 @@ class Goods
         $this->name = $name;
         $this->priceNow = $priceNow;
         $this->priceOld = $priceOld;
+        $this->tag = $tag;
         //如果有，则替换默认值，否则使用默认值
         if ($description != null) {
             //替换默认值

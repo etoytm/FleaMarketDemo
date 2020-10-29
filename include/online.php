@@ -22,6 +22,6 @@ function offline_alert($msg = '请先登录')
 {
     if (!online()) {
         require_once('alert.php');
-        alt_back("请先登录！");
+        alt_back($msg);
     }
 }

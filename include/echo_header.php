@@ -86,7 +86,7 @@ if (online())
                 </div>
             </li>
             <li class="header-right-tit">
-                <a href="post_trade.php">发布商品</a>
+                <a href="postGood.php">发布商品</a>
             </li>
         </ul>
     </div>

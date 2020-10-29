@@ -2,9 +2,15 @@
 /**
  * 商品操作，包含添加商品，删除商品，修改商品等...
  */
-
-require_once './class/DB.php';
-require_once './class/Goods.php';
+//
+function import($path) {
+    $old_dir = getcwd();        // 保存原“参照目录”
+    chdir(dirname(__FILE__));    // 将“参照目录”更改为当前脚本的绝对路径
+    require_once($path);
+    chdir($old_dir);            // 改回原“参照目录”
+}
+import('../class/DB.php');
+import('../class/Goods.php');
 
 
 /**
@@ -21,7 +27,7 @@ function addGoods($goods)
     $preview = $goods->getPreview();
     $remain = $goods->getRemain();
     $type = $goods->getType();
-    $sql_add = "INSERT INTO `goods`(`name`, `price_now`, `price_old`, `description`, `preview`, `remain`, `type`) VALUES ('$name', $priceNow, $priceOld, $description, $preview, $remain, $type)";
+    $sql_add = "INSERT INTO `goods`(name, price_now, price_old, description, preview, remain, type) VALUES ('$name', '$priceNow', '$priceOld', '$description', '$preview', '$remain', '$type')";
     $db = new DB();
     return $db->query($sql_add);
 }
@@ -59,11 +65,11 @@ function echoGoodsInHtml($goods, $type)
         <li class="rush-item">
             <div class="shadow">
                 <div class="sec3-img">
-                    <img src="{$preview}">
+                   {$preview}
                     <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
                 </div>
                 <div class="info">
-                    <h3 title="小米小爱蓝牙音箱随身版 白色">{$name}</h3>
+                    <h3 title="">{$name}</h3>
                     <p>{$goods->getDescription()}</p>
                     <p><span>{$priceNow}元</span>
                         <del>{$goods->getPriceOld()}元</del>
@@ -77,7 +83,7 @@ ETO;
     //输出类型2
     if ($type == 2) {
         echo <<<ETO
-        <li class="main"><a href="shop.html"><img src="{$goods->getPreview()}"></a>
+        <li class="main"><a href="shop.html">{$goods->getPreview()}</a>
             <div class="main-detail">
                 <div class="detail-title">{$goods->getName()}</div>
                 <div class="detail-price"><b class="price">¥{$goods->getPriceNow()}</b>
