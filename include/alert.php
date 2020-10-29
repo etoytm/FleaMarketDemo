@@ -7,6 +7,6 @@ function back(){
     echo "<script>history.go(-1)</script>";
 }
 function alt_back($msg){
-    alt($msg);
+    echo  "<script>alert('$msg');</script>";
     back();
 }

@@ -24,7 +24,7 @@ echo <<<ETO
     <link href="http://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
     <link href="./css/public.css" rel="stylesheet">
     <link href="./css/swiper.min.css" rel="stylesheet">
-    <header class="header">
+    <header  class="header">
     <!-- 中间 -->
     <div class="wrap">
         <!-- 左边 -->
