@@ -96,7 +96,7 @@ offline_alert();
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
-                                <i class="idea icon"></i>上传文件
+                                <i class="idea icon"></i>待添加
                             </div>
                             <div class="right aligned column">
                                 <a href="#">more >></a>
@@ -118,7 +118,7 @@ offline_alert();
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
-                                <i class="idea icon"></i>上传图片
+                                <i class="idea icon"></i>待添加
                             </div>
                             <div class="right aligned column">
                                 <a href="#">more >></a>

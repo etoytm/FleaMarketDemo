@@ -1,0 +1,12 @@
+body {
+    text-align: center;
+}
+.title{
+    font-size: 90px;
+}
+#article_title {
+    margin: 0 auto;
+    border: 1px solid #000;
+    width: 300px;
+    height: 100px
+}
