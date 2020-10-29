@@ -32,22 +32,12 @@ function addGoods($goods)
  */
 function getGoodsList()
 {
-    $sql = "SELECT `gid`, `name`, `price_now`, `price_old`, `description`, `preview`, `remain`, `type` FROM `goods`;";
+    $sql = "SELECT * FROM `goods`;";
     $db = new DB();
     $re = $db->query($sql);
     $goodsList = new ArrayObject();
     while (($row = $re->fetch_assoc()) != null) {
-        $goods = new Goods(
-            $row['gid'],
-            $row['name'],
-            $row['price_now'],
-            $row['price_old'],
-            $row['description'],
-            $row['preview'],
-            $row['remain'],
-            $row['type']
-        );
-        $goodsList->append($goods);
+        $goodsList->append(getGoodsInstanceByArr($row));
     }
     return $goodsList;
 }
@@ -96,5 +86,24 @@ ETO;
         </li>
 ETO;
     }
+}
+
+/**
+ * @param array $arr 存有商品信息的 array
+ * @return Goods 封装好的Goods实例
+ */
+function getGoodsInstanceByArr($arr)
+{
+    return new Goods(
+        $arr['gid'],
+        $arr['name'],
+        $arr['price_now'],
+        $arr['price_old'],
+        $arr['description'],
+        $arr['preview'],
+        $arr['remain'],
+        $arr['type'],
+        $arr['tag']
+    );
 }
 

@@ -15,6 +15,7 @@ class Goods
     private $preview = './images/NoPreview.png';
     private $remain;
     private $type = 2;//默认非抢购商品
+    private $tag;
 
 
     /**
@@ -27,8 +28,9 @@ class Goods
      * @param string $preview 预览图路径
      * @param int $remain 剩余数量
      * @param int $type 1:抢购商品 or 2:非抢购商品
+     * @param string $tag 商品标签
      */
-    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type)
+    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type, $tag)
     {
         $this->gid = $gid;
         $this->name = $name;
@@ -74,6 +76,22 @@ class Goods
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTag()
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param mixed $tag
+     */
+    public function setTag($tag): void
+    {
+        $this->tag = $tag;
     }
 
     /**
