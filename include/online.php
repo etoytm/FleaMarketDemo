@@ -7,8 +7,9 @@
  */
 session_start();
 
-function online(){
-    if(isset($_SESSION['uid']) && isset($_SESSION['nick']) && isset($_SESSION['major']) && isset($_SESSION['grade'])){
+function online()
+{
+    if (isset($_SESSION['uid']) && isset($_SESSION['nick']) && isset($_SESSION['major']) && isset($_SESSION['grade'])) {
 //        echo $_SESSION['uid'].$_SESSION['nick'].$_SESSION['major'].$_SESSION['grade'];
         return true;
     }
@@ -16,9 +17,11 @@ function online(){
 //    echo 'FFFF';
     return false;
 }
-function offline_alert($msg = '请先登录'){
-    if(!online()){
-        require_once ('alert.php');
-        alt($msg,'../login.html');
+
+function offline_alert($msg = '请先登录')
+{
+    if (!online()) {
+        require_once('alert.php');
+        alt_back("请先登录！");
     }
 }

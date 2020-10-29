@@ -10,15 +10,6 @@ require_once('./include/online.php');
 
 $href = array(2);
 $show = array(2);
-// 如果没有登陆
-if (!online()) {
-    $href = ['login.html', 'signin.html'];
-    $show = ['请登录', '注册有礼'];
-
-} else {
-    $href = ['myinfo.php', 'post_trade.php'];
-    $show = ['我的信息', '发布物品'];
-}
 echo <<<ETO
     <link href="./css/index.css" rel="stylesheet">
     <link href="http://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
@@ -79,17 +70,40 @@ echo <<<ETO
 
             </li>
         </ul>
+ETO;
+//如果已经登录
+if (online())
+    echo <<<ETO
         <!-- 右边 -->
         <ul class="header-right">
-            <li class="header-right-tit">
-                <a href="{$href[0]}">{$show[0]}</a>
+            <li class="header-left-nav">
+                <div class="header-tit">我的<span class="header-ico-sele">></span></div>
+                <div class="header-left-hid">
+                    <ul>
+                        <li><a href="myinfo.php">我的信息</a></li>
+                        <li><a href="./include/logout_session.php">退出登录</a></li>                     
+                    </ul>
+                </div>
             </li>
             <li class="header-right-tit">
-                <a href="{$href[1]}">{$show[1]}</a>
+                <a href="post_trade.php">发布商品</a>
             </li>
-
         </ul>
     </div>
 </header>
-
 ETO;
+//未登录
+else echo <<<ETO
+        <!-- 右边 -->
+        <ul class="header-right">
+            <li class="header-right-tit">
+                <a href="login.html">请登录</a>
+            </li>
+            <li class="header-right-tit">
+                <a href="signin.html">注册有礼</a>
+            </li>
+        </ul>
+    </div>
+</header>
+ETO;
+
