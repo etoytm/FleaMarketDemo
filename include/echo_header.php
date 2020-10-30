@@ -81,6 +81,7 @@ if (online())
                 <div class="header-left-hid">
                     <ul>
                         <li><a href="myinfo.php">我的信息</a></li>
+                        <li><a href="./login.html">切换账号</a></li>
                         <li><a href="./include/logout_session.php">退出登录</a></li>                     
                     </ul>
                 </div>
