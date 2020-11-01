@@ -27,7 +27,8 @@ function addGoods($goods)
     $preview = $goods->getPreview();
     $remain = $goods->getRemain();
     $type = $goods->getType();
-    $sql_add = "INSERT INTO `goods`(name, price_now, price_old, description, preview, remain, type) VALUES ('$name', '$priceNow', '$priceOld', '$description', '$preview', '$remain', '$type')";
+    $owner_id = $goods->getOwnerId();
+    $sql_add = "INSERT INTO `goods`(name, price_now, price_old, description, preview, remain, type, owner_id) VALUES ('$name', '$priceNow', '$priceOld', '$description', '$preview', '$remain', '$type','$owner_id')";
     $db = new DB();
     return $db->query($sql_add);
 }
@@ -36,9 +37,15 @@ function addGoods($goods)
  * 获取全部商品的列表
  * @return ArrayObject Goods对象的列表
  */
-function getGoodsList()
+function getGoodsList($id = -1)
 {
-    $sql = "SELECT * FROM `goods`;";
+    $where = '';
+    $sql = "SELECT * FROM `goods`";
+    if($id != -1){
+        $where = " WHERE gid = ".$id;
+        $sql = $sql.$where;
+    }
+
     $db = new DB();
     $re = $db->query($sql);
     $goodsList = new ArrayObject();
@@ -59,13 +66,15 @@ function echoGoodsInHtml($goods, $type)
     $name = $goods->getName();
     $preview = $goods->getPreview();
     $priceNow = $goods->getPriceNow();
+
     //输出类型1
     if ($type == 1) {
         echo <<<ETO
         <li class="rush-item">
             <div class="shadow">
                 <div class="sec3-img">
-                   {$preview}
+                <a href="./shopdetail.php?gid={$gid}">{$preview}</a>
+                   
                     <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
                 </div>
                 <div class="info">
@@ -110,7 +119,8 @@ function getGoodsInstanceByArr($arr)
         $arr['preview'],
         $arr['remain'],
         $arr['type'],
-        $arr['tag']
+        $arr['tag'],
+        $arr['owner_id']
     );
 }
 

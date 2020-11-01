@@ -8,8 +8,8 @@ offline_alert();
 <head>
 
     <!--  写作编辑框 的css  BEGIN-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" description="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" description="ie=edge" />
     <link rel="shortcut icon" href="./admin/assets/img/logo.jpg" type="image/x-icon">
     <link href="./css/ueditorcss/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./css/ueditorcss/css/font-awesome.min.css" rel="stylesheet" />
@@ -17,7 +17,7 @@ offline_alert();
     <link id="beyond-link" href="./css/ueditorcss/css/beyond.min.css" rel="stylesheet" type="text/css" />
     <!--  写作编辑框 的css  END-->
     <meta charset="UTF-8">
-    <title>我的创作</title>
+    <title>发布二手</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="./css/style.css">
 <!--    <link rel="stylesheet" href="./css/ueditorcss/css/style.css">-->
@@ -85,7 +85,7 @@ offline_alert();
                                             <div  class="form-group">
                                                 <label for="description" class="control-label col-sm-2">详细信息</label>
                                                 <div class="col-sm-6">
-                                                    <textarea style="width: 600px; height: 350px" name="content" id="content" cols="60" rows="10" class=""></textarea>
+                                                    <textarea style="width: 600px; height: 350px" name="description" id="description" cols="60" rows="10" class=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -205,7 +205,7 @@ offline_alert();
 <script src="./js/ueditorlib/ueditor/ueditor.config.js"></script>
 <script src="./js/ueditorlib/ueditor/ueditor.all.js"></script>
 <script>
-    UE.getEditor('content');
+    UE.getEditor('description');
 </script>
 <script>
     $(window).bind("load", function () {

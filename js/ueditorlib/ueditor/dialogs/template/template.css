@@ -7,7 +7,7 @@
 .right .preitem img{display: block;margin: 0 auto;width:100px;}
 .clear{clear: both;}
 .top{height:26px;line-height: 26px;padding: 5px;}
-.bottom{height:320px;width:100%;margin: 0 auto;}
+.bottom{height:320px;width:100%;margin: 0 auto; position: relative; }
 .transparent{ background: url("images/bg.gif") repeat;}
 .bottom table tr td{border:1px dashed #ccc;}
 #colorPicker{width: 17px;height: 17px;border: 1px solid #CCC;display: inline-block;border-radius: 3px;box-shadow: 2px 2px 5px #D3D6DA;}

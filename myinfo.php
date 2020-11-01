@@ -34,7 +34,8 @@ offline_alert();
 <body>
 <!-- top + banner 开始 -->
 <?php
-    require_once ('./include/echo_header.php')
+
+    require_once ('./include/echo_header.php');
 ?>
 <div style="z-index: -1" class="container-fluid cfh_banner">
   <div class="container"><a href="index.php"><img src="images/logo.png" width="210px"></a>

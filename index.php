@@ -111,8 +111,28 @@ require_once './controller/goodsManage.php';
         <?php
         $list = getGoodsList();
         foreach ($list as $goods) {
-            if ($goods->getType() == 1)
-                echoGoodsInHtml($goods, 1);
+            if ($goods->getType() == 1){
+                echo <<<ETO
+                <li class="rush-item">
+                    <div class="shadow">
+                        <div class="sec3-img">
+                        <a href="./shopdetail.php?gid={$goods->getGid()}">{$goods->getPreview()}</a>
+                           
+                            <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
+                        </div>
+                        <div class="info">
+                            <h3 title="">{$goods->getName()}</h3>
+                            <p>{$goods->getDescription()}</p>
+                            <p><span>{$goods->getPriceNow()}元</span>
+                                <del>{$goods->getPriceOld()}元</del>
+                            </p>
+                            <button onclick="buy({$goods->GetGid()})">去购买</button>
+                        </div>
+                    </div>
+                </li>
+ETO;
+            }
+
         }
         ?>
     </ul>
@@ -227,7 +247,7 @@ require_once './controller/goodsManage.php';
 <script src="js/index.js"></script>
 <script>
     function buy(gid) {
-        location.href = 'confirm_order.php?gid=' + gid;
+        location.href = './shopdetail.php?gid=' + gid;
     }
 </script>
 </body>

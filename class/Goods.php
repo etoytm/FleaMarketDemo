@@ -16,7 +16,7 @@ class Goods
     private $remain;
     private $type = 2;//默认非抢购商品
     private $tag;
-
+    private $owner_id;
 
     /**
      * Goods constructor.
@@ -30,13 +30,14 @@ class Goods
      * @param int $type 1:抢购商品 or 2:非抢购商品
      * @param string $tag 商品标签
      */
-    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type, $tag)
+    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type, $tag,$owner_id)
     {
         $this->gid = $gid;
         $this->name = $name;
         $this->priceNow = $priceNow;
         $this->priceOld = $priceOld;
         $this->tag = $tag;
+        $this->owner_id = $owner_id;
         //如果有，则替换默认值，否则使用默认值
         if ($description != null) {
             //替换默认值
@@ -85,6 +86,13 @@ class Goods
     public function getTag()
     {
         return $this->tag;
+    }
+    /**
+     * @return mixed
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
     }
 
     /**
