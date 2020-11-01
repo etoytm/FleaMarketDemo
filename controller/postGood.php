@@ -36,6 +36,9 @@ $price_old = $_POST['price_old'];
 $title = $_POST['title'];
 $description = $_POST['description'];
 $preview  = getImgSrc($description);
+if($preview == ''){
+    $preview = "<img src=\'../images/NoPreview.png\' alt=\'无照片\'>";
+}
 
 require_once ("../controller/goodsManage.php");
 
@@ -45,6 +48,6 @@ require_once ("../include/alert.php");
 if($res == true){
     alt_back('发布成功');
 }else{
-    alt_back($res);
+    alt_back("发布失败");
 }
 
