@@ -18,7 +18,7 @@ var_dump($res);
 if(gettype($res)=='array'){
 
     require_once ('../include/login_session.php');
-    alt('登陆成功','../index.php');
+    header("location:../index.php");
 //    header('location:../index.php');
 }else{
     alt('用户名或密码错误','../login.html');
