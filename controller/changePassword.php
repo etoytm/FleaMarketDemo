@@ -13,8 +13,7 @@ require_once '../include/alert.php';
 if ($res->num_rows == 1) {
     $sql_change = "UPDATE `users` SET `password` = '{$password_new}' WHERE `uid` = 'admin'";
     if ($db->query($sql_change)) {
-        echo "<script>if(confirm('密码已修改，请重新登录！')) location.href='../login.html'</script>";
-        require_once "../include/logout_session.php";
+        alt_back("密码已修改！");
     } else {
         alt_back("密码修改失败！");
     }
