@@ -26,7 +26,7 @@ class DB
 //        $this->host =  'localhost';
         $this->port = '3306';
         $this->user = 'root';
-        $this->pass = 'root';
+        $this->pass = 'bjssbjh';
         $this->db = 'ts';
         $this->charset = 'utf8';
         //连接数据库
