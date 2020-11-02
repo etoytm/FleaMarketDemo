@@ -27,7 +27,8 @@ function addGoods($goods)
     $preview = $goods->getPreview();    $remain = $goods->getRemain();
     $type = $goods->getType();
     $owner_id = $goods->getOwnerId();
-    $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type')";
+    $tag = $goods->getTag();
+    $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type,tag) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type','$tag')";
     $db = new DB();
     return $db->query($sql_add);
 }
