@@ -1,8 +1,10 @@
 <?php
-function alt($msg, $to)
+function alt($msg, $to = "")
 {
-    var_dump($msg);
-    echo "<script>alert('$msg');location.href='$to'</script>";
+    if ($to === "")
+        echo "<script>alert('$msg');</script>";
+    else
+        echo "<script>alert('$msg');location.href='$to'</script>";
 }
 
 /**
