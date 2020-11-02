@@ -22,11 +22,11 @@ class DB
     //私有的构造方法
     public function __construct()
     {
-        $this->host = '49.234.72.229';
-//        $this->host =  'localhost';
+//        $this->host = '49.234.72.229';
+        $this->host =  'localhost';
         $this->port = '3306';
         $this->user = 'root';
-        $this->pass = 'bjssbjh';
+        $this->pass = 'root';
         $this->db = 'ts';
         $this->charset = 'utf8';
         //连接数据库

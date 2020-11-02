@@ -5,15 +5,15 @@
  * Date: 2020-11-01
  * Time: 10:47
  */
-$gid = $_GET['gid'];
 //$gid = 27;
 require_once("./class/DB.php");
 $db = new DB();
-$sql = "SELECT * FROM `goods` WHERE  gid = {$gid} ;";
+$sql = "SELECT * FROM `goods` WHERE  gid = {$gid}";
 $res = $db->query($sql);
 //var_dump($res);
 
 $res = $res->fetch_array(MYSQLI_ASSOC);
+
 //var_dump($res);
 $gid = $res['gid'];
 
@@ -30,7 +30,10 @@ $preview = $res['preview'];
 $type = $res['type'];
 $tag = $res['tag'];
 $imgs = [];
-$imgs = getImgs($description);
+$imgs[] = $preview;
+//preg_match_all('/(?<=src=)\S+/',$description,$match);
+//var_dump($match);
+//$imgs = $match[0];
 
 
 function getImgs($s){

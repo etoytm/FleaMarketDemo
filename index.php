@@ -116,7 +116,7 @@ require_once './controller/goodsManage.php';
                 <li class="rush-item">
                     <div class="shadow">
                         <div class="sec3-img">
-                        <a href="./shopdetail.php?gid={$goods->getGid()}">{$goods->getPreview()}</a>
+                        <a href="./shopdetail.php?gid={$goods->getGid()}"><img width="200px" src={$goods->getPreview()} alt=""></a>
                            
                             <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
                         </div>

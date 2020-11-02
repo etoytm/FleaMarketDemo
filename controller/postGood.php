@@ -11,7 +11,7 @@ function getImgSrc($description){
     $d_len = strlen($description);
     $res = strpos($description,$flag);
 
-    var_dump($res);
+//    var_dump($res);
     if($res!= false){
         $step = 0;
         $start = $res;
@@ -20,10 +20,13 @@ function getImgSrc($description){
             if($description[$i] == '>'){
                 break;
             }
-            echo $description[$i];
+//            echo $description[$i];
 
         }
         $src = substr($description,$start,$step);
+        // 从img标签中提取路径
+        $end = strpos($description,"title=");
+        $src = substr($src,$start+7,$end - $start-12);
         return $src;
     }
     return '';
@@ -46,14 +49,24 @@ $tag = $_POST['tag'];
 $price_now = $_POST['price_now'];
 $price_old = $_POST['price_old'];
 $title = $_POST['title'];
+
 $description = $_POST['description'];
+// 路径修正
 $description = FixPath($description);
 
-$preview  = getImgSrc($description);
+//preg_match('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$description,$match);
+
+preg_match_all('/(?<=src=)\S+/',$description,$match);
+
+//首张图片
+$preview  = $match[0][0];
+
 $owner_id = $_SESSION['uid'];
 if($preview == ''){
-    $preview = "<img src=\'./images/NoPreview.png\' alt=\'无照片\'>";
+    $preview = "./images/NoPreview.png";
 }
+//描述中，文字与图片分离
+$description= preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i', '', $description);
 
 require_once ("../controller/goodsManage.php");
 

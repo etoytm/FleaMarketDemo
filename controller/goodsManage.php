@@ -24,11 +24,10 @@ function addGoods($goods)
     $priceNow = $goods->getPriceNow();
     $priceOld = $goods->getPriceOld();
     $description = $goods->getDescription();
-    $preview = $goods->getPreview();
-    $remain = $goods->getRemain();
+    $preview = $goods->getPreview();    $remain = $goods->getRemain();
     $type = $goods->getType();
     $owner_id = $goods->getOwnerId();
-    $sql_add = "INSERT INTO `goods`(name, price_now, price_old, description, preview, remain, type, owner_id) VALUES ('$name', '$priceNow', '$priceOld', '$description', '$preview', '$remain', '$type','$owner_id')";
+    $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type')";
     $db = new DB();
     return $db->query($sql_add);
 }

@@ -61,6 +61,7 @@
 <!-----header部分------->
 <?php
 require_once("./include/echo_header.php");
+$gid= $_GET['gid'];
 require_once("./controller/getDetail.php");
 ?>
 <!-----logo_search部分------->
@@ -97,7 +98,7 @@ require_once("./controller/getDetail.php");
         <div id="showbox">
 <!--            --><?php
             foreach ($imgs as $img) {
-                echo $img;
+                echo "<img width= \"400\" height=\"550\" src=".$img." >";
                 echo PHP_EOL;
             }
 //            ?>
