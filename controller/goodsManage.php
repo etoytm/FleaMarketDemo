@@ -92,7 +92,7 @@ ETO;
     //输出类型2
     if ($type == 2) {
         echo <<<ETO
-        <li class="main"><a href="shop.html">{$goods->getPreview()}</a>
+        <li class="main"><a href="shop.html">{$preview}</a>
             <div class="main-detail">
                 <div class="detail-title">{$goods->getName()}</div>
                 <div class="detail-price"><b class="price">¥{$goods->getPriceNow()}</b>
