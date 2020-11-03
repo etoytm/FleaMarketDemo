@@ -22,7 +22,7 @@ function listClick(value){
 		$("#listClick_4").css("border-bottom","1px solid #CCC");
 		$("#listClick_4").css("color","#666");
 		
-		$("#crowdfunding_iframe").attr("src","crowdfunding.center/my_info.html");
+		$("#crowdfunding_iframe").attr("src","crowdfunding.center/my_info.php");
 		$("#crowdfunding_iframe").attr("height","1045");
 		$("#vertical_navigation").css("height","1050px");
 		
