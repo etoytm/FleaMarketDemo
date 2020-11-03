@@ -123,7 +123,7 @@ offline_alert();
     </div>
   </div>
   <div class="col-lg-9">
-  	<iframe name="left" id="crowdfunding_iframe" src="crowdfunding.center/my_info.html" frameborder="false" scrolling="no" style="border:none;" width="100%" height="1045" allowtransparency="true"></iframe>
+  	<iframe name="left" id="crowdfunding_iframe" src="crowdfunding.center/my_info.php" frameborder="false" scrolling="no" style="border:none;" width="100%" height="1045" allowtransparency="true"></iframe>
   </div>
 </div>
 <!-- 核心 结束 -->  

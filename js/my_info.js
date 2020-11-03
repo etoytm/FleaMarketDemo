@@ -16,7 +16,7 @@ $(document).ready(function(){
 var win = window.opener; // 表示打开本window的那个页面的window 
 function listClick(value){
 	if(value == 1){
-		$("#crowdfunding_iframe", window.parent.document).attr("src","crowdfunding.center/my_info.html");
+		$("#crowdfunding_iframe", window.parent.document).attr("src","crowdfunding.center/my_info.php");
 		$("#crowdfunding_iframe", window.parent.document).attr("height",1045);
 		$("#listClick1", window.parent.document).attr("class","menu_list_on");
 		$("#listClick3", window.parent.document).attr("class","");
