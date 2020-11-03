@@ -62,21 +62,42 @@ require_once './controller/goodsManage.php';
         <!--分类列表-->
         <div class="wrap navleft">
             <ul class="left">
-                <li class="left-sub">
-                    <a href="shop.html"> 手机</a>
-                    <ul class="left-sub-hid">
-                        <div class="left-hid-s">
-                            <ul class="hid-box">
-                                <!--对应商品列表-->
-                                <li><a href="shop.html"> vivo</a></li>
-                                <li><a href="shop.html"> OPPO</a></li>
-                                <li><a href="shop.html"> realme</a></li>
-                                <li><a href="shop.html"> 三星</a></li>
-                                <li><a href="shop.html"> 魅族</a></li>
+                <?php
+                $tags = [];
+                $tags['生活用品'] = array('水壶','脸盆','水杯');
+                $tags['影票场票'] = array('姜子牙','夺冠','校赛辩论赛门票','蓬莱一日游票');
+                $tags['二手车'] = array('自行车','电瓶车');
+                $tags['美妆彩妆'] = array('大宝SOD');
+                $tags['取快递'] = array('南校','北校','妈妈驿站','菜鸟驿站','快宝驿站','七餐');
+                $tags['砍一刀'] = array('拼多多','双十一叠猫猫','抖音','快手');
+                $tags['拼车'] = array('烟台火车站','烟台南站','蓬莱国际机场','烟大南校区','烟大北校区','东门','新世界','上市里');
+
+                ?>
+                    <?php
+                        foreach ($tags as $key => $value){
+                            echo "<li class=\"left-sub\">";
+                            echo "<a href=\"shop.html\"> ".$key."</a>";
+                            ?>
+                            <ul class="left-sub-hid">
+                                <div class="left-hid-s">
+                                    <ul class="hid-box">
+                                        <!--对应商品列表-->
+                                        <?php
+                                        foreach($value as $v){
+                                            echo "<li><a href=\"shop.html\"> ".$v;
+                                            echo PHP_EOL;
+                                            echo "</a></li>";
+                                        }
+                                        ?>
+
+                                    </ul>
+                                </div>
                             </ul>
-                        </div>
-                    </ul>
-                </li>
+                    <?php
+                        echo "</li>";
+                        }
+                    ?>
+
             </ul>
         </div>
 
@@ -90,7 +111,7 @@ require_once './controller/goodsManage.php';
                     <a href="shop.html"><img src="images/banner-bj_(1).jpg"></a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="shop.html"><img src="images/banner-bj_(2).jpg"></a>
+                    <a href="shop.html"><img style="display: block;width: 553px;" src="images/banner-bj_(2).jpg"></a>
                 </div>
             </div>
             <!-- Add Pagination -->
