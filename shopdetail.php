@@ -131,16 +131,26 @@ require_once("./controller/getDetail.php");
 
     <!-----右边------->
     <div class="rightbox">
-        <p class="name">——相关物品</p>
-        <img src="images/shopdetail/reimai02.jpg" width="130" height="180">
-        <p>￥58元</p>
+        <p class="name">——相关</p>
+        <?php
+            require_once ("controller/getRelated.php");
+            $res = getRelated($tag);
+            $i = 0;
+            while ($arr =mysqli_fetch_assoc($res)){
+                if($i == 3){
+                    break;
+                }
+                ?>
+                <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="130" height="180"></a>
 
-        <img src="images/shopdetail/reimai01.jpg" width="130" height="180">
-        <p>￥58元</p>
+                <p>￥<?php echo $arr['price_now']?>元</p>
+        <?php
+            }
+
+        ?>
 
 
-        <img src="images/shopdetail/reimai03.jpg" width="130" height="180">
-        <p>￥58元</p>
+
     </div>
 
 </div>

@@ -245,7 +245,7 @@
  }
 
  .nav a:first-child {
-     background: rgb(255, 153, 0);
+     background: rgb(99, 71, 255);
      color: #fff;
      margin-left: 0;
      padding-right: 88px;
@@ -380,7 +380,7 @@
  .swiper-container-bannerlun {
      width: 100%;
      height: 560px;
-     background: rgba(166, 3, 4);
+     background: rgb(78, 179, 230);
      z-index: 2;
      position: relative;
  }

@@ -64,7 +64,7 @@ $preview  = $match[0][0];
 session_start();
 $owner_id = $_SESSION['uid'];
 if($preview == ''){
-    $preview = "./images/NoPreview.png";
+    $preview = "\"./images/NoPreview.png\"";
 }
 //描述中，文字与图片分离
 $description= preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i', '', $description);
