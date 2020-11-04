@@ -46,8 +46,8 @@ if (!$is_identified)
         <form action="../controller/indentify.php" enctype="multipart/form-data" method="post">
             <div class="my_info_content">
                
-                    <div class="my_info_content_care">您还未申请身份认证！<br>
-                        某经融公司众筹平台郑重承诺：您的个人信息只做为投融资和有限合伙企业设立时使用，感谢您对某经融公司众筹平台的信任和支持！
+                    <div class="my_info_content_care">
+                        您还未申请身份认证！
                     </div>
                 
                 <table class="my_info_content_care_table">
@@ -69,8 +69,8 @@ if (!$is_identified)
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" class="color555" colspan="2"><input class="my_info_content_care_table_submit" name=""
-                                                                               type="submit" value="申请认证"></td>
+                        <td align="center" class="color555" colspan="2">
+                        <input class="my_info_content_care_table_submit" onclick="confirm('认证需要大约8s，请不要刷新页面, 点击确认开始认证!')" type="submit" value="申请认证"></td>
                     </tr>
                     </tbody>
                 </table>

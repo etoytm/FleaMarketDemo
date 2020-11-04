@@ -14,7 +14,7 @@ $sql = "UPDATE `users` SET `school_number` = NULL, `uid_identify` = '0' WHERE `u
 require_once '../include/alert.php';
 
 if ($db->query($sql)) {
-    alt_back('成功取消认证！');
+    alt_back('成功注销认证！');
 } else {
     alt_back("未知错误！");
 }
