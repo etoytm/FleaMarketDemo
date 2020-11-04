@@ -15,24 +15,24 @@ header("Content-type:text/html;charset=utf-8");
 
 session_start();
 $res = upload_image();
-if(is_bool($res)){
+if (is_bool($res)) {
     //是布尔值，上传失败
     return false;
-}
-else if (is_string($res)){
+} else if (is_string($res)) {
     identify($res);
 }
-function identify($imgpath){
-    require_once ('../include/alert.php');
-    require_once ('../include/aipocr.php');
-    require_once ('../include/ocr/AipOcr.php');
+function identify($imgpath)
+{
+    require_once('../include/alert.php');
+    require_once('../include/aipocr.php');
+    require_once('../include/ocr/AipOcr.php');
     $res = isTrueCard($imgpath);
-    if($res){
-        require_once ('../class/DB.php');
+    if ($res) {
+        require_once('../class/DB.php');
         $db = new DB();
-        $db->query("UPDATE `users` SET uid_identify = '1' WHERE uid = '{$_SESSION['uid']}' ");
+        $db->query("UPDATE `users` SET uid_identify = '1', school_number = '{$res}' WHERE uid = '{$_SESSION['uid']}' ");
         alt_back('实名认证成功');
-    }else{
+    } else {
         alt_back('实名认证失败，请确保校园卡照片清晰，无污损');
     }
 
@@ -74,6 +74,7 @@ function identify($imgpath){
 //        echo $r['words'];
 ////    }
 }
+
 function upload_image()
 {
     if ($_FILES['face']['error'] == 0) {  //上传正确
@@ -104,30 +105,32 @@ function upload_image()
 
 //        $uploade_time = date('Y-m-d H:i:s', time());
 
-    }else {
-            echo "<script>alert('上传失败');history.go(-1);</script>";
-            switch ($_FILES['face']['error']) {
-                case 1:
-                    echo "<script>alert('文件过大');history.go(-1);</script>";
-                    break;
-                case 2:
-                    echo "<script>alert('文件过大');history.go(-1);</script>";
-                    break;
-                case 3:
-                    echo "<script>alert('文件只有部分被上传');history.go(-1);</script>";
-                    break;
-                case 4:
-                    echo "<script>alert('没有文件被上传');history.go(-1);</script>";
-                    break;
-                default:
-                    echo "<script>alert('出现错误');history.go(-1);</script>";
-            }
-            return false;
-
+    } else {
+        echo "<script>alert('上传失败');history.go(-1);</script>";
+        switch ($_FILES['face']['error']) {
+            case 1:
+                echo "<script>alert('文件过大');history.go(-1);</script>";
+                break;
+            case 2:
+                echo "<script>alert('文件过大');history.go(-1);</script>";
+                break;
+            case 3:
+                echo "<script>alert('文件只有部分被上传');history.go(-1);</script>";
+                break;
+            case 4:
+                echo "<script>alert('没有文件被上传');history.go(-1);</script>";
+                break;
+            default:
+                echo "<script>alert('出现错误');history.go(-1);</script>";
         }
+        return false;
+
+    }
 }
-function make_dir($dir){
-    if(!is_dir(dirname($dir))){
+
+function make_dir($dir)
+{
+    if (!is_dir(dirname($dir))) {
         make_dir(dirname($dir));
     }
     return mkdir($dir);
