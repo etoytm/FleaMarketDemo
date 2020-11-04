@@ -15,7 +15,7 @@ function import($path) {
 function getPostHistory($uid){
     import("../class/DB.php");
     $db = new DB();
-    $sql = "SELECT * FROM `goods` WHERE owner_id = '{$uid}  ORDER BY post_time'";
+    $sql = "SELECT * FROM `goods` WHERE owner_id = '{$uid}'";
     $res = $db->query($sql);
     if($res == false){
         echo "数据库连接失败";
