@@ -28,7 +28,8 @@ function addGoods($goods)
     $type = $goods->getType();
     $owner_id = $goods->getOwnerId();
     $tag = $goods->getTag();
-    $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type,tag) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type','$tag')";
+    $post_time = date('Y-m-d H:i:s',time());
+    $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type,tag,post_time) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type','$tag','$post_time')";
     $db = new DB();
     return $db->query($sql_add);
 }
@@ -40,7 +41,8 @@ function addGoods($goods)
 function getGoodsList($id = -1)
 {
     $where = '';
-    $sql = "SELECT * FROM `goods`";
+    //时间最新的在前面
+    $sql = "SELECT * FROM `goods` ORDER BY post_time DESC ";
     if($id != -1){
         $where = " WHERE gid = ".$id;
         $sql = $sql.$where;

@@ -119,15 +119,18 @@ require_once("./controller/getDetail.php");
         <p class="imgname"><?php echo $name; ?></p>
         <p class="Aprice">入手价：<samp>￥<?php echo $price_old; ?></samp></p>
         <p class="price">二手价：<samp>￥<?php echo $price_now; ?></samp></p>
-        <p class="kefu">客服：</p>
+        <p class="">货主说：</p>
 
-        <div class="clear"></div>
-        <p class="buy"> <a href="#" id="firstbuy">立即购买 </a><a href="tencent://message/?uin=<?php var_dump($owner_info); echo $qq;?>&Site=&Menu=yes">询问货主</a></p>
-        <div class="clear"></div>
-        <div class="fenx"><a href="#"><img src="images/shopdetail/tell07.png"></a></div>
-        <p class="fuwu">服务承诺：</p>
-        <p class="pay">支付方式：</p>
+        <div class="clear"><?php echo $description?></div>
+        <p class="buy"> <a href="#" id="firstbuy">立即购买 </a><a href="tencent://message/?uin=<?php  echo $qq;?>&Site=&Menu=yes">询问货主</a></p>
+        <div class="clear">
+        </div>
+
+        <div class="fenx"><a href="#"><img src="images/shopdetail/tell07.png"></a>
+            发布时间：<?php echo $post_time; ?>
+        </div>
     </div>
+
 
     <!-----右边------->
     <div class="rightbox">
@@ -182,65 +185,7 @@ require_once("./controller/getDetail.php");
                 <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">书香文房</a></li>
             </ul>
         </div>
-        <div class="shopsee">
-            <p class="name">看了又看</p>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see.jpg" width="170" height="245">
-                <p>手绘陶瓷茶壶</p>
-                <p>商城价:168元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see1.jpg" width="170" height="245">
-                <p>茶具特价紫砂</p>
-                <p>商城价:￥234元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see2.jpg" width="170" height="245">
-                <p>创意爱家杯盖</p>
-                <p>商城价:￥38元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see03.png" width="170" height="245">
-                <p>木质棋盘</p>
-                <p>商城价:￥158元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see04.png" width="170" height="245">
-                <p>北欧风创意椅子</p>
-                <p>商城价:￥178元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see5.jpg" width="170" height="245">
-                <p>木质简约衣架</p>
-                <p>商城价:￥68元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see07.png" width="170" height="245">
-                <p>龙猫微观景观小夜灯</p>
-                <p>商城价:￥258元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see06.png" width="170" height="245">
-                <p>火树银花灯</p>
-                <p>商城价:￥858元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/content_04.jpg" width="170" height="245">
-                <p>木质烘脚器</p>
-                <p>商城价:￥108元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see08.png" width="170" height="245">
-                <p>个性实木壁灯</p>
-                <p>商城价:￥68元</p>
-            </a>
-            <a href="#" class="ex01">
-                <img src="images/shopdetail/see09.png" width="170" height="245">
-                <p>创意马克杯</p>
-                <p>商城价:￥58元</p>
-            </a>
 
-        </div>
 
 
     </div>
@@ -248,24 +193,25 @@ require_once("./controller/getDetail.php");
 
     <div class="tabbedPanels">
         <ul class="tabs">
-            <li><a href="#panel01">商品详情</a></li>
-            <li><a href="#panel02" class="active">累计评价</a></li>
+            <li><a href="#panel01">TA的发布</a></li>
+            <li><a href="#panel02" class="active">评价</a></li>
             <li><a href="#panel03">商品推荐</a></li>
         </ul>
 
         <div class="panelContainer">
             <div class="panel" id="panel01">
-                <p class="sell">商品描述</p>
-                <p>创意造型 浓浓文艺气息 闲暇时光 与好友分享</p>
-                <p></p>
-                <p class="sell">整体款式</p>
-                <img src="images/shopdetail/evaluate101.jpg">
-                <img src="images/shopdetail/evaluate102.jpg">
-                <img src="images/shopdetail/evaluate103.jpg">
-                <img src="images/shopdetail/evaluate104.jpg">
-                <img src="images/shopdetail/evaluate105.jpg">
-                <img src="images/shopdetail/evaluate106.jpg">
-                <div class="clear"></div>
+                <div>
+                    <p>创意造型 浓浓文艺气息 闲暇时光 与好友分享</p>
+                    <p></p>
+                    <p class="sell">整体款式</p>
+                    <?php
+                    require_once ("./controller/getPostHistory.php");
+                    //TO DO
+                    ?>
+                    <img src="images/shopdetail/evaluate101.jpg">
+                    <div class="clear"></div>
+                </div>
+
             </div>
 
             <div class="panel" id="panel02">

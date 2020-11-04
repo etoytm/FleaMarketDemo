@@ -17,12 +17,13 @@ $res = $res->fetch_array(MYSQLI_ASSOC);
 //var_dump($res);
 $gid = $res['gid'];
 
-$owner_id = $res['$owner_id'];
+$owner_id = $res['owner_id'];
 $owner_info = getOwner($owner_id);
 $qq = $owner_info['qq'];
 
 
 $name = $res['name'];
+$post_time = $res['post_time'];
 $price_now = $res['price_now'];
 $price_old = $res['price_old'];
 $description = $res['description'];

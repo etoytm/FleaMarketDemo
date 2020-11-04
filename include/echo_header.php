@@ -77,7 +77,7 @@ if (online())
         <!-- 右边 -->
         <ul class="header-right">
             <li class="header-left-nav">
-                <div class="header-tit">我的<span class="header-ico-sele">></span></div>
+                <div class="header-tit"><a href="myinfo.php">我的</a><span class="header-ico-sele">></span></div>
                 <div class="header-left-hid">
                     <ul>
                         <li><a href="myinfo.php">我的信息</a></li>
