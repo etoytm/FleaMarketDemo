@@ -81,7 +81,7 @@ $grade = $arr['grade'];
             <tr>
                 <td align="right" class="color555">学生证号：</td>
                 <td class="color555">
-                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'] ?>
+                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'].' 已认证' ?>
                 </td>
             </tr>
             <tr>

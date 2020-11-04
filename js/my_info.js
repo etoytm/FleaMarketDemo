@@ -23,7 +23,7 @@ function listClick(value){
 		$("#listClick4", window.parent.document).attr("class","");
 	}
 	if(value == 3){
-		$("#crowdfunding_iframe", window.parent.document).attr("src","crowdfunding.center/identity_prove.html");
+		$("#crowdfunding_iframe", window.parent.document).attr("src","crowdfunding.center/identity_prove.php");
 		$("#crowdfunding_iframe", window.parent.document).attr("height",1045);
 		$("#listClick1", window.parent.document).attr("class","");
 		$("#listClick3", window.parent.document).attr("class","menu_list_on");
