@@ -38,8 +38,8 @@ require_once './controller/goodsManage.php';
         <a href="index.php"><img src="images/logo.png"></a>
     </div>
     <div class="search">
-        <input class="search-input" autofocus=" autofocus" type="text" placeholder="请输入你想要搜索的内容" value="">
-        <button
+        <input id="key_input" class="search-input" autofocus=" autofocus" type="text" placeholder="请输入你想要搜索的内容" value="">
+        <button onclick="return search_keyword()"
                 id="search-sea">搜索
         </button>
         <ul class="search-result"></ul>
@@ -284,6 +284,11 @@ ETO;
 <script>
     function buy(gid) {
         location.href = './shopdetail.php?gid=' + gid;
+    }
+
+    function search_keyword() {
+        let key_ = document.getElementById('key_input').value;
+        location.href = 'seekPage.php?keyword=' + key_;
     }
 </script>
 </body>
