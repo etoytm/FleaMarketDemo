@@ -48,8 +48,8 @@ offline_alert();
                                     <div class="widget-body">
                                         <form action="controller/postGood.php" method="post" class="form-horizontal">
                                             <div style="width: 100px;">
-                                                <input name="tag" style="margin-left = 50px;float: left;" class="form-control" list="gtype"     placeholder="选择发布类型"/>
-                                                <datalist id="gtype">
+                                                <input name="tag" style="margin-left = 50px;float: left;" class="form-control" list="tag"     placeholder="选择发布类型"/>
+                                                <datalist id="tag">
                                                     <option value="生活用品">
                                                     <option value="影票场票">
                                                     <option value="美妆彩妆">
@@ -92,6 +92,7 @@ offline_alert();
                                                 <div class="col-sm-offset-2 col-sm-6">
                                                     <!--                                                    <button class="btn btn-primary">添加</button>-->
                                                     <input style="background-color: #00a0e9;width: 50px;" type="submit" value="发布">
+                                                    <label for=""><input type="checkbox" name="type">紧急发布(将会置顶显示)</label>
 
                                                 </div>
                                             </div>

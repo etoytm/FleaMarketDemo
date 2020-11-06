@@ -165,18 +165,26 @@ ETO;
         $list = getGoodsList();
 
         foreach ($list as $goods) {
-            if ($goods->getType() == 2)
-                echoGoodsInHtml($goods, 2);
+            if ($goods->getType() == 2){
+                echo <<<ETO
+            <li class="main"><a href="shopdetail.php?gid={$goods->getGid()}"><img src={$goods->getPreview()} alt=""></a>
+                <div class="main-detail">
+                    <div class="detail-title">{$goods->getName()}</div>
+                    <p style="font-size: small;color: cornflowerblue">{$goods->getDescription()}</p>
+                    <div class="detail-price"><b class="price">¥{$goods->getPriceNow()}</b>
+                        <div class="detail-car" onclick="buy($gid)">去看看</div>
+                    </div>
+                </div>
+            </li>
+ETO;
+
+
+                ?>
+        <?php
+            }
         }
         ?>
-        <li class="main"><a href="shop.html">{$preview}</a>
-            <div class="main-detail">
-                <div class="detail-title">{$goods->getName()}</div>
-                <div class="detail-price"><b class="price">¥{$goods->getPriceNow()}</b>
-                    <div class="detail-car" onclick="buy($gid)">去购买</div>
-                </div>
-            </div>
-        </li>
+
     </ul>
 </div>
 

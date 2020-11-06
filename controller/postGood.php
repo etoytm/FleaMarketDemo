@@ -46,6 +46,7 @@ function FixPath($s){
     return $s;
 }
 $tag = $_POST['tag'];
+$type = $_POST['type']=="on"?'1':'2';
 $price_now = $_POST['price_now'];
 $price_old = $_POST['price_old'];
 $title = $_POST['title'];
@@ -71,7 +72,7 @@ $description= preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\
 //只提取出文本
 $description = getplaintextintrofromhtml($description);
 require_once ("../controller/goodsManage.php");
-$good  = new Goods(-1, $title, $price_now, $price_old, $description, $preview,1,1,$tag,$owner_id);
+$good  = new Goods(-1, $title, $price_now, $price_old, $description, $preview,1,$type,$tag,$owner_id);
 $res  = addGoods($good);
 require_once ("../include/alert.php");
 if($res == true){
