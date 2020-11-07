@@ -44,7 +44,7 @@ $grade = $arr['grade'];
     </ul>
 </div>
 <div class="my_info_content">
-    <form method="post" action="../controller/changeUserInfo.php">
+    <form method="post" action="../controller/changeUserInfo.php" enctype='multipart/form-data'>
         <table class="my_info_content_care_table">
             <tbody>
             <tr>
@@ -81,7 +81,7 @@ $grade = $arr['grade'];
             <tr>
                 <td align="right" class="color555">学生证号：</td>
                 <td class="color555">
-                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'].' 已认证' ?>
+                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'] . ' 已认证' ?>
                 </td>
             </tr>
             <tr>
@@ -97,9 +97,18 @@ $grade = $arr['grade'];
                     <span class="color959595 margin_left10 font_size12">请您如实填写并及时更新</span></td>
             </tr>
             <tr>
+                <td align="right" class="color555">头像：</td>
+                <td id="preview" class="color555">
+                    <img id="head_pre" src="../images/NoHead.jpg" onclick="click_head()">
+                </td>
+                <td>
+                    <input name="head" type="file" onchange="previewImage(this)" style="display: none" id="input_head">
+                </td>
+            </tr>
+            <tr>
                 <td align="right" class="color555">&nbsp;</td>
                 <td class="color555">
-                    <span class="color959595 margin_left10 font_size12">友好提示：***************</span>
+                    <span class="color959595 margin_left10 font_size12">友好提示：请上传JPG/GIF/PNG格式图片，文件大小请控制在1M以内！</span>
                 </td>
             </tr>
             <tr>
@@ -123,6 +132,10 @@ $grade = $arr['grade'];
             nodata: "none"
         });
     });
+
+    function click_head() {
+        $('#input_head').click();
+    }
 </script>
 </body>
 </html>
