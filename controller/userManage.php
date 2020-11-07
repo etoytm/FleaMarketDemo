@@ -24,3 +24,8 @@ function getUserArrByUid($uid)
     $sql_get = "SELECT * FROM `users` WHERE uid='{$uid}'";
     return $db->query($sql_get)->fetch_assoc();
 }
+function getUserArrByGid($gid){
+    $db = new DB();
+    $sql_get = "SELECT * FROM `users` WHERE uid = (SELECT owner_id FROM `goods` WHERE gid = {$gid}) ";
+    return $db->query($sql_get)->fetch_assoc();
+}

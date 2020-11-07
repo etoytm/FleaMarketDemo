@@ -6,7 +6,6 @@
  * Time: 11:08
  */
 
-header("content-type:text/html;charset=utf-8");
 // 数据库连接类
 class DB
 {

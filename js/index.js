@@ -16,9 +16,9 @@ domSearchInput.addEventListener("click", () => {
     let val = domSearchInput.value;
     var strDefalut = "";
     if (val.length <= 0) {
-        strDefalut += "<li>" + "2020春运购票" + "</li>";
-        strDefalut += "<li>" + "2019除夕" + "</li>";
-        strDefalut += "<li>" + "2020元旦放假通知" + "</li>";
+        strDefalut += "<li>" + "电影票" + "</li>";
+        strDefalut += "<li>" + "打印" + "</li>";
+        strDefalut += "<li>" + "二手垃圾篓" + "</li>";
 
     }
     domSearchResult.innerHTML = strDefalut;

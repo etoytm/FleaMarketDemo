@@ -56,7 +56,23 @@
 
     </script>
 </head>
-
+<style>
+    .sendButton { /* 按钮美化 */
+        width: 270px; /* 宽度 */
+        height: 40px; /* 高度 */
+        border-width: 0px; /* 边框宽度 */
+        border-radius: 3px; /* 边框半径 */
+        background: #1E90FF; /* 背景颜色 */
+        cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+        outline: none; /* 不显示轮廓线 */
+        font-family: Microsoft YaHei; /* 设置字体 */
+        color: white; /* 字体颜色 */
+        font-size: 17px; /* 字体大小 */
+    }
+    .sendButton:hover { /* 鼠标移入按钮范围时改变颜色 */
+        background: #5599FF;
+    }
+</style>
 <body>
 <!-----header部分------->
 <?php
@@ -136,7 +152,7 @@ require_once("./controller/getDetail.php");
     <div class="rightbox">
         <p class="name">——相关</p>
         <?php
-            require_once ("controller/getRelated.php");
+            require_once ("./controller/getRelated.php");
             $res = getRelated($tag);
             $i = 0;
             while ($arr =mysqli_fetch_assoc($res)){
@@ -158,19 +174,27 @@ require_once("./controller/getDetail.php");
 
 </div>
 <!-----商品详情部分结束------->
-<!-----商品详情评价部分------->
+<!-----商品详情评论部分------->
 <div class="evaluate">
 
     <div class="classify">
         <div class="shopim">
-            <p class="name">青蛙工艺家居<img src="images/shopdetail/tell01.png" width="22" height="22"></p>
-            <img src="images/shopdetail/tellbottom.png">
-            <p class="sc"><a href="#">收藏店铺</a></p>
-            <p class="sc"><a href="#">进入店铺</a></p>
+            <?php
+                require_once ("./controller/userManage.php");
+                $ownerInfo = getUserArrByGid($_GET['gid']);
+                echo <<<ETO
+            <p class="name">{$ownerInfo['nick']}<img src="{$ownerInfo['head']}" width="22" height="22"></p>
+            <p>信誉分:{$ownerInfo['credit']}</p>
+            <p class="sc"><a href="tencent://message/?uin={$ownerInfo['qq']}&Site=&Menu=yes">发起聊天</a></p>
+            <!--<p class="sc"><a href="#">进入店铺</a></p>-->
             <div class="search">
                 <input class="left" type="text"/>
                 <input class="right" type="button" style=" cursor:pointer;" value=""/>
             </div>
+ETO;
+
+            ?>
+
         </div>
         <div class="shopfl">
             <p class="name">本店分类</p>
@@ -193,313 +217,100 @@ require_once("./controller/getDetail.php");
 
     <div class="tabbedPanels">
         <ul class="tabs">
-            <li><a href="#panel01">TA的发布</a></li>
-            <li><a href="#panel02" class="active">评价</a></li>
+            <li><a href="#panel01">评论</a></li>
+            <li><a href="#panel02" class="active">TA的发布</a></li>
             <li><a href="#panel03">商品推荐</a></li>
         </ul>
 
         <div class="panelContainer">
+<!--            评论-->
             <div class="panel" id="panel01">
+                <form action="controller/sendComment.php?gid=<?php echo $_GET['gid'];?>&ctype=comment" method="POST">
+                    <textarea name="text" style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 100px;padding: 10px;resize: none;" placeholder="询价备注（尺寸、材质等）"></textarea>
+                    <input type="submit" value="发布" class="sendButton">
+                </form>
+                <?php
+                    require_once ("./controller/getComments.php");
+                    $res = getComments($_GET['gid']);
+                    $commentsNum = mysqli_num_rows($res);
+                ?>
+                <p class="judge">全部评论(<?php echo $commentsNum;?>)<span></span></p>
+
+                <?php
+                    while ($arr = mysqli_fetch_assoc($res)){
+                        echo <<<ETO
+                <div style="height: 180px" class="judge01">
+                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
+                    <div class="write">
+                        <p class="idname">{$arr['nick']}</p>
+                        <p>{$arr['text']}</p>
+                        <p class="which">{$arr['ctime']}</p>
+                        <!--<img src="images/shopdetail/detail105.jpg" width="40px" height="40px">-->
+
+                    </div>
+                </div>                
+ETO;
+
+                    }
+                ?>
+
+
+
+
+                <div class="judge01">
+                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
+                    <div class="write">
+                        <p class="idname">怒***4</p>
+                        <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
+                        <p class="which">颜色:熊猫套装</p>
+                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
+                        <img src="images/shopdetail/detail109.jpg" width="40px" height="40px">
+                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
+                    </div>
+                </div>
+            </div>
+
+<!--            历史发布-->
+            <div class="panel" id="panel02">
+
+                <p class="sell">发布的</p>
+                <div class="com">
+                    <?php
+                    require_once ("./controller/getPostHistory.php");
+                    $res = getPostHistoryByGid($_GET['gid']);
+                    while ($arr = mysqli_fetch_assoc($res)){
+                        echo <<<ETO
+                    <a href="#" class="ex01">
+                        <figure>
+                            <img width="190px" height="190px" src={$arr['preview']}>
+                            <figcaption>{$arr['tag']}</figcaption>
+                        </figure>
+                        <p>{$arr['name']}</p>
+                        <div class="bottom"><samp>{$arr['price_now']}</samp><input type="button" style=" cursor:pointer;" value="去看看"/></div>
+                    </a>
+ETO;
+
+                    }
+                    ?>
+
+
+
+                </div>
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="panel" id="panel03">
                 <div>
                     <p>创意造型 浓浓文艺气息 闲暇时光 与好友分享</p>
                     <p></p>
                     <p class="sell">整体款式</p>
-                    <?php
-                    require_once ("./controller/getPostHistory.php");
-                    //TO DO
-                    ?>
+
                     <img src="images/shopdetail/evaluate101.jpg">
                     <div class="clear"></div>
                 </div>
-
-            </div>
-
-            <div class="panel" id="panel02">
-                <p class="sell">买家评价</p>
-                <img src="images/shopdetail/detail101.png">
-                <p class="judge">全部评价(20)<span>晒图(13)</span></p>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">落***1</p>
-                        <p>
-                            杯子很可爱！就是有两三个杯子后面的小图案有一丢丢斜下来，不过没多大关系，其他的还好。有一点真的特别特别好的就是😂包裹的非常非常非常严实，简直就是里三层外三层！杯子完好无损，赠送的刷子也包装的很好😂让我第一眼以为那是一个棉花糖hhh</p>
-                        <p class="which">颜色:创意胡子</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail105.jpg" width="40px" height="40px">
-
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">席***2</p>
-                        <p>质量很好，快递也很快，拆包裹很艰难～～～包得太好了，没有碎。厚度也可以。值得购买！</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail106.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail107.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">怒***4</p>
-                        <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail109.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">毛***字</p>
-                        <p>很精致，用起来很满意，做工也非常的细致，用着很满意哦，非常值得购买</p>
-                        <p class="which">颜色:创意胡子</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">轻***4</p>
-                        <p>店家服务太贴心了，没有破碎，包装非常严实</p>
-                        <p class="which">颜色:铁塔套装</p>
-                        <img src="images/shopdetail/detail106.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail107.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">里***2</p>
-                        <p>不错，很可爱包装很好，赶快下手吧</p>
-                        <p class="which">颜色:四色小猫</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">啥***2</p>
-                        <p>一直想要咖啡杯，这次总算拿到手了。很不错的陶瓷杯。图案也很可爱。实物与图一样。</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">胡***2</p>
-                        <p>宝贝很实惠 拆包装的时候很惊讶 竟然包了四层！完好无损</p>
-                        <p class="which">颜色:四色小猫</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">落***1</p>
-                        <p>
-                            杯子很可爱！就是有两三个杯子后面的小图案有一丢丢斜下来，不过没多大关系，其他的还好。有一点真的特别特别好的就是😂包裹的非常非常非常严实，简直就是里三层外三层！杯子完好无损，赠送的刷子也包装的很好😂让我第一眼以为那是一个棉花糖hhh</p>
-                        <p class="which">颜色:创意胡子</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail105.jpg" width="40px" height="40px">
-
-                    </div>
-                </div>
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">轻***4</p>
-                        <p>店家服务太贴心了，没有破碎，包装非常严实</p>
-                        <p class="which">颜色:铁塔套装</p>
-                        <img src="images/shopdetail/detail106.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail107.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">里***2</p>
-                        <p>不错，很可爱包装很好，赶快下手吧</p>
-                        <p class="which">颜色:四色小猫</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">怒***4</p>
-                        <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail109.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">里***2</p>
-                        <p>不错，很可爱包装很好，赶快下手吧</p>
-                        <p class="which">颜色:四色小猫</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">啥***2</p>
-                        <p>一直想要咖啡杯，这次总算拿到手了。很不错的陶瓷杯。图案也很可爱。实物与图一样。</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">毛***字</p>
-                        <p>很精致，用起来很满意，做工也非常的细致，用着很满意哦，非常值得购买</p>
-                        <p class="which">颜色:创意胡子</p>
-                        <img src="images/shopdetail/detail103.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail104.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">轻***4</p>
-                        <p>店家服务太贴心了，没有破碎，包装非常严实</p>
-                        <p class="which">颜色:铁塔套装</p>
-                        <img src="images/shopdetail/detail106.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail107.jpg" width="40px" height="40px">
-                    </div>
-                </div>
-
                 <div class="clear"></div>
-            </div>
 
-            <div class="panel" id="panel03">
-                <p class="sell">本店热卖商品</p>
-                <div class="com">
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_11.jpg">
-                            <figcaption>木质花瓶</figcaption>
-                        </figure>
-                        <p>木质简约花瓶 亲近大自然</p>
-                        <div class="bottom"><samp>商城价:￥34元</samp><input type="button" style=" cursor:pointer;"
-                                                                        value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_12.png">
-                            <figcaption>假花篮子</figcaption>
-                        </figure>
-                        <p>墙上假花优雅系列蓝色篮子</p>
-                        <div class="bottom"><samp>商城价:￥543元</samp><input type="button" style=" cursor:pointer;"
-                                                                         value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_13.png">
-                            <figcaption>富贵花瓶</figcaption>
-                        </figure>
-                        <p>白色带金色边创意富贵花瓶</p>
-                        <div class="bottom"><samp>商城价:￥888元</samp><input type="button" style=" cursor:pointer;"
-                                                                         value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_14.jpg">
-                            <figcaption>手工编织花篮</figcaption>
-                        </figure>
-                        <p>白色手工编织花篮 小巧简约/p>
-                        <div class="bottom"><samp>商城价:￥68元</samp><input type="button" style=" cursor:pointer;"
-                                                                        value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_15.jpg">
-                            <figcaption>高脚花瓶</figcaption>
-                        </figure>
-                        <p>高脚优雅系列花瓶 </p>
-                        <div class="bottom"><samp>商城价:￥28元</samp><input type="button" style=" cursor:pointer;"
-                                                                        value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_06.jpg">
-                            <figcaption>龙猫灯</figcaption>
-                        </figure>
-                        <p>创意暖色龙猫小灯</p>
-                        <div class="bottom"><samp>商城价:￥48元</samp><input type="button" style=" cursor:pointer;"
-                                                                        value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_07.jpg">
-                            <figcaption>墙上挂具</figcaption>
-                        </figure>
-                        <p>多色可选墙上挂具</p>
-                        <div class="bottom"><samp>商城价:￥64元</samp><input type="button" style=" cursor:pointer;"
-                                                                        value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_08.jpg">
-                            <figcaption>白色小象</figcaption>
-                        </figure>
-                        <p>白色小象优雅系列套装</p>
-                        <div class="bottom"><samp>商城价:￥143元</samp><input type="button" style=" cursor:pointer;"
-                                                                         value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_09.jpg">
-                            <figcaption>石制壁饰</figcaption>
-                        </figure>
-                        <p>石制墙上创意装饰用品</p>
-                        <div class="bottom"><samp>商城价:￥348元</samp><input type="button" style=" cursor:pointer;"
-                                                                         value="购买"/></div>
-                    </a>
-                    <a href="#" class="ex01">
-                        <figure>
-                            <img src="images/index_img/content_10.jpg">
-                            <figcaption>小假山</figcaption>
-                        </figure>
-                        <p>小假山室内装饰清新空气</p>
-                        <div class="bottom"><samp>商城价:￥448元</samp><input type="button" style=" cursor:pointer;"
-                                                                         value="购买"/></div>
-                    </a>
-
-                </div>
-
-                <div class="clear"></div>
             </div>
 
 
@@ -509,54 +320,21 @@ require_once("./controller/getDetail.php");
 
 </div>
 
-<!-----商品详情评价部结束分------->
+<!-----商品详情评论部结束分------->
 
 <!----bottom_页脚部分----->
-<div class="backf">
-    <div id="footer">
-        <ul>
-            <li class="sy">支付方式</li>
-            <li><a href="#">在线支付</a></li>
-            <li><a href="#">货到付款</a></li>
-            <li><a href="#">发票说明</a></li>
-            <li><a href="#">余额宝</a></li>
 
-        </ul>
-        <ul>
-            <li class="sy">购物指南</li>
-            <li><a href="#">免费注册</a></li>
-            <li><a href="#">申请会员</a></li>
-            <li><a href="#">开通支付宝</a></li>
-            <li><a href="#">支付宝充值</a></li>
-        </ul>
-        <ul>
-            <li class="sy">商家服务</li>
-            <li><a href="#">联系我们</a></li>
-            <li><a href="#">客服服务</a></li>
-            <li><a href="#">物流服务</a></li>
-            <li><a href="#">缺货赔付</a></li>
-        </ul>
-        <ul>
-            <li class="sy">关于我们</li>
-            <li><a href="#">知识产权</a></li>
-            <li><a href="#">网站合作</a></li>
-            <li><a href="#">规则意见</a></li>
-            <li><a href="#">帮助中心</a></li>
-        </ul>
-        <ul>
-            <li class="sy">其他服务</li>
-            <li><a href="#">诚聘英才</a></li>
-            <li><a href="#">法律声明</a></li>
+<script src="js/swiper.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    function buy(gid) {
+        location.href = './shopdetail.php?gid=' + gid;
+    }
 
-        </ul>
-        <div class="clear"></div>
-    </div>
-    <div class="foot">
-        <p>使用本网站即表示接受 尚美衣店用户协议</p>
-        <p>版权所有——————————————————</p>
-
-    </div>
-</div>
-
+    function search_keyword() {
+        let key_ = document.getElementById('key_input').value;
+        location.href = 'seekPage.php?keyword=' + key_;
+    }
+</script>
 </body>
 </html>
