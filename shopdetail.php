@@ -212,10 +212,10 @@ ETO;
 
         </div>
         <div class="shopfl">
-            <p class="name">本店分类</p>
+            <p class="name">分类</p>
             <ul>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">全部商品</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">木质商品</a></li>
+                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">全部物品</a></li>
+                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">其他二手</a></li>
             </ul>
         </div>
 

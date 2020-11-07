@@ -65,7 +65,7 @@ $grade = $arr['grade'];
                 <td class="color555">
                     <label>
                         <input class="my_info_content_care_table_text" type="text" name="nick"
-                               value="<?php echo $arr['qq'] == null ? '暂未设置昵称！' : $arr['nick'] ?>">
+                               value="<?php echo $arr['nick'] == null ? '暂未设置昵称！' : $arr['nick'] ?>">
                     </label>
                 </td>
             </tr>

@@ -34,7 +34,7 @@ offline_alert();
     <div class="ui container">
         <div class="ui stackable grid">
             <!--左边-->
-            <div style="padding: 0" class="eleven wide column">
+            <div style="height: 1000px;" class="eleven wide column">
                 <!--header-->
 
                 <!--市场主题-->
@@ -109,53 +109,41 @@ offline_alert();
                 </div>
 
                 <!--市场底部-->
-                <div class="ui bottom attached segment">
-                    <div class="ui middle aligned two column grid">
-                        <div class="column">
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!--右边-->
             <div class="five wide column">
+                <?php
+                    require_once ("./controller/getPostHistory.php");
+                    require_once ("./class/DB.php");
+                    session_start();
+                    $res = getPostHistoryByUid($_SESSION['uid']);
+                    while ($arr = mysqli_fetch_assoc($res)){
+                        echo <<<ETO
                 <div class="ui segments">
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
-                                <i class="idea icon"></i>待添加
+                                <i class="idea icon"></i>{$arr['name']}
                             </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
                         <div class="ui fluid vertical menu">
-<!--                            右边栏内容-->
+                        <img width="100px" height="100px" src={$arr['preview']} >
+                        {$arr['description']}
                         </div>
                     </div>
                 </div>
-                <div class="ui segments">
-                    <div class="ui secondary segment">
-                        <div class="ui two column grid">
+ETO;
 
-                        </div>
-                    </div>
-                    <div class="ui teal segment">
-                        <div class="ui fluid vertical menu">
+                    }
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ui segments">
-                    <div class="ui secondary segment">
-                        <div class="ui two column grid">
-                            <div class="column">
-                                <i class="tags icon"></i>标签
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="ui teal segment">
-                    </div>
-                </div>
+                ?>
+
+
+
 
             </div>
         </div>

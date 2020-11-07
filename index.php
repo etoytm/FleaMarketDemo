@@ -51,12 +51,12 @@ require_once './controller/goodsManage.php';
 <section class="section2">
     <div class="nav wrap">
         <a href="shop.html"><span class="nav-li iconfont icon-tubiao1-copy"></span>全部商品分类</a>
-        <a href="shop.html">今日烟大</a>
-        <a href="shop.html">拼车</a>
-        <a href="shop.html">表白墙</a>
-        <a href="shop.html">出票</a>
-        <a href="shop.html">活动组团</a>
-        <a href="shop.html">拼多多砍一刀</a>
+        <?php
+            $mass = array('今日烟大','拼车','表白墙','出票','活动组团','拼多多砍一刀');
+        foreach ($mass as $item) {
+                echo "        <a href=\"seekPage.php?keyword={$item}\">{$item}</a>";
+            }
+        ?>
     </div>
     <div class="section2-center">
         <!--分类列表-->

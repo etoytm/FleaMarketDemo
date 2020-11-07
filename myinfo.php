@@ -43,23 +43,10 @@ require_once('./include/echo_header.php');
 ?>
 <div style="z-index: -1" class="container-fluid cfh_banner">
     <div class="container"><a href="index.php"><img src="images/logo.png" width="210px"></a>
-        <ul class="list-inline">
-            <li><a href="index.html" target="_self">首页</a></li>
-            <li><a href="list_page.html" target="_self">创业项目</a></li>
-            <li><a href="investor_page.html" target="_self">投资人</a></li>
-            <li><a href="" target="_self">平台公示</a></li>
-            <li><a href="service_page.html" target="_self">服务</a></li>
-            <li><a href="" target="_self">新手指南</a></li>
-        </ul>
+
         <div class="cfh_banner_search">
             <div onClick="cfh_banner_search_select(0)" class="cfh_banner_search_select">
-                <font id="cfh_banner_search_select_span">请选择</font>
-                <ul id="cfh_banner_search_select_ul">
-                    <li onClick="cfh_banner_search_select1('项目')">项目</li>
-                    <li onClick="cfh_banner_search_select1('投资人')">投资人</li>
-                    <li onClick="cfh_banner_search_select1('平台公示')">平台公示</li>
-                    <li onClick="cfh_banner_search_select1('指南')">指南</li>
-                </ul>
+
                 <input id="cfh_banner_search_select_hideinput" type="hidden" value="">
             </div>
             <input type="text">
@@ -183,9 +170,7 @@ ETO;
 <!-- 核心 结束 -->
 
 <!-- 版权 开始 -->
-<?php
-    require_once ("./include/echo_footer.php");
-?>
+
 
 <!-- 结束 -->
 <!-- JS公共部分 开始 -->
