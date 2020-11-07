@@ -126,7 +126,7 @@ require_once './controller/goodsManage.php';
 
 
 <!-- 商品列表 -->
-<div class="main-tit">—— <b>抢购列表</b>——</div>
+<div class="main-tit">—— <b>最新发布</b>——</div>
 <section class="section3">
     <ul class="rush-list">
         <?php
@@ -159,7 +159,7 @@ ETO;
     </ul>
 </section>
 <div>
-    <div class="main-tit">—— <b>商品列表</b>——</div>
+    <div class="main-tit">—— <b>更多</b>——</div>
     <ul class="wrap shopwrap">
         <?php
         $list = getGoodsList();
