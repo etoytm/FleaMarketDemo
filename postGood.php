@@ -162,38 +162,9 @@ offline_alert();
     </div>
 </div>
 <!--底部-->
-<footer class="ui inverted vertical segment m-padded-tb-max">
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <img src="image/wechat.jpg" class="ui rounded image" alt="" style="width: 100px;">
-                    </div>
-                </div>
-            </div>
-            <div class="four wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">最新市场</h5>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">人生导师(my story)</a>
-                    <a href="#" class="item">心灵鸡汤(my video)</a>
-                    <a href="#" class="item">自我认知(my feel)</a>
-                </div>
-            </div>
-            <div class="four wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">个人信息</h5>
-                <div class="ui inverted link list">
-                </div>
-            </div>
-            <div class="five wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">市场</h5>
-                <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人市场，会定期分享我的故事,我对于自身的认识，希望可以给看我市场的人带来快乐</p>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020 Rownn Designed by Rownn</p>
-    </div>
-</footer>
+<?php
+    require_once ("./include/echo_footer.php")
+?>
 <!--begin-->
 
 <script src="./js/ueditorjs/skins.min.js"></script>
