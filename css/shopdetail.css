@@ -24,8 +24,8 @@ img{ border:0px;}
 
 /*header*/
 .header{ 
-	height:184px; 
-	background:url(../images/index_img/backmenuimg.jpg) repeat; 
+	height:50px;
+	/*background:url(../images/index_img/backmenuimg.jpg) repeat; */
 	margin:0 auto;
 	}
 .header .top{ 
@@ -87,7 +87,6 @@ img{ border:0px;}
 	border-bottom-style: none;
 	border-left-style: none;
 	background-repeat: no-repeat;/*取消背景图片重复*/
-	background-image:url(../images/search.png);
 	margin:0px;
 	background-position: 10px center;
 	padding:0;

@@ -84,23 +84,35 @@ require_once("./controller/getDetail.php");
 <div class="logobg">
     <div class="center">
         <div class="logo">
-            <img src="images/logo.png" width="249" height="55">
+            <img src="images/logo.png" width="249">
         </div>
-        <form id="searchForm">
-            <input type="text" id="searchTxt">
-            <input type="submit" value="搜  索" id="search_btn">
-        </form>
+
     </div>
 </div>
 <!-----主导航部分------->
+<style>
+    .mynav{
+        height: 30px;
+    }
+    .mynav a{
+        display: inline-block;
+        width: 10%;
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .mynav a:hover{
+        background-color: #00a0e9;
+        color: darkblue;
+    }
+</style>
 <div class="bottom">
-    <div class="menu"><a href="#">全部商品分类</a></div>
-    <div class="nav">
-        <a href="index.html" class="now">首页</a>
-        <a href="tuangou.html">团购促销</a>
-        <a href="mingshihuicui.html">名师荟萃</a>
-        <a href="yipinyizhan.html">艺品驿站</a>
-        <a href="western.html">欧式摆件</a>
+    <div style="text-align: center;align-items: center;" class="mynav">
+        <?php
+            $show = array('生活用品','影票场票','二手车','取快递','拼车');
+            foreach ($show as $s){
+                echo   "<a href=\"seekPage.php?keyword={$s}\">{$s}</a>";
+            }
+        ?>
     </div>
 </div>
 
@@ -156,11 +168,11 @@ require_once("./controller/getDetail.php");
             $res = getRelated($tag);
             $i = 0;
             while ($arr =mysqli_fetch_assoc($res)){
-                if($i == 3){
+                if($i++ == 3){
                     break;
                 }
                 ?>
-                <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="130" height="180"></a>
+                <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="160" height="160"></a>
 
                 <p>￥<?php echo $arr['price_now']?>元</p>
         <?php
@@ -201,12 +213,6 @@ ETO;
             <ul>
                 <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">全部商品</a></li>
                 <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">木质商品</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">石制商品</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">陶制商品</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">家居厨房</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">欧式混搭</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">桌面摆件</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">书香文房</a></li>
             </ul>
         </div>
 
@@ -280,11 +286,12 @@ ETO;
                     $res = getPostHistoryByGid($_GET['gid']);
                     while ($arr = mysqli_fetch_assoc($res)){
                         echo <<<ETO
-                    <a href="#" class="ex01">
+                    <a href="shopdetail.php?gid={$arr['gid']}" class="ex01">
                         <figure>
                             <img width="190px" height="190px" src={$arr['preview']}>
                             <figcaption>{$arr['tag']}</figcaption>
                         </figure>
+                    
                         <p>{$arr['name']}</p>
                         <div class="bottom"><samp>{$arr['price_now']}</samp><input type="button" style=" cursor:pointer;" value="去看看"/></div>
                     </a>
