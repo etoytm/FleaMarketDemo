@@ -5,6 +5,7 @@ offline_alert();
 
 require_once 'controller/userManage.php';
 $arr = getUserArrByUid($_SESSION['uid']);
+$head = $arr['head'] == null ? 'images/NoHead.jpg' : $arr['head'];
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +81,7 @@ require_once('./include/echo_header.php');
         } else if ($arr['uid_identify'] == 0)//未认证
             $u_type = '临时会员（未认证）';
         echo <<<ETO
-        <div class="dead_pic"><img src="images/member_center/nopic.jpg"><br>
+        <div class="dead_pic"><img src="$head"><br>
             <span class="username">$arr[uid]</span>
         </div>
 ETO;
