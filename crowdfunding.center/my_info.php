@@ -81,7 +81,7 @@ $grade = $arr['grade'];
             <tr>
                 <td align="right" class="color555">学生证号：</td>
                 <td class="color555">
-                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'].' 已认证' ?>
+                    <?php echo $arr['school_number'] == null ? "暂未认证！<a href='#' onclick='listClick(3)'>立即认证>></a>" : $arr['school_number'] . ' 已认证' ?>
                 </td>
             </tr>
             <tr>
@@ -95,6 +95,15 @@ $grade = $arr['grade'];
                         <option value="5" <?php if ($grade == 5) echo 'selected' ?>>保密</option>
                     </select>
                     <span class="color959595 margin_left10 font_size12">请您如实填写并及时更新</span></td>
+            </tr>
+            <tr>
+                <td align="right" class="color555">头像：</td>
+                <td id="preview" class="color555">
+                    <img id="head_pre" src="../images/member_center/nopic.jpg" onclick="click_head()">
+                </td>
+                <td>
+                    <input name="head" type="file" onchange="previewImage(this)" style="display: none" id="input_head">
+                </td>
             </tr>
             <tr>
                 <td align="right" class="color555">&nbsp;</td>
@@ -123,6 +132,10 @@ $grade = $arr['grade'];
             nodata: "none"
         });
     });
+
+    function click_head() {
+        $('#input_head').click();
+    }
 </script>
 </body>
 </html>

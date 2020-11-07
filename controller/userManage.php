@@ -24,3 +24,27 @@ function getUserArrByUid($uid)
     $sql_get = "SELECT * FROM `users` WHERE uid='{$uid}'";
     return $db->query($sql_get)->fetch_assoc();
 }
+
+/**
+ * 输出用户星级
+ * @param $privilege
+ * @param $id_identified
+ */
+function echoUserStarsByPrivilege($privilege, $id_identified)
+{
+    if ($id_identified == 0) {
+        for ($i = 0; $i < 5; $i++)
+            echo '<img style="margin-right:0px;" src="images/member_center/xx2.png">';
+        echo '<b> 未认证</b>';
+    }
+    else {
+        if ($privilege == 0)
+            echoUserStarsByPrivilege(5, 1);
+        else {
+            for ($i = 0; $i < $privilege; $i++)
+                echo '<img style="margin-right:0px;" src="images/member_center/star.png">';
+            for ($i = 0; $i < 5 - $privilege; $i++)
+                echo '<img style="margin-right:0px;" src="images/member_center/xx2.png">';
+        }
+    }
+}
