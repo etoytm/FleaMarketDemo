@@ -31,9 +31,9 @@ function identify($imgpath)
         require_once('../class/DB.php');
         $db = new DB();
         $db->query("UPDATE `users` SET uid_identify = '1', school_number = '{$res}' WHERE uid = '{$_SESSION['uid']}' ");
-        alt_back('实名认证成功');
+        alt_back('身份认证成功！请刷新此页面！');
     } else {
-        alt_back('实名认证失败，请确保校园卡照片清晰，无污损');
+        alt_back('身份认证失败，请确保校园卡照片清晰，无污损!');
     }
 
 //    require_once ('../include/ocr/AipOcr.php');
