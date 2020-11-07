@@ -96,12 +96,12 @@ require_once("./controller/getDetail.php");
     <!-------放大镜-------->
     <div id="leftbox">
         <div id="showbox">
-<!--            --><?php
+            <!--            --><?php
             foreach ($imgs as $img) {
                 echo "<img width= \"400\" height=\"550\" src=".$img." >";
                 echo PHP_EOL;
             }
-//            ?>
+            //            ?>
 
 
         </div><!--展示图片盒子-->
@@ -136,19 +136,19 @@ require_once("./controller/getDetail.php");
     <div class="rightbox">
         <p class="name">——相关</p>
         <?php
-            require_once ("controller/getRelated.php");
-            $res = getRelated($tag);
-            $i = 0;
-            while ($arr =mysqli_fetch_assoc($res)){
-                if($i == 3){
-                    break;
-                }
-                ?>
-                <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="130" height="180"></a>
-
-                <p>￥<?php echo $arr['price_now']?>元</p>
-        <?php
+        require_once ("controller/getRelated.php");
+        $res = getRelated($tag);
+        $i = 0;
+        while ($arr =mysqli_fetch_assoc($res)){
+            if($i == 3){
+                break;
             }
+            ?>
+            <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="130" height="180"></a>
+
+            <p>￥<?php echo $arr['price_now']?>元</p>
+            <?php
+        }
 
         ?>
 
