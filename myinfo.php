@@ -43,23 +43,10 @@ require_once('./include/echo_header.php');
 ?>
 <div style="z-index: -1" class="container-fluid cfh_banner">
     <div class="container"><a href="index.php"><img src="images/logo.png" width="210px"></a>
-        <ul class="list-inline">
-            <li><a href="index.html" target="_self">首页</a></li>
-            <li><a href="list_page.html" target="_self">创业项目</a></li>
-            <li><a href="investor_page.html" target="_self">投资人</a></li>
-            <li><a href="" target="_self">平台公示</a></li>
-            <li><a href="service_page.html" target="_self">服务</a></li>
-            <li><a href="" target="_self">新手指南</a></li>
-        </ul>
+
         <div class="cfh_banner_search">
             <div onClick="cfh_banner_search_select(0)" class="cfh_banner_search_select">
-                <font id="cfh_banner_search_select_span">请选择</font>
-                <ul id="cfh_banner_search_select_ul">
-                    <li onClick="cfh_banner_search_select1('项目')">项目</li>
-                    <li onClick="cfh_banner_search_select1('投资人')">投资人</li>
-                    <li onClick="cfh_banner_search_select1('平台公示')">平台公示</li>
-                    <li onClick="cfh_banner_search_select1('指南')">指南</li>
-                </ul>
+
                 <input id="cfh_banner_search_select_hideinput" type="hidden" value="">
             </div>
             <input type="text">
@@ -183,63 +170,7 @@ ETO;
 <!-- 核心 结束 -->
 
 <!-- 版权 开始 -->
-<div class="container-fluid cfh_bottom">
-    <div class="container">
-        <div class="cfh_bottom_qsss">
-            <dl>
-                <dt>轻松上手</dt>
-                <dd><a href="" target="_blank">如何投资</a></dd>
-                <dd><a href="" target="_blank">如何融资</a></dd>
-                <dd><a href="" target="_blank">平台协议下载</a></dd>
-                <dd><a href="" target="_blank">关于我们</a></dd>
-            </dl>
-        </div>
-        <div class="cfh_bottom_aboutours">
-            <dl>
-                <dt>关于我们</dt>
-                <dd><a href="" target="_blank">股东背景</a></dd>
-                <dd><a href="" target="_blank">某某某财富团队</a></dd>
-                <dd><a href="" target="_blank">法律服务</a></dd>
-                <dd><a href="" target="_blank">招贤纳士</a></dd>
-            </dl>
-        </div>
-        <div class="cfh_bottom_callme">
-            <dl>
-                <dt class="cfh_bottom_call_me"><span class="glyphicon glyphicon-earphone"></span>&nbsp;***-***-****</a>
-                </dt>
-                <dd>投资人服务邮箱：<a href="mailto:38839364@qq.com" target="_blank">38839364@qq.com</a></dd>
-                <dd>创业者服务邮箱：<a href="mailto:38839364@qq.com" target="_blank">38839364@qq.com</a></dd>
-                <dd>公司地址：宁夏银川市兴庆区某某街道9527号</dd>
-            </dl>
-        </div>
-        <div class="cfh_bottom_QRcode"><img src="images/index/bottom_QRcode.png">
-            <div class="phone">
-                <span class="cfh_bottom_Iphone"><img src="images/index/cfh_bottom_IphoneICO.png"><font>APP Store</font></span><img
-                        class="cfh_bottom_IphoneICO_last" src="images/index/cfh_bottom_AndroidICO_1.png"><br>
-                <span class="cfh_bottom_Iphone"><img
-                            src="images/index/cfh_bottom_AndroidICO.png"><font>Android</font></span><img
-                        class="cfh_bottom_AndroidICO_last" src="images/index/cfh_bottom_IphoneICO_2.png"></div>
-        </div>
-    </div>
-    <div class="box50"></div>
-</div>
-<div class="container-fluid background_color545454">
-    <div class="container text-center"> © 2015 某某某 All rights reserved | 宁夏某某某金融科技服务有限公司 | 宁ICP备14000922号-2</div>
-</div>
-<img id="back_top_jt" class="back_top" onMouseMove="float_call_me(7)" onMouseOut="float_call_me(8)"
-     src="images/index/back_top_jt.png">
-<span class="back_top_jt_span">返回顶部</span>
-<img id="back_top_wx" class="back_top2" onMouseMove="float_call_me(5)" onMouseOut="float_call_me(6)"
-     src="images/index/back_top_wx.png">
-<span class="back_top_wx_span"><img src="images/index/bottom_QRcode.png"></span>
-<a href="tencent://message/?uin=666666&Site=&Menu=yes"><img id="back_top_qq" class="back_top3"
-                                                            onMouseMove="float_call_me(3)" onMouseOut="float_call_me(4)"
-                                                            src="images/index/back_top_qq.png"></a>
-<span class="back_top_qq_span"><font class="glyphicon glyphicon-hand-right">&nbsp;QQ咨询热线</font></span>
-<img id="back_top_call" class="back_top4" onMouseMove="float_call_me(1)" onMouseOut="float_call_me(2)"
-     src="images/index/back_top_call.png">
-<span class="back_top_call_span"><font class="glyphicon glyphicon-phone-alt">&nbsp;***-***-****</font></span>
-<!-- 版权 结束 -->
+
 
 <!-- 结束 -->
 <!-- JS公共部分 开始 -->

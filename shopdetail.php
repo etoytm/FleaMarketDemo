@@ -195,7 +195,10 @@ require_once("./controller/getDetail.php");
                 require_once ("./controller/userManage.php");
                 $ownerInfo = getUserArrByGid($_GET['gid']);
                 echo <<<ETO
-            <p class="name">{$ownerInfo['nick']}<img src="{$ownerInfo['head']}" width="22" height="22"></p>
+            <p class="name">
+                <img style="width:30px; height:30px; border-radius:50%;" src="{$ownerInfo['head']}" >
+                {$ownerInfo['nick']}
+            </p>
             <p>信誉分:{$ownerInfo['credit']}</p>
             <p class="sc"><a href="tencent://message/?uin={$ownerInfo['qq']}&Site=&Menu=yes">发起聊天</a></p>
             <!--<p class="sc"><a href="#">进入店铺</a></p>-->
@@ -209,10 +212,10 @@ ETO;
 
         </div>
         <div class="shopfl">
-            <p class="name">本店分类</p>
+            <p class="name">分类</p>
             <ul>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">全部商品</a></li>
-                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">木质商品</a></li>
+                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">全部物品</a></li>
+                <li><a href="#"><img src="images/shopdetail/tell02.png" width="10" height="10">其他二手</a></li>
             </ul>
         </div>
 
@@ -246,7 +249,7 @@ ETO;
                     while ($arr = mysqli_fetch_assoc($res)){
                         echo <<<ETO
                 <div style="height: 180px" class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
+                    <div class="idimg"><img style="width:48.99px; height:48.99px; border-radius:50%;" width="48.99" height="48.99" src="{$arr['head']}"></div>
                     <div class="write">
                         <p class="idname">{$arr['nick']}</p>
                         <p>{$arr['text']}</p>
@@ -293,7 +296,7 @@ ETO;
                         </figure>
                     
                         <p>{$arr['name']}</p>
-                        <div class="bottom"><samp>{$arr['price_now']}</samp><input type="button" style=" cursor:pointer;" value="去看看"/></div>
+                        <div class="bottom"><samp>￥{$arr['price_now']}</samp><input type="button" style=" cursor:pointer;" value="去看看"/></div>
                     </a>
 ETO;
 

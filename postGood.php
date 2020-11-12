@@ -34,7 +34,7 @@ offline_alert();
     <div class="ui container">
         <div class="ui stackable grid">
             <!--左边-->
-            <div style="padding: 0" class="eleven wide column">
+            <div style="height: 1000px;" class="eleven wide column">
                 <!--header-->
 
                 <!--市场主题-->
@@ -109,91 +109,50 @@ offline_alert();
                 </div>
 
                 <!--市场底部-->
-                <div class="ui bottom attached segment">
-                    <div class="ui middle aligned two column grid">
-                        <div class="column">
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!--右边-->
             <div class="five wide column">
+                <?php
+                    require_once ("./controller/getPostHistory.php");
+                    require_once ("./class/DB.php");
+                    session_start();
+                    $res = getPostHistoryByUid($_SESSION['uid']);
+                    while ($arr = mysqli_fetch_assoc($res)){
+                        echo <<<ETO
                 <div class="ui segments">
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
                             <div class="column">
-                                <i class="idea icon"></i>待添加
+                                <i class="idea icon"></i>{$arr['name']}
                             </div>
                         </div>
                     </div>
                     <div class="ui teal segment">
                         <div class="ui fluid vertical menu">
-<!--                            右边栏内容-->
+                        <img width="100px" height="100px" src={$arr['preview']} >
+                        {$arr['description']}
                         </div>
                     </div>
                 </div>
-                <div class="ui segments">
-                    <div class="ui secondary segment">
-                        <div class="ui two column grid">
+ETO;
 
-                        </div>
-                    </div>
-                    <div class="ui teal segment">
-                        <div class="ui fluid vertical menu">
+                    }
 
-                        </div>
-                    </div>
-                </div>
-                <div class="ui segments">
-                    <div class="ui secondary segment">
-                        <div class="ui two column grid">
-                            <div class="column">
-                                <i class="tags icon"></i>标签
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="ui teal segment">
-                    </div>
-                </div>
+                ?>
+
+
+
 
             </div>
         </div>
     </div>
 </div>
 <!--底部-->
-<footer class="ui inverted vertical segment m-padded-tb-max">
-    <div class="ui center aligned container">
-        <div class="ui inverted divided stackable grid">
-            <div class="three wide column">
-                <div class="ui inverted link list">
-                    <div class="item">
-                        <img src="image/wechat.jpg" class="ui rounded image" alt="" style="width: 100px;">
-                    </div>
-                </div>
-            </div>
-            <div class="four wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">最新市场</h5>
-                <div class="ui inverted link list">
-                    <a href="#" class="item">人生导师(my story)</a>
-                    <a href="#" class="item">心灵鸡汤(my video)</a>
-                    <a href="#" class="item">自我认知(my feel)</a>
-                </div>
-            </div>
-            <div class="four wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">个人信息</h5>
-                <div class="ui inverted link list">
-                </div>
-            </div>
-            <div class="five wide column">
-                <h5 class="ui inverted header m-text-thin m-text-spaced ">市场</h5>
-                <p class="m-text-thin m-text-spaced m-opacity-tiny">这是我的个人市场，会定期分享我的故事,我对于自身的认识，希望可以给看我市场的人带来快乐</p>
-            </div>
-        </div>
-        <div class="ui inverted section divider"></div>
-        <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright © 2020 - 2020 Rownn Designed by Rownn</p>
-    </div>
-</footer>
+<?php
+    require_once ("./include/echo_footer.php")
+?>
 <!--begin-->
 
 <script src="./js/ueditorjs/skins.min.js"></script>

@@ -64,7 +64,7 @@
  }
 
  .header-tit {
-     width: 70px;
+     width: 100px;
      cursor: pointer;
      color: rgb(78, 78, 78);
      text-align: center;
@@ -118,6 +118,7 @@
     width: 280px;
 }
 #header-loca-di{
+    width: 100px;
    font-weight: normal;
 }
 

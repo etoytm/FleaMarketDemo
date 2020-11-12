@@ -8,6 +8,9 @@
 
 
 function getSeek($keyword){
+    if($keyword == null){
+        return null;
+    }
     import("../class/DB.php");
     $db = new DB();
     //全表查找子串

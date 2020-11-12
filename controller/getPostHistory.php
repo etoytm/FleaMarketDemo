@@ -10,7 +10,7 @@
 function getPostHistoryByUid($uid)
 {
     $db = new DB();
-    $sql = "SELECT * FROM `goods` WHERE owner_id = '{$uid}'";
+    $sql = "SELECT * FROM `goods` WHERE owner_id = '{$uid}' ORDER BY post_time DESC limit 0,3";
     $res = $db->query($sql);
     if ($res == false) {
         echo "数据库连接失败";
