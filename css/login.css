@@ -108,3 +108,16 @@
     color: #fff;
     text-decoration: none;
 }
+
+.reg-btn {
+    width: 100%;
+    background: #bba510;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.reg-btn > a {
+    color: #fff;
+    text-decoration: none;
+}
