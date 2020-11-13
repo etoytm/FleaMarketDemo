@@ -858,7 +858,7 @@
          width: 20%;
      }
      .header-left {
-         display: none;
+         display: flex;
      }
      .header-right {
          margin: 0 auto;
