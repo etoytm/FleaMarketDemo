@@ -36,7 +36,7 @@ function addGoods($goods)
 
 /**
  * 获取全部商品的列表
- * @return ArrayObject Goods对象的列表
+ * @return ArrayObject<Goods> Goods对象的列表
  */
 function getGoodsList($id = -1)
 {

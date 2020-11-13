@@ -137,11 +137,12 @@ require_once './controller/goodsManage.php';
         $list = getGoodsList();
         foreach ($list as $goods) {
             if ($goods->getType() == 1){
+                $gid = $goods->getGid();
                 echo <<<ETO
                 <li class="rush-item">
                     <div class="shadow">
                         <div class="sec3-img">
-                        <a href="./shopdetail.php?gid={$goods->getGid()}"><img style="display: block;width: 190px;" src={$goods->getPreview()} alt=""></a>
+                        <a href="./shopdetail.php?gid={$gid}"><img style="display: block;width: 190px;" src={$goods->getPreview()} alt=""></a>
                            
                             <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
                         </div>
@@ -151,7 +152,7 @@ require_once './controller/goodsManage.php';
                             <p><span>{$goods->getPriceNow()}元</span>
                                 <del>{$goods->getPriceOld()}元</del>
                             </p>
-                            <button onclick="buy({$goods->GetGid()})">查看详情</button>
+                            <button onclick="buy($gid)">查看详情</button>
                         </div>
                     </div>
                 </li>
@@ -170,8 +171,9 @@ ETO;
 
         foreach ($list as $goods) {
             if ($goods->getType() == 2){
+                $gid= $goods->getGid();
                 echo <<<ETO
-            <li class="main"><a href="shopdetail.php?gid={$goods->getGid()}"><img src={$goods->getPreview()} alt=""></a>
+            <li class="main"><a href="shopdetail.php?gid={$gid}"><img src={$goods->getPreview()} alt=""></a>
                 <div class="main-detail">
                     <div class="detail-title">{$goods->getName()}</div>
                     <p style="font-size: small;color: cornflowerblue">{$goods->getDescription()}</p>

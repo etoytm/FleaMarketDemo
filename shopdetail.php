@@ -296,7 +296,7 @@ ETO;
                         </figure>
                     
                         <p>{$arr['name']}</p>
-                        <div class="bottom"><samp>￥{$arr['price_now']}</samp><input type="button" style=" cursor:pointer;" value="去看看"/></div>
+                        <div class="bottom"><samp>￥{$arr['price_now']}</samp><input type="button" style="cursor:pointer;" value="去看看"/></div>
                     </a>
 ETO;
 
