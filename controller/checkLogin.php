@@ -1,7 +1,6 @@
 <?php
 session_start();
 $arr = array(
-    "nameRepetition" => null,
     "passwordError" => null,
     "loginSuccess" => null
 );

@@ -86,7 +86,7 @@ else echo <<<ETO
                 <a href="login.html">请登录</a>
             </li>
             <li class="header-right-tit">
-                <a href="signin.html">注册有礼</a>
+                <a href="register.html">注册有礼</a>
             </li>
         </ul>
     </div>

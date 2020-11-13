@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跳蚤市场注册</title>
+    <link href="css/login.css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_1524886_qhcjflk0kr.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- 内容 -->
+<div class="login-bg"><img src="images/kejiguang.jpg"></div>
+<div class="login">
+
+    <h3>跳蚤市场注册</h3>
+    <div class="login-id"><input type="text" placeholder="学号" autofocus id="uid"></div>
+    <div class="login-id"><input type="password" placeholder="密码" id="pw"></div>
+    <div class="login-id"><input type="password" placeholder="确认密码" id="pw2"></div>
+    <div class="login-code">
+        <input type="text" placeholder="验证码" class="vcode-in">
+        <div class="vcode"></div>
+    </div>
+    <div class="login-btn"><a class="index"><input class="login-btn" type="submit" value="注册"
+                                                   onclick="return validateRepet()&&register()"></a></div>
+</div>
+<html>
+<head></head>
+
+</html>
+
+<script src="js/vcode.js"></script>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<!--    <script src="js/login.js"></script>-->
+<script>
+    function validateRepet() {
+        if($("input#pw").val()!==$("input#pw").val()){
+            alert("密码不一致!");
+            return false;
+        }
+        return true;
+    }
+
+    function register() {
+        $.ajax({
+            type: 'post',
+            url: "controller/register.php",
+            data: {
+                uid: $('input#uid').val(),
+                password: $("input#pw").val()
+            },
+            success: function (data) {
+                if (data.nameRepetition)
+                    alert("用户名已存在！");
+                else if (data.regSuccess) {
+                    alert("注册成功！\n您的用户名：" + data.username + "\n您的密码：" + data.password);
+                    location.href = "login.html";
+                } else
+                    alert("后台服务异常！");
+            },
+            dataType: 'json'
+        })
+    }
+</script>
+</body>
+</html>
