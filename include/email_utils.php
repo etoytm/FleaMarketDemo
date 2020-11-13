@@ -1,10 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once "../Ext/PHPMailer.php";
-require_once "../Ext/Exception.php";
+require_once "../ext/SMTP.php";
+require_once "../ext/PHPMailer.php";
+require_once "../ext/Exception.php";
 
 
 /**

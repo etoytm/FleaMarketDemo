@@ -53,6 +53,7 @@ $type = $_POST['type'] == "on" ? '1' : '2';
 $price_now = $_POST['price_now'];
 $price_old = $_POST['price_old'];
 $title = $_POST['title'];
+$xyk = $_POST['xyk'] == 'on';
 
 $description = $_POST['description'];
 // 路径修正
@@ -64,9 +65,41 @@ preg_match_all('/(?<=src=)\S+/', $description, $match);
 
 //首张图片
 $preview = $match[0][0];
+$preview1 = "." . explode('"', $preview)[1];
 
 session_start();
+require_once("../controller/goodsManage.php");
+require_once("../include/alert.php");
 $owner_id = $_SESSION['uid'];
+
+if ($xyk) {
+    require_once('../include/ocr/AipOcr.php');
+    require_once('../include/aipocr.php');
+    if ($card_num = isTrueCard($preview1)) {
+        import("../class/DB.php");
+        $sql = "SELECT qq FROM `users` WHERE `school_number` = '{$card_num}'";
+        $db = new DB();
+        $re = $db->query($sql);
+        if ($re->num_rows == 1) {
+            $t = $re->fetch_assoc()['qq'];
+            require_once '../include/email_utils.php';
+            $re = sendEmail($t."@qq.com",
+                "YTU跳蚤市场",
+                "您的信用卡已经找回！"
+            );
+            if ($re) {
+                alt("检测到该同学注册过FM账号，已将找回信息发送至该同学QQ邮箱", "../index.php");
+            }
+        } else {
+            $title = "失物招领";
+            $price_now = 0;
+            alt("未检测到该同学注册过FM账号，将会将失物招领信息发布至首页！");
+        }
+
+    }
+}
+
+
 if ($preview == '') {
     $preview = "\"./images/NoPreview.png\"";
 }
@@ -74,10 +107,8 @@ if ($preview == '') {
 $description = preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i', '', $description);
 //只提取出文本
 $description = getplaintextintrofromhtml($description);
-require_once("../controller/goodsManage.php");
 $good = new Goods(-1, $title, $price_now, $price_old, $description, $preview, 1, $type, $tag, $owner_id);
 $res = addGoods($good);
-require_once("../include/alert.php");
 if ($res == true) {
     alt_back('发布成功');
 } else {

@@ -47,7 +47,7 @@ require_once('./include/echo_header.php');
                                     </div>
                                     <div class="widget-body">
                                         <form action="controller/postGood.php" method="post" class="form-horizontal">
-                                            <div style="width: 100px;">
+                                            <div style="width: 100px;" class="wh">
                                                 <input name="tag" style="margin-left = 50px;float: left;"
                                                        class="form-control" list="tag" placeholder="选择发布类型"/>
                                                 <datalist id="tag">
@@ -77,7 +77,7 @@ require_once('./include/echo_header.php');
                                                 </datalist>
 
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group wh">
                                                 <label for="title" class="control-label col-sm-2">标题</label>
                                                 <div class="col-sm-6">
                                                     <input type="text" class="form-control" id="title" name="title"
@@ -98,9 +98,9 @@ require_once('./include/echo_header.php');
                                                     <!--                                                    <button class="btn btn-primary">添加</button>-->
                                                     <input style="background-color: #00a0e9;width: 50px;" type="submit"
                                                            value="发布">
-                                                    <label for=""><input type="checkbox"
-                                                                         name="type">紧急发布(将会置顶显示)</label>
-
+                                                    <label for=""><input type="checkbox" name="type">置项发布</label>
+                                                    <label for=""><input type="checkbox" name="xyk"
+                                                                         id="xyk">归还捡到的校园卡</label>
                                                 </div>
                                             </div>
                                         </form>
@@ -172,7 +172,6 @@ require_once("./include/echo_footer.php")
 </script>
 <script>
     $(window).bind("load", function () {
-
         /*Sets Themed Colors Based on Themes*/
         themeprimary = getThemeColorFromCss('themeprimary');
         themesecondary = getThemeColorFromCss('themesecondary');
@@ -191,12 +190,17 @@ require_once("./include/echo_footer.php")
         $('.m-item').toggleClass('m-mobile-hide')
     })
 
-    // document.onmousedown = function(){
-    //     if(event.button == 2){
-    //         alert("当前页面不能使用右键！");
-    //         return false;
-    //     }
-    // }
+    let flag = false;
+    $("input#xyk").change(function () {
+        if (!flag) {
+            $("div.wh").hide();
+            alert("请上传校园卡图片！")
+            flag = true;
+        } else {
+            $("div.wh").show();
+            flag = false;
+        }
+    })
 </script>
 </body>
 </html>>

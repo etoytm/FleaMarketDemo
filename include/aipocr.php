@@ -53,8 +53,9 @@ function isTrueCard($imgpath)
     }
     if (strpos($cardInfo, '学院') && strpos($cardInfo, '烟台')) {
         $t = null;
-        preg_match('/[0-9]{12}/', $cardInfo, $t);
-        return $t[0];
+        preg_match('/[0-9]{16}/', $cardInfo, $t);
+        $t = substr($t[0],4);
+        return $t;
     }
     return false;
 }
