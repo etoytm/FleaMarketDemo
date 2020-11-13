@@ -39,6 +39,19 @@
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <!--    <script src="js/login.js"></script>-->
 <script>
+    let xianshi = false;
+    $('span.icon-yincangmima').click(
+        function () {
+            if (xianshi) {
+                $('input#password').attr('type', 'password');
+                xianshi = false;
+            } else {
+                $('input#password').attr('type', 'text');
+                xianshi = true;
+            }
+        }
+    );
+
     function checkLogin() {
         $.ajax({
             type: 'post',
@@ -55,17 +68,6 @@
             },
             dataType: 'json'
         })
-
-        // $.post(
-        //     "http://47.102.215.91/controller/checkLogin.php",
-        //     {
-        //         uid: $('#uid'),
-        //         password: $('#password')
-        //     },
-        //     function suc(data) {
-        //         alert(JSON.stringify(data))
-        //     }
-        // )
     }
 </script>
 </body>
