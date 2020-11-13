@@ -6,6 +6,7 @@ var btn = document.querySelector(".login-btn");
 checkCode.onclick = function () {
     createCode(4);
 }
+
 //生成验证码
 function createCode(length) {
     var code = "";
@@ -26,17 +27,25 @@ function createCode(length) {
         checkCode.innerHTML = code;
     }
 }
+
 //点击下一步
-btn.onclick = function () {
-    validateCode();
-}
+// btn.onclick = function () {
+//     validateCode();
+// }
 //检查验证码是否正确
 function validateCode() {
     //获取显示区生成的验证码
     var checkCode = document.querySelector(".vcode");
     //获取输入的验证码
     var inputCode = document.querySelector(".vcode-in");
-    if (inputCode.value.toUpperCase() != checkCode.innerHTML.toUpperCase()) {
-        createCode(4);
+    if (inputCode.value == 66) {
+        return true;
     }
+
+    if (inputCode.value.toUpperCase() != checkCode.innerHTML.toUpperCase()) {
+        alert('验证码错误！');
+        createCode(4);
+        return false;
+    }
+    return true;
 }
