@@ -37,21 +37,22 @@ $imgs[] = $preview;
 //$imgs = $match[0];
 
 
-function getImgs($s){
+function getImgs($s)
+{
     $len = strlen($s);
     $start = 0;
     $step = 0;
     $res = [];
-    for($i =0;$i<$len;$i++){
+    for ($i = 0; $i < $len; $i++) {
 
-        if($s[$i] == '<' && $s[$i+1] == 'i' && $s[$i+2] == 'm' && $s[$i+3] == 'g'){
+        if ($s[$i] == '<' && $s[$i + 1] == 'i' && $s[$i + 2] == 'm' && $s[$i + 3] == 'g') {
             $start = $i;
-            while ($s[++$i] != '>' && $i<$len){
+            while ($s[++$i] != '>' && $i < $len) {
                 $step++;
             }
 //            echo substr($s,$start,$step+2);
-            $ipath = substr($s,$start,$step+2);
-            $ipath = substr_replace($ipath," width=\"400\" height=\"550\" " ,5,0);
+            $ipath = substr($s, $start, $step + 2);
+            $ipath = substr_replace($ipath, " width=\"400\" height=\"550\" ", 5, 0);
 //            die($ipath);
             $res[] = $ipath;
             $step = 0;
@@ -59,14 +60,15 @@ function getImgs($s){
     }
     return $res;
 }
-function getOwner($uid){
+
+function getOwner($uid)
+{
     $db = new DB();
     $res = $db->query("SELECT * FROM `users` WHERE uid = '{$uid}'");
-    if($res == false){
-        require_once ("../include/alert.php");
+    if ($res == false) {
+        require_once("../include/alert.php");
         alt_back("该货主不存");
-    }
-    else{
+    } else {
         return $res->fetch_array(MYSQLI_ASSOC);
     }
 

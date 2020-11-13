@@ -30,7 +30,7 @@ class Goods
      * @param int $type 1:抢购商品 or 2:非抢购商品
      * @param string $tag 商品标签
      */
-    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type, $tag,$owner_id)
+    public function __construct($gid, $name, $priceNow, $priceOld, $description, $preview, $remain, $type, $tag, $owner_id)
     {
         $this->gid = $gid;
         $this->name = $name;
@@ -87,6 +87,7 @@ class Goods
     {
         return $this->tag;
     }
+
     /**
      * @return mixed
      */

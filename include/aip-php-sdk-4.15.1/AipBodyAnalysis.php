@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipBodyAnalysis extends AipBase {
+
+class AipBodyAnalysis extends AipBase
+{
 
     /**
      * 人体关键点识别 body_analysis api url
@@ -66,7 +68,6 @@ class AipBodyAnalysis extends AipBase {
      */
     private $handAnalysisUrl = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/hand_analysis';
 
-    
 
     /**
      * 人体关键点识别接口
@@ -76,10 +77,11 @@ class AipBodyAnalysis extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function bodyAnalysis($image, $options=array()){
+    public function bodyAnalysis($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -96,10 +98,11 @@ class AipBodyAnalysis extends AipBase {
      *   type gender,<br>age,<br>lower_wear,<br>upper_wear,<br>headwear,<br>glasses,<br>upper_color,<br>lower_color,<br>cellphone,<br>upper_wear_fg,<br>upper_wear_texture,<br>lower_wear_texture,<br>orientation,<br>umbrella,<br>bag,<br>smoke,<br>vehicle,<br>carrying_item,<br>upper_cut,<br>lower_cut,<br>occlusion,<br>is_human | 1）可选值说明：<br>gender-性别，<br>age-年龄阶段，<br>lower_wear-下身服饰，<br>upper_wear-上身服饰，<br>headwear-是否戴帽子，<br>glasses-是否戴眼镜，<br>upper_color-上身服饰颜色，<br>lower_color-下身服饰颜色，<br>cellphone-是否使用手机，<br>upper_wear_fg-上身服饰细分类，<br>upper_wear_texture-上身服饰纹理，<br>orientation-身体朝向，<br>umbrella-是否撑伞；<br>bag-背包,<br>smoke-是否吸烟,<br>vehicle-交通工具,<br>carrying_item-是否有手提物,<br>upper_cut-上方截断,<br>lower_cut-下方截断,<br>occlusion-遮挡,<br>is_human-是否是正常人体<br>2）type 参数值可以是可选值的组合，用逗号分隔；**如果无此参数默认输出全部21个属性**
      * @return array
      */
-    public function bodyAttr($image, $options=array()){
+    public function bodyAttr($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -117,10 +120,11 @@ class AipBodyAnalysis extends AipBase {
      *   show 是否输出渲染的图片，默认不返回，**选true时返回渲染后的图片(base64)**，其它无效值或为空则默认false
      * @return array
      */
-    public function bodyNum($image, $options=array()){
+    public function bodyNum($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -136,10 +140,11 @@ class AipBodyAnalysis extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function gesture($image, $options=array()){
+    public function gesture($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -156,10 +161,11 @@ class AipBodyAnalysis extends AipBase {
      *   type 可以通过设置type参数，自主设置返回哪些结果图，避免造成带宽的浪费<br>1）可选值说明：<br>labelmap - 二值图像，需二次处理方能查看分割效果<br>scoremap - 人像前景灰度图<br>foreground - 人像前景抠图，透明背景<br>2）type 参数值可以是可选值的组合，用逗号分隔；如果无此参数默认输出全部3类结果图
      * @return array
      */
-    public function bodySeg($image, $options=array()){
+    public function bodySeg($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -176,10 +182,11 @@ class AipBodyAnalysis extends AipBase {
      *   type smoke,cellphone,<br>not_buckling_up,<br>both_hands_leaving_wheel,<br>not_facing_front |识别的属性行为类别，英文逗号分隔，默认所有属性都识别；<br>smoke //吸烟，<br>cellphone //打手机 ，<br>not_buckling_up // 未系安全带，<br>both_hands_leaving_wheel // 双手离开方向盘，<br>not_facing_front // 视角未看前方
      * @return array
      */
-    public function driverBehavior($image, $options=array()){
+    public function driverBehavior($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -200,10 +207,11 @@ class AipBodyAnalysis extends AipBase {
      *   area 当dynamic为True时，必填；静态人数统计时，只统计区域内的人，缺省时为全图统计。<br>动态人流量统计时，进出区域的人流会被统计。<br>逗号分隔，如‘x1,y1,x2,y2,x3,y3...xn,yn'，按顺序依次给出每个顶点的xy坐标（默认尾点和首点相连），形成闭合多边形区域。<br>服务会做范围（顶点左边需在图像范围内）及个数校验（数组长度必须为偶数，且大于3个顶点）。只支持单个多边形区域，建议设置矩形框，即4个顶点。**坐标取值不能超过图像宽度和高度，比如1280的宽度，坐标值最小建议从1开始，最大到1279**。
      * @return array
      */
-    public function bodyTracking($image, $dynamic, $options=array()){
+    public function bodyTracking($image, $dynamic, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
         $data['dynamic'] = $dynamic;
 
@@ -220,10 +228,11 @@ class AipBodyAnalysis extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function handAnalysis($image, $options=array()){
+    public function handAnalysis($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);

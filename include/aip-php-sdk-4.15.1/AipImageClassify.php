@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipImageClassify extends AipBase {
+
+class AipImageClassify extends AipBase
+{
 
     /**
      * 通用物体识别 advanced_general api url
@@ -141,7 +143,6 @@ class AipImageClassify extends AipBase {
     private $combinationUrl = "https://aip.baidubce.com/api/v1/solution/direct/imagerecognition/combination";
 
 
-
     /**
      * 通用物体识别接口
      *
@@ -151,10 +152,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function advancedGeneral($image, $options=array()){
+    public function advancedGeneral($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -173,10 +175,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function dishDetect($image, $options=array()){
+    public function dishDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -194,10 +197,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function carDetect($image, $options=array()){
+    public function carDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -215,10 +219,11 @@ class AipImageClassify extends AipBase {
      *   area 只统计该区域内的车辆数，缺省时为全图统计。<br>逗号分隔，如‘x1,y1,x2,y2,x3,y3...xn,yn'，按顺序依次给出每个顶点的x、y坐标（默认尾点和首点相连），形成闭合多边形区域。<br>服务会做范围（顶点左边需在图像范围内）及个数校验（数组长度必须为偶数，且大于3个顶点）。只支持单个多边形区域，建议设置矩形框，即4个顶点。**坐标取值不能超过图像宽度和高度，比如1280的宽度，坐标值最大到1279**。
      * @return array
      */
-    public function vehicleDetect($image, $options=array()){
+    public function vehicleDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -234,10 +239,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function vehicleDamage($image, $options=array()){
+    public function vehicleDamage($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -254,10 +260,11 @@ class AipImageClassify extends AipBase {
      *   custom_lib 是否只使用自定义logo库的结果，默认false：返回自定义库+默认库的识别结果
      * @return array
      */
-    public function logoSearch($image, $options=array()){
+    public function logoSearch($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -274,10 +281,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function logoAdd($image, $brief, $options=array()){
+    public function logoAdd($image, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
         $data['brief'] = $brief;
 
@@ -294,10 +302,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function logoDeleteByImage($image, $options=array()){
+    public function logoDeleteByImage($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -313,10 +322,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function logoDeleteBySign($contSign, $options=array()){
+    public function logoDeleteBySign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -334,10 +344,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function animalDetect($image, $options=array()){
+    public function animalDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -354,10 +365,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function plantDetect($image, $options=array()){
+    public function plantDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -374,10 +386,11 @@ class AipImageClassify extends AipBase {
      *   with_face 如果检测主体是人，主体区域是否带上人脸部分，0-不带人脸区域，其他-带人脸区域，裁剪类需求推荐带人脸，检索/识别类需求推荐不带人脸。默认取1，带人脸。
      * @return array
      */
-    public function objectDetect($image, $options=array()){
+    public function objectDetect($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -393,10 +406,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function landmark($image, $options=array()){
+    public function landmark($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -414,10 +428,11 @@ class AipImageClassify extends AipBase {
      *   baike_num 返回百科信息的结果数，默认不返回
      * @return array
      */
-    public function flower($image, $options=array()){
+    public function flower($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -434,10 +449,11 @@ class AipImageClassify extends AipBase {
      *   top_num 返回预测得分top结果数，如果为空或小于等于0默认为5；如果大于20默认20
      * @return array
      */
-    public function ingredient($image, $options=array()){
+    public function ingredient($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -453,10 +469,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function redwine($image, $options=array()){
+    public function redwine($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -472,10 +489,11 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function currency($image, $options=array()){
+    public function currency($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -491,7 +509,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function customDishesAddImage($image, $brief, $options=array()){
+    public function customDishesAddImage($image, $brief, $options = array())
+    {
 
         $data = array();
 
@@ -513,7 +532,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function customDishesSearch($image, $options=array()){
+    public function customDishesSearch($image, $options = array())
+    {
 
         $data = array();
 
@@ -532,7 +552,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function customDishesDeleteImage($image, $options=array()){
+    public function customDishesDeleteImage($image, $options = array())
+    {
 
         $data = array();
 
@@ -544,7 +565,6 @@ class AipImageClassify extends AipBase {
     }
 
 
-
     /**
      * 自定义菜品识别—删除
      *
@@ -553,7 +573,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function customDishesDeleteContSign($contSign, $options=array()){
+    public function customDishesDeleteContSign($contSign, $options = array())
+    {
 
         $data = array();
 
@@ -565,7 +586,6 @@ class AipImageClassify extends AipBase {
     }
 
 
-
     /**
      * 图像多主体检测
      *
@@ -574,7 +594,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function multiObjectDetect($image, $options=array()){
+    public function multiObjectDetect($image, $options = array())
+    {
 
         $data = array();
 
@@ -586,7 +607,6 @@ class AipImageClassify extends AipBase {
     }
 
 
-
     /**
      * 组合接口-image
      *
@@ -595,7 +615,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function combinationByImage($image, $scenes, $options=array()){
+    public function combinationByImage($image, $scenes, $options = array())
+    {
 
         $data = array();
 
@@ -608,7 +629,6 @@ class AipImageClassify extends AipBase {
     }
 
 
-
     /**
      * 组合接口-imageUrl
      *
@@ -617,7 +637,8 @@ class AipImageClassify extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function combinationByImageUrl($imageUrl, $scenes, $options=array()){
+    public function combinationByImageUrl($imageUrl, $scenes, $options = array())
+    {
 
         $data = array();
 
@@ -628,7 +649,6 @@ class AipImageClassify extends AipBase {
 
         return $this->request($this->combinationUrl, json_encode($data), array('Content-Type' => 'application/json;charset=utf-8'));
     }
-
 
 
 }

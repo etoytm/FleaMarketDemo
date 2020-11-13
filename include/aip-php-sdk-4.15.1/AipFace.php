@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipFace extends AipBase {
+
+class AipFace extends AipBase
+{
 
     /**
      * 人脸检测 detect api url
@@ -114,7 +116,6 @@ class AipFace extends AipBase {
      */
     private $videoSessioncodeUrl = 'https://aip.baidubce.com/rest/2.0/face/v1/faceliveness/sessioncode';
 
-    
 
     /**
      * 人脸检测接口
@@ -129,15 +130,16 @@ class AipFace extends AipBase {
      *   liveness_control 活体检测控制  **NONE**: 不进行控制 **LOW**:较低的活体要求(高通过率 低攻击拒绝率) **NORMAL**: 一般的活体要求(平衡的攻击拒绝率, 通过率) **HIGH**: 较高的活体要求(高攻击拒绝率 低通过率) **默认NONE**
      * @return array
      */
-    public function detect($image, $imageType, $options=array()){
+    public function detect($image, $imageType, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
 
         $data = array_merge($data, $options);
-        return $this->request($this->detectUrl, json_encode($data),  array(
+        return $this->request($this->detectUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -158,16 +160,17 @@ class AipFace extends AipBase {
      *   max_user_num 查找后返回的用户数量。返回相似度最高的几个用户，默认为1，最多返回50个。
      * @return array
      */
-    public function search($image, $imageType, $groupIdList, $options=array()){
+    public function search($image, $imageType, $groupIdList, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
         $data['group_id_list'] = $groupIdList;
 
         $data = array_merge($data, $options);
-        return $this->request($this->searchUrl, json_encode($data),  array(
+        return $this->request($this->searchUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -187,16 +190,17 @@ class AipFace extends AipBase {
      *   max_user_num 查找后返回的用户数量。返回相似度最高的几个用户，默认为1，最多返回50个。
      * @return array
      */
-    public function multiSearch($image, $imageType, $groupIdList, $options=array()){
+    public function multiSearch($image, $imageType, $groupIdList, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
         $data['group_id_list'] = $groupIdList;
 
         $data = array_merge($data, $options);
-        return $this->request($this->multiSearchUrl, json_encode($data),  array(
+        return $this->request($this->multiSearchUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -216,17 +220,18 @@ class AipFace extends AipBase {
      *   action_type 操作方式  APPEND: 当user_id在库中已经存在时，对此user_id重复注册时，新注册的图片默认会追加到该user_id下,REPLACE : 当对此user_id重复注册时,则会用新图替换库中该user_id下所有图片,默认使用APPEND
      * @return array
      */
-    public function addUser($image, $imageType, $groupId, $userId, $options=array()){
+    public function addUser($image, $imageType, $groupId, $userId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
         $data['group_id'] = $groupId;
         $data['user_id'] = $userId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->userAddUrl, json_encode($data),  array(
+        return $this->request($this->userAddUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -246,17 +251,18 @@ class AipFace extends AipBase {
      *   action_type 操作方式  APPEND: 当user_id在库中已经存在时，对此user_id重复注册时，新注册的图片默认会追加到该user_id下,REPLACE : 当对此user_id重复注册时,则会用新图替换库中该user_id下所有图片,默认使用APPEND
      * @return array
      */
-    public function updateUser($image, $imageType, $groupId, $userId, $options=array()){
+    public function updateUser($image, $imageType, $groupId, $userId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
         $data['group_id'] = $groupId;
         $data['user_id'] = $userId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->userUpdateUrl, json_encode($data),  array(
+        return $this->request($this->userUpdateUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -271,16 +277,17 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function faceDelete($userId, $groupId, $faceToken, $options=array()){
+    public function faceDelete($userId, $groupId, $faceToken, $options = array())
+    {
 
         $data = array();
-        
+
         $data['user_id'] = $userId;
         $data['group_id'] = $groupId;
         $data['face_token'] = $faceToken;
 
         $data = array_merge($data, $options);
-        return $this->request($this->faceDeleteUrl, json_encode($data),  array(
+        return $this->request($this->faceDeleteUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -294,15 +301,16 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function getUser($userId, $groupId, $options=array()){
+    public function getUser($userId, $groupId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['user_id'] = $userId;
         $data['group_id'] = $groupId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->userGetUrl, json_encode($data),  array(
+        return $this->request($this->userGetUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -316,15 +324,16 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function faceGetlist($userId, $groupId, $options=array()){
+    public function faceGetlist($userId, $groupId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['user_id'] = $userId;
         $data['group_id'] = $groupId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->faceGetlistUrl, json_encode($data),  array(
+        return $this->request($this->faceGetlistUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -339,14 +348,15 @@ class AipFace extends AipBase {
      *   length 返回数量，默认值100，最大值1000
      * @return array
      */
-    public function getGroupUsers($groupId, $options=array()){
+    public function getGroupUsers($groupId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['group_id'] = $groupId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->groupGetusersUrl, json_encode($data),  array(
+        return $this->request($this->groupGetusersUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -361,14 +371,15 @@ class AipFace extends AipBase {
      *   dst_group_id 需要添加用户的组id
      * @return array
      */
-    public function userCopy($userId, $options=array()){
+    public function userCopy($userId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['user_id'] = $userId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->userCopyUrl, json_encode($data),  array(
+        return $this->request($this->userCopyUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -382,15 +393,16 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function deleteUser($groupId, $userId, $options=array()){
+    public function deleteUser($groupId, $userId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['group_id'] = $groupId;
         $data['user_id'] = $userId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->userDeleteUrl, json_encode($data),  array(
+        return $this->request($this->userDeleteUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -403,14 +415,15 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function groupAdd($groupId, $options=array()){
+    public function groupAdd($groupId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['group_id'] = $groupId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->groupAddUrl, json_encode($data),  array(
+        return $this->request($this->groupAddUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -423,14 +436,15 @@ class AipFace extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function groupDelete($groupId, $options=array()){
+    public function groupDelete($groupId, $options = array())
+    {
 
         $data = array();
-        
+
         $data['group_id'] = $groupId;
 
         $data = array_merge($data, $options);
-        return $this->request($this->groupDeleteUrl, json_encode($data),  array(
+        return $this->request($this->groupDeleteUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -444,13 +458,14 @@ class AipFace extends AipBase {
      *   length 返回数量，默认值100，最大值1000
      * @return array
      */
-    public function getGroupList($options=array()){
+    public function getGroupList($options = array())
+    {
 
         $data = array();
-        
+
 
         $data = array_merge($data, $options);
-        return $this->request($this->groupGetlistUrl, json_encode($data),  array(
+        return $this->request($this->groupGetlistUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -468,17 +483,18 @@ class AipFace extends AipBase {
      *   liveness_control 活体检测控制  **NONE**: 不进行控制 **LOW**:较低的活体要求(高通过率 低攻击拒绝率) **NORMAL**: 一般的活体要求(平衡的攻击拒绝率, 通过率) **HIGH**: 较高的活体要求(高攻击拒绝率 低通过率) **默认NONE**
      * @return array
      */
-    public function personVerify($image, $imageType, $idCardNumber, $name, $options=array()){
+    public function personVerify($image, $imageType, $idCardNumber, $name, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = $image;
         $data['image_type'] = $imageType;
         $data['id_card_number'] = $idCardNumber;
         $data['name'] = $name;
 
         $data = array_merge($data, $options);
-        return $this->request($this->personVerifyUrl, json_encode($data),  array(
+        return $this->request($this->personVerifyUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
@@ -491,16 +507,18 @@ class AipFace extends AipBase {
      *   appid 百度云创建应用时的唯一标识ID
      * @return array
      */
-    public function videoSessioncode($options=array()){
+    public function videoSessioncode($options = array())
+    {
 
         $data = array();
-        
+
 
         $data = array_merge($data, $options);
-        return $this->request($this->videoSessioncodeUrl, json_encode($data),  array(
+        return $this->request($this->videoSessioncodeUrl, json_encode($data), array(
             'Content-Type' => 'application/json',
         ));
     }
+
     /**
      * 在线活体检测 faceverify api url
      * @var string
@@ -513,7 +531,8 @@ class AipFace extends AipBase {
      * @param array $images
      * @return array
      */
-    public function faceverify($images){
+    public function faceverify($images)
+    {
 
         return $this->request($this->faceverifyUrl, json_encode($images), array(
             'Content-Type' => 'application/json',
@@ -532,7 +551,8 @@ class AipFace extends AipBase {
      * @param array $images
      * @return array
      */
-    public function match($images){
+    public function match($images)
+    {
 
         return $this->request($this->matchUrl, json_encode($images), array(
             'Content-Type' => 'application/json',

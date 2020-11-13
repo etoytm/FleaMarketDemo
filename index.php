@@ -12,7 +12,7 @@ require_once './controller/goodsManage.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>跳蚤市场</title>
     <link href="css/index.css" rel="stylesheet">
-    <link href="http://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
+    <link href="https://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
     <link href="css/public.css" rel="stylesheet">
     <link href="css/swiper.min.css" rel="stylesheet">
     <script src="js/jquery-3.4.1.js"></script>
@@ -38,7 +38,8 @@ require_once './controller/goodsManage.php';
         <a href="index.php"><img src="images/logo.png"></a>
     </div>
     <div class="search">
-        <input id="key_input" class="search-input" autofocus=" autofocus" type="text" placeholder="请输入你想要搜索的内容" value="">
+        <input id="key_input" class="search-input" autofocus=" autofocus" type="text" placeholder="请输入你想要搜索的内容"
+               value="">
         <button onclick="return search_keyword()"
                 id="search-sea">搜索
         </button>
@@ -52,10 +53,10 @@ require_once './controller/goodsManage.php';
     <div class="nav wrap">
         <a href="shop.html"><span class="nav-li iconfont icon-tubiao1-copy"></span>全部商品分类</a>
         <?php
-            $mass = array('今日烟大','拼车','表白墙','出票','活动组团','拼多多砍一刀');
+        $mass = array('今日烟大', '拼车', '表白墙', '出票', '活动组团', '拼多多砍一刀');
         foreach ($mass as $item) {
-                echo "        <a href=\"seekPage.php?keyword={$item}\">{$item}</a>";
-            }
+            echo "        <a href=\"seekPage.php?keyword={$item}\">{$item}</a>";
+        }
         ?>
     </div>
     <div class="section2-center">
@@ -64,43 +65,43 @@ require_once './controller/goodsManage.php';
             <ul class="left">
                 <?php
                 $tags = [];
-                $tags['生活用品'] = array('水壶','脸盆','水杯');
-                $tags['影票场票'] = array('姜子牙','夺冠','校赛辩论赛门票','蓬莱一日游票');
-                $tags['二手车'] = array('自行车','电瓶车');
+                $tags['生活用品'] = array('水壶', '脸盆', '水杯');
+                $tags['影票场票'] = array('姜子牙', '夺冠', '校赛辩论赛门票', '蓬莱一日游票');
+                $tags['二手车'] = array('自行车', '电瓶车');
                 $tags['美妆彩妆'] = array('大宝SOD');
-                $tags['取快递'] = array('南校','北校','妈妈驿站','菜鸟驿站','快宝驿站','七餐');
-                $tags['砍一刀'] = array('拼多多','双十一叠猫猫','抖音','快手');
-                $tags['拼车'] = array('烟台火车站','烟台南站','蓬莱国际机场','烟大南校区','烟大北校区','东门','新世界','上市里');
+                $tags['取快递'] = array('南校', '北校', '妈妈驿站', '菜鸟驿站', '快宝驿站', '七餐');
+                $tags['砍一刀'] = array('拼多多', '双十一叠猫猫', '抖音', '快手');
+                $tags['拼车'] = array('烟台火车站', '烟台南站', '蓬莱国际机场', '烟大南校区', '烟大北校区', '东门', '新世界', '上市里');
 
                 ?>
-                    <?php
-                        foreach ($tags as $key => $value){
-                            echo "<li class=\"left-sub\">";
-                            echo "<a href=\"seekPage.php?keyword={$key}\"> ".$key."</a>";
-                            ?>
-                            <ul class="left-sub-hid">
-                                <div class="left-hid-s">
-                                    <ul class="hid-box">
-                                        <!--对应商品列表-->
-                                        <?php
-                                        $item = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);
-                                        foreach ($item as $it){
-                                            foreach($value as $v){
-                                                echo "<li><a href=\"seekPage.php?keyword={$v}\"> ".$v;
-                                                echo PHP_EOL;
-                                                echo "</a></li>";
-                                            }
-                                        }
-
-                                        ?>
-
-                                    </ul>
-                                </div>
-                            </ul>
-                    <?php
-                        echo "</li>";
-                        }
+                <?php
+                foreach ($tags as $key => $value) {
+                    echo "<li class=\"left-sub\">";
+                    echo "<a href=\"seekPage.php?keyword={$key}\"> " . $key . "</a>";
                     ?>
+                    <ul class="left-sub-hid">
+                        <div class="left-hid-s">
+                            <ul class="hid-box">
+                                <!--对应商品列表-->
+                                <?php
+                                $item = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+                                foreach ($item as $it) {
+                                    foreach ($value as $v) {
+                                        echo "<li><a href=\"seekPage.php?keyword={$v}\"> " . $v;
+                                        echo PHP_EOL;
+                                        echo "</a></li>";
+                                    }
+                                }
+
+                                ?>
+
+                            </ul>
+                        </div>
+                    </ul>
+                    <?php
+                    echo "</li>";
+                }
+                ?>
 
             </ul>
         </div>
@@ -136,7 +137,7 @@ require_once './controller/goodsManage.php';
         <?php
         $list = getGoodsList();
         foreach ($list as $goods) {
-            if ($goods->getType() == 1){
+            if ($goods->getType() == 1) {
                 $gid = $goods->getGid();
                 echo <<<ETO
                 <li class="rush-item">
@@ -170,8 +171,8 @@ ETO;
         $list = getGoodsList();
 
         foreach ($list as $goods) {
-            if ($goods->getType() == 2){
-                $gid= $goods->getGid();
+            if ($goods->getType() == 2) {
+                $gid = $goods->getGid();
                 echo <<<ETO
             <li class="main"><a href="shopdetail.php?gid={$gid}"><img src={$goods->getPreview()} alt=""></a>
                 <div class="main-detail">
@@ -184,7 +185,7 @@ ETO;
             </li>
 ETO;
                 ?>
-        <?php
+                <?php
             }
         }
         ?>
@@ -195,6 +196,6 @@ ETO;
 <!-- 页脚 -->
 <div class="main-tit">—— <b>END </b>——</div>
 <?php
-require_once ("./include/echo_footer.php");
+require_once("./include/echo_footer.php");
 ?>
 </body>

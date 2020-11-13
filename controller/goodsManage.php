@@ -3,12 +3,14 @@
  * 商品操作，包含添加商品，删除商品，修改商品等...
  */
 //
-function import($path) {
+function import($path)
+{
     $old_dir = getcwd();        // 保存原“参照目录”
     chdir(dirname(__FILE__));    // 将“参照目录”更改为当前脚本的绝对路径
     require_once($path);
     chdir($old_dir);            // 改回原“参照目录”
 }
+
 import('../class/DB.php');
 import('../class/Goods.php');
 
@@ -24,11 +26,12 @@ function addGoods($goods)
     $priceNow = $goods->getPriceNow();
     $priceOld = $goods->getPriceOld();
     $description = $goods->getDescription();
-    $preview = $goods->getPreview();    $remain = $goods->getRemain();
+    $preview = $goods->getPreview();
+    $remain = $goods->getRemain();
     $type = $goods->getType();
     $owner_id = $goods->getOwnerId();
     $tag = $goods->getTag();
-    $post_time = date('Y-m-d H:i:s',time());
+    $post_time = date('Y-m-d H:i:s', time());
     $sql_add = "INSERT INTO `goods`(name, owner_id, price_now, price_old, description, preview, remain, type,tag,post_time) VALUES ('$name','$owner_id', $priceNow, $priceOld, '$description', '$preview', $remain, '$type','$tag','$post_time')";
     $db = new DB();
     return $db->query($sql_add);
@@ -43,9 +46,9 @@ function getGoodsList($id = -1)
     $where = '';
     //时间最新的在前面
     $sql = "SELECT * FROM `goods` ORDER BY post_time DESC ";
-    if($id != -1){
-        $where = " WHERE gid = ".$id;
-        $sql = $sql.$where;
+    if ($id != -1) {
+        $where = " WHERE gid = " . $id;
+        $sql = $sql . $where;
     }
 
     $db = new DB();

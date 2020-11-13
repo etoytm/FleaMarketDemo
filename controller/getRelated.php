@@ -7,14 +7,14 @@
  */
 
 
-function getRelated($tag){
+function getRelated($tag)
+{
     $db = new DB();
     $sql = "SELECT * FROM `goods` WHERE tag = '{$tag}'";
     $res = $db->query($sql);
-    if($res == false){
+    if ($res == false) {
         echo "获取失败";
-    }
-    else{
+    } else {
         return $res;
     }
     return null;

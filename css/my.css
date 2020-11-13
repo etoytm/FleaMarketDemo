@@ -33,7 +33,7 @@ body {
     padding: 10px 0;
 }
 
-.rowlist>li {
+.rowlist > li {
     width: 15%;
     text-align: center;
     border: 1px solid #ccc;
@@ -71,10 +71,11 @@ body {
     background: rgb(228, 228, 228);
 }
 
-.mybtn{
+.mybtn {
     width: 200px;
     margin: 50px auto;
 }
+
 .centerfooter-btn {
     margin-top: 5%;
     background-image: linear-gradient(to right, #846135, #fddd79, #f4bf6a, #e2d377);

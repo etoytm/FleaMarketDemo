@@ -69,6 +69,7 @@
         color: white; /* 字体颜色 */
         font-size: 17px; /* 字体大小 */
     }
+
     .sendButton:hover { /* 鼠标移入按钮范围时改变颜色 */
         background: #5599FF;
     }
@@ -77,7 +78,7 @@
 <!-----header部分------->
 <?php
 require_once("./include/echo_header.php");
-$gid= $_GET['gid'];
+$gid = $_GET['gid'];
 require_once("./controller/getDetail.php");
 ?>
 <!-----logo_search部分------->
@@ -91,16 +92,18 @@ require_once("./controller/getDetail.php");
 </div>
 <!-----主导航部分------->
 <style>
-    .mynav{
+    .mynav {
         height: 30px;
     }
-    .mynav a{
+
+    .mynav a {
         display: inline-block;
         width: 10%;
         font-size: 15px;
         line-height: 30px;
     }
-    .mynav a:hover{
+
+    .mynav a:hover {
         background-color: #00a0e9;
         color: darkblue;
     }
@@ -108,10 +111,10 @@ require_once("./controller/getDetail.php");
 <div class="bottom">
     <div style="text-align: center;align-items: center;" class="mynav">
         <?php
-            $show = array('生活用品','影票场票','二手车','取快递','拼车');
-            foreach ($show as $s){
-                echo   "<a href=\"seekPage.php?keyword={$s}\">{$s}</a>";
-            }
+        $show = array('生活用品', '影票场票', '二手车', '取快递', '拼车');
+        foreach ($show as $s) {
+            echo "<a href=\"seekPage.php?keyword={$s}\">{$s}</a>";
+        }
         ?>
     </div>
 </div>
@@ -124,12 +127,12 @@ require_once("./controller/getDetail.php");
     <!-------放大镜-------->
     <div id="leftbox">
         <div id="showbox">
-<!--            --><?php
+            <!--            --><?php
             foreach ($imgs as $img) {
-                echo "<img width= \"400\" height=\"550\" src=".$img." >";
+                echo "<img width= \"400\" height=\"550\" src=" . $img . " >";
                 echo PHP_EOL;
             }
-//            ?>
+            //            ?>
 
 
         </div><!--展示图片盒子-->
@@ -149,8 +152,9 @@ require_once("./controller/getDetail.php");
         <p class="price">二手价：<samp>￥<?php echo $price_now; ?></samp></p>
         <p class="">货主说：</p>
 
-        <div class="clear"><?php echo $description?></div>
-        <p class="buy"> <a href="#" id="firstbuy">立即购买 </a><a href="tencent://message/?uin=<?php  echo $qq;?>&Site=&Menu=yes">询问货主</a></p>
+        <div class="clear"><?php echo $description ?></div>
+        <p class="buy"><a href="#" id="firstbuy">立即购买 </a><a
+                    href="tencent://message/?uin=<?php echo $qq; ?>&Site=&Menu=yes">询问货主</a></p>
         <div class="clear">
         </div>
 
@@ -164,22 +168,22 @@ require_once("./controller/getDetail.php");
     <div class="rightbox">
         <p class="name">——相关</p>
         <?php
-            require_once ("./controller/getRelated.php");
-            $res = getRelated($tag);
-            $i = 0;
-            while ($arr =mysqli_fetch_assoc($res)){
-                if($i++ == 3){
-                    break;
-                }
-                ?>
-                <a href="shopdetail.php?gid=<?php echo $arr['gid']?>"><img src=<?php echo $arr['preview']?> width="160" height="160"></a>
-
-                <p>￥<?php echo $arr['price_now']?>元</p>
-        <?php
+        require_once("./controller/getRelated.php");
+        $res = getRelated($tag);
+        $i = 0;
+        while ($arr = mysqli_fetch_assoc($res)) {
+            if ($i++ == 3) {
+                break;
             }
+            ?>
+            <a href="shopdetail.php?gid=<?php echo $arr['gid'] ?>"><img src=<?php echo $arr['preview'] ?> width="160"
+                                                                        height="160"></a>
+
+            <p>￥<?php echo $arr['price_now'] ?>元</p>
+            <?php
+        }
 
         ?>
-
 
 
     </div>
@@ -192,9 +196,9 @@ require_once("./controller/getDetail.php");
     <div class="classify">
         <div class="shopim">
             <?php
-                require_once ("./controller/userManage.php");
-                $ownerInfo = getUserArrByGid($_GET['gid']);
-                echo <<<ETO
+            require_once("./controller/userManage.php");
+            $ownerInfo = getUserArrByGid($_GET['gid']);
+            echo <<<ETO
             <p class="name">
                 <img style="width:30px; height:30px; border-radius:50%;" src="{$ownerInfo['head']}" >
                 {$ownerInfo['nick']}
@@ -220,7 +224,6 @@ ETO;
         </div>
 
 
-
     </div>
 
 
@@ -232,22 +235,24 @@ ETO;
         </ul>
 
         <div class="panelContainer">
-<!--            评论-->
+            <!--            评论-->
             <div class="panel" id="panel01">
-                <form action="controller/sendComment.php?gid=<?php echo $_GET['gid'];?>&ctype=comment" method="POST">
-                    <textarea name="text" style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 100px;padding: 10px;resize: none;" placeholder="询价备注（尺寸、材质等）"></textarea>
+                <form action="controller/sendComment.php?gid=<?php echo $_GET['gid']; ?>&ctype=comment" method="POST">
+                    <textarea name="text"
+                              style="border:0;border-radius:5px;background-color:rgba(241,241,241,.98);width: 355px;height: 100px;padding: 10px;resize: none;"
+                              placeholder="询价备注（尺寸、材质等）"></textarea>
                     <input type="submit" value="发布" class="sendButton">
                 </form>
                 <?php
-                    require_once ("./controller/getComments.php");
-                    $res = getComments($_GET['gid']);
-                    $commentsNum = mysqli_num_rows($res);
+                require_once("./controller/getComments.php");
+                $res = getComments($_GET['gid']);
+                $commentsNum = mysqli_num_rows($res);
                 ?>
-                <p class="judge">全部评论(<?php echo $commentsNum;?>)<span></span></p>
+                <p class="judge">全部评论(<?php echo $commentsNum; ?>)<span></span></p>
 
                 <?php
-                    while ($arr = mysqli_fetch_assoc($res)){
-                        echo <<<ETO
+                while ($arr = mysqli_fetch_assoc($res)) {
+                    echo <<<ETO
                 <div style="height: 180px" class="judge01">
                     <div class="idimg"><img style="width:48.99px; height:48.99px; border-radius:50%;" width="48.99" height="48.99" src="{$arr['head']}"></div>
                     <div class="write">
@@ -260,10 +265,8 @@ ETO;
                 </div>                
 ETO;
 
-                    }
+                }
                 ?>
-
-
 
 
                 <div class="judge01">
@@ -279,15 +282,15 @@ ETO;
                 </div>
             </div>
 
-<!--            历史发布-->
+            <!--            历史发布-->
             <div class="panel" id="panel02">
 
                 <p class="sell">发布的</p>
                 <div class="com">
                     <?php
-                    require_once ("./controller/getPostHistory.php");
+                    require_once("./controller/getPostHistory.php");
                     $res = getPostHistoryByGid($_GET['gid']);
-                    while ($arr = mysqli_fetch_assoc($res)){
+                    while ($arr = mysqli_fetch_assoc($res)) {
                         echo <<<ETO
                     <a href="shopdetail.php?gid={$arr['gid']}" class="ex01">
                         <figure>
@@ -302,7 +305,6 @@ ETO;
 
                     }
                     ?>
-
 
 
                 </div>

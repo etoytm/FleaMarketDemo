@@ -7,8 +7,9 @@
  */
 
 
-function getSeek($keyword){
-    if($keyword == null){
+function getSeek($keyword)
+{
+    if ($keyword == null) {
         return null;
     }
     import("../class/DB.php");
@@ -16,10 +17,9 @@ function getSeek($keyword){
     //全表查找子串
     $sql = "SELECT * FROM `goods` WHERE description LIKE '%{$keyword}%' OR name LIKE '%{$keyword}%' OR tag LIKE '%{$keyword}%' ";
     $res = $db->query($sql);
-    if($res == false){
+    if ($res == false) {
         return "无法链接到数据库";
-    }
-    else{
+    } else {
         return $res;
     }
 }

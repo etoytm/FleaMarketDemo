@@ -6,7 +6,8 @@
 ul, ol, li {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
@@ -49,26 +50,29 @@ img {
     font-style: italic;
     padding: 5px;
 }
-.center2-lif1{
+
+.center2-lif1 {
     width: 30%;
     border: 1px solid #f7cd7a;
     border-radius: 16px;
     position: relative;
 }
-.center2-btn{
+
+.center2-btn {
     position: absolute;
     bottom: 20px;
     left: 25%;
-    background-image: linear-gradient(to right,#846135,#fddd79,#f4bf6a,#e2d377);
+    background-image: linear-gradient(to right, #846135, #fddd79, #f4bf6a, #e2d377);
     border-radius: 18px;
 }
 
-.centerfooter-btn{
+.centerfooter-btn {
     margin-top: 5%;
-    background-image: linear-gradient(to right,#846135,#fddd79,#f4bf6a,#e2d377);
+    background-image: linear-gradient(to right, #846135, #fddd79, #f4bf6a, #e2d377);
     border-radius: 18px;
 }
-.centerfooter-btn a{
+
+.centerfooter-btn a {
     text-align: center;
     color: #000;
     width: 100%;
@@ -77,25 +81,26 @@ img {
     display: inline-block;
     padding: 2px 10px;
 }
-.centerfooter-btn:hover a{
+
+.centerfooter-btn:hover a {
     color: #fff;
 }
 
-.center2-btn:hover a{
+.center2-btn:hover a {
     color: #fff;
 }
-.center2-btn a{
+
+.center2-btn a {
     color: #000;
     font-size: 24px;
     display: inline-block;
     padding: 2px 10px;
 }
 
-.center2{
+.center2 {
     display: flex;
     justify-content: space-around;
 }
-
 
 
 .grid {
@@ -108,7 +113,7 @@ img {
     flex-wrap: wrap;
 }
 
-.grid>li {
+.grid > li {
     width: 33%;
     height: 32.5%;
     position: relative;

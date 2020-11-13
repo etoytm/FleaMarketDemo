@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ('./include/online.php');
+require_once('./include/online.php');
 offline_alert();
 ?>
 <!DOCTYPE html>
@@ -8,27 +8,27 @@ offline_alert();
 <head>
 
     <!--  写作编辑框 的css  BEGIN-->
-    <meta name="viewport" description="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" description="ie=edge" />
+    <meta name="viewport" description="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" description="ie=edge"/>
     <link rel="shortcut icon" href="./admin/assets/img/logo.jpg" type="image/x-icon">
-    <link href="./css/ueditorcss/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./css/ueditorcss/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="./css/ueditorcss/css/weather-icons.min.css" rel="stylesheet" />
-    <link id="beyond-link" href="./css/ueditorcss/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="./css/ueditorcss/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./css/ueditorcss/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="./css/ueditorcss/css/weather-icons.min.css" rel="stylesheet"/>
+    <link id="beyond-link" href="./css/ueditorcss/css/beyond.min.css" rel="stylesheet" type="text/css"/>
     <!--  写作编辑框 的css  END-->
     <meta charset="UTF-8">
     <title>发布二手</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
     <link rel="stylesheet" href="./css/style.css">
-<!--    <link rel="stylesheet" href="./css/ueditorcss/css/style.css">-->
-<!--    <link rel="stylesheet" href="./css/ueditorcss/css/write.css">-->
+    <!--    <link rel="stylesheet" href="./css/ueditorcss/css/style.css">-->
+    <!--    <link rel="stylesheet" href="./css/ueditorcss/css/write.css">-->
 
 </head>
 
 <body>
 <!--导航-->
 <?php
-    require_once ('./include/echo_header.php');
+require_once('./include/echo_header.php');
 ?>
 <div class="m-padded-tb-max">
     <div class="ui container">
@@ -48,7 +48,8 @@ offline_alert();
                                     <div class="widget-body">
                                         <form action="controller/postGood.php" method="post" class="form-horizontal">
                                             <div style="width: 100px;">
-                                                <input name="tag" style="margin-left = 50px;float: left;" class="form-control" list="tag"     placeholder="选择发布类型"/>
+                                                <input name="tag" style="margin-left = 50px;float: left;"
+                                                       class="form-control" list="tag" placeholder="选择发布类型"/>
                                                 <datalist id="tag">
                                                     <option value="生活用品">
                                                     <option value="影票场票">
@@ -57,7 +58,8 @@ offline_alert();
                                                     <option value="砍并夕夕">
                                                     <option value="拼车组团">
                                                 </datalist>
-                                                <input name="price_now" style="margin-left = 50px;float: right;" class="form-control" list="price_now"     placeholder="出手价"/>
+                                                <input name="price_now" style="margin-left = 50px;float: right;"
+                                                       class="form-control" list="price_now" placeholder="出手价"/>
                                                 <datalist id="price_now">
                                                     <option value="0.5">
                                                     <option value="1">
@@ -67,7 +69,8 @@ offline_alert();
                                                     <option value="50">
                                                     <option value="议价">
                                                 </datalist>
-                                                <input name="price_old" style="margin-left = 50px;float: right;" class="form-control" list="price_old"     placeholder="入手价"/>
+                                                <input name="price_old" style="margin-left = 50px;float: right;"
+                                                       class="form-control" list="price_old" placeholder="入手价"/>
                                                 <datalist id="price_old">
                                                     <option value="20">
                                                     <option value="50">
@@ -77,22 +80,26 @@ offline_alert();
                                             <div class="form-group">
                                                 <label for="title" class="control-label col-sm-2">标题</label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" class="form-control" id="title" name="title" placeholder="出二手自行车八成新" />
+                                                    <input type="text" class="form-control" id="title" name="title"
+                                                           placeholder="出二手自行车八成新"/>
                                                 </div>
 
                                             </div>
 
-                                            <div  class="form-group">
+                                            <div class="form-group">
                                                 <label for="description" class="control-label col-sm-2">详细信息</label>
                                                 <div class="col-sm-6">
-                                                    <textarea style="width: 600px; height: 350px" name="description" id="description" cols="60" rows="10" class=""></textarea>
+                                                    <textarea style="width: 600px; height: 350px" name="description"
+                                                              id="description" cols="60" rows="10" class=""></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-6">
                                                     <!--                                                    <button class="btn btn-primary">添加</button>-->
-                                                    <input style="background-color: #00a0e9;width: 50px;" type="submit" value="发布">
-                                                    <label for=""><input type="checkbox" name="type">紧急发布(将会置顶显示)</label>
+                                                    <input style="background-color: #00a0e9;width: 50px;" type="submit"
+                                                           value="发布">
+                                                    <label for=""><input type="checkbox"
+                                                                         name="type">紧急发布(将会置顶显示)</label>
 
                                                 </div>
                                             </div>
@@ -104,8 +111,6 @@ offline_alert();
                     </div>
 
 
-
-
                 </div>
 
                 <!--市场底部-->
@@ -114,12 +119,12 @@ offline_alert();
             <!--右边-->
             <div class="five wide column">
                 <?php
-                    require_once ("./controller/getPostHistory.php");
-                    require_once ("./class/DB.php");
-                    session_start();
-                    $res = getPostHistoryByUid($_SESSION['uid']);
-                    while ($arr = mysqli_fetch_assoc($res)){
-                        echo <<<ETO
+                require_once("./controller/getPostHistory.php");
+                require_once("./class/DB.php");
+                session_start();
+                $res = getPostHistoryByUid($_SESSION['uid']);
+                while ($arr = mysqli_fetch_assoc($res)) {
+                    echo <<<ETO
                 <div class="ui segments">
                     <div class="ui secondary segment">
                         <div class="ui two column grid">
@@ -137,12 +142,10 @@ offline_alert();
                 </div>
 ETO;
 
-                    }
+                }
 
 
                 ?>
-
-
 
 
             </div>
@@ -151,7 +154,7 @@ ETO;
 </div>
 <!--底部-->
 <?php
-    require_once ("./include/echo_footer.php")
+require_once("./include/echo_footer.php")
 ?>
 <!--begin-->
 

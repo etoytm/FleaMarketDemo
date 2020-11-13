@@ -20,6 +20,7 @@ require_once 'AipImageCensor.php';
 /**
  * 内容审核
  */
-class AipContentCensor extends AipImageCensor{
+class AipContentCensor extends AipImageCensor
+{
 
 }

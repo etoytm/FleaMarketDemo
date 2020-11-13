@@ -20,7 +20,8 @@ require_once 'lib/AipBase.php';
 /**
  * 黄反识别
  */
-class AipImageCensor extends AipBase{
+class AipImageCensor extends AipBase
+{
 
     /**
      * @var string
@@ -34,34 +35,36 @@ class AipImageCensor extends AipBase{
 
 
     /**
-     * @param  string $image 图像
+     * @param string $image 图像
      * @return array
      */
-    public function imageCensorUserDefined($image){
-        
+    public function imageCensorUserDefined($image)
+    {
+
         $data = array();
 
         $isUrl = substr(trim($image), 0, 4) === 'http';
-        if(!$isUrl){
+        if (!$isUrl) {
             $data['image'] = base64_encode($image);
-        }else{
+        } else {
             $data['imgUrl'] = $image;
         }
 
-        return $this->request($this->imageCensorUserDefinedUrl, $data);     
+        return $this->request($this->imageCensorUserDefinedUrl, $data);
     }
 
     /**
-     * @param  string $text
+     * @param string $text
      * @return array
      */
-    public function textCensorUserDefined($text){
-        
+    public function textCensorUserDefined($text)
+    {
+
         $data = array();
 
         $data['text'] = $text;
 
-        return $this->request($this->textCensorUserDefinedUrl, $data);     
+        return $this->request($this->textCensorUserDefinedUrl, $data);
     }
 
 }

@@ -18,7 +18,8 @@
     transition: all .4s;
     cursor: pointer;
 }
-.form:hover{
+
+.form:hover {
     transform: scale(1.05);
 }
 
@@ -51,11 +52,10 @@
     box-shadow: 0 4px 8px #ccc;
 }
 
-.form-form>h3 {
+.form-form > h3 {
     color: rgb(78, 78, 78);
     margin: 30px 10px;
 }
-
 
 
 .form input {

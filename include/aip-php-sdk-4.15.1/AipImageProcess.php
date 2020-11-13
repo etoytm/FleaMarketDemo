@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipImageProcess extends AipBase {
+
+class AipImageProcess extends AipBase
+{
 
     /**
      * 图像无损放大 image_quality_enhance api url
@@ -88,10 +90,11 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function imageQualityEnhance($image, $options=array()){
+    public function imageQualityEnhance($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -107,10 +110,11 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function dehaze($image, $options=array()){
+    public function dehaze($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -126,10 +130,11 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function contrastEnhance($image, $options=array()){
+    public function contrastEnhance($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -145,10 +150,11 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function colourize($image, $options=array()){
+    public function colourize($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -164,10 +170,11 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function stretchRestore($image, $options=array()){
+    public function stretchRestore($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -184,7 +191,8 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function selfieAnime($image, $options=array()){
+    public function selfieAnime($image, $options = array())
+    {
 
         $data = array();
 
@@ -204,7 +212,8 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function imageDefinitionEnhance($image, $options=array()){
+    public function imageDefinitionEnhance($image, $options = array())
+    {
 
         $data = array();
 
@@ -224,7 +233,8 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function __styleTrans($image, $options=array()){
+    public function __styleTrans($image, $options = array())
+    {
 
         $data = array();
 
@@ -244,7 +254,8 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function skySeg($image, $options=array()){
+    public function skySeg($image, $options = array())
+    {
 
         $data = array();
 
@@ -264,7 +275,8 @@ class AipImageProcess extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function inpaintingByMask($image, $rectangle, $options=array()){
+    public function inpaintingByMask($image, $rectangle, $options = array())
+    {
 
         $data = array();
 

@@ -1,9 +1,11 @@
 body {
     text-align: center;
 }
-.title{
+
+.title {
     font-size: 90px;
 }
+
 #article_title {
     margin: 0 auto;
     border: 1px solid #000;

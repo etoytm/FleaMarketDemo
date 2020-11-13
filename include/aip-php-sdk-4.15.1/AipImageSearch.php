@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipImageSearch extends AipBase {
+
+class AipImageSearch extends AipBase
+{
 
     /**
      * 相同图检索—入库 same_hq_add api url
@@ -116,8 +118,6 @@ class AipImageSearch extends AipBase {
     private $picturebookUpdate = "https://aip.baidubce.com/rest/2.0/imagesearch/v1/realtime_search/picturebook/update";
 
 
-
-
     /**
      * 相同图检索—入库接口
      *
@@ -128,10 +128,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function sameHqAdd($image, $brief, $options=array()){
+    public function sameHqAdd($image, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
         $data['brief'] = $brief;
 
@@ -150,10 +151,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function sameHqAddUrl($url, $brief, $options=array()){
+    public function sameHqAddUrl($url, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
         $data['brief'] = $brief;
 
@@ -174,10 +176,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function sameHqSearch($image, $options=array()){
+    public function sameHqSearch($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -197,10 +200,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function sameHqSearchUrl($url, $options=array()){
+    public function sameHqSearchUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -218,10 +222,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function sameHqUpdate($image, $options=array()){
+    public function sameHqUpdate($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -239,10 +244,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function sameHqUpdateUrl($url, $options=array()){
+    public function sameHqUpdateUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -260,10 +266,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function sameHqUpdateContSign($contSign, $options=array()){
+    public function sameHqUpdateContSign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -279,10 +286,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function sameHqDeleteByImage($image, $options=array()){
+    public function sameHqDeleteByImage($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -298,10 +306,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function sameHqDeleteByUrl($url, $options=array()){
+    public function sameHqDeleteByUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -317,10 +326,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function sameHqDeleteBySign($contSign, $options=array()){
+    public function sameHqDeleteBySign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -338,10 +348,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function similarAdd($image, $brief, $options=array()){
+    public function similarAdd($image, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
         $data['brief'] = $brief;
 
@@ -360,10 +371,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function similarAddUrl($url, $brief, $options=array()){
+    public function similarAddUrl($url, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
         $data['brief'] = $brief;
 
@@ -384,10 +396,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function similarSearch($image, $options=array()){
+    public function similarSearch($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -407,10 +420,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function similarSearchUrl($url, $options=array()){
+    public function similarSearchUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -428,10 +442,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function similarUpdate($image, $options=array()){
+    public function similarUpdate($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -449,10 +464,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function similarUpdateUrl($url, $options=array()){
+    public function similarUpdateUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -470,10 +486,11 @@ class AipImageSearch extends AipBase {
      *   tags 1 - 65535范围内的整数，tag间以逗号分隔，最多2个tag。样例："100,11" ；检索时可圈定分类维度进行检索
      * @return array
      */
-    public function similarUpdateContSign($contSign, $options=array()){
+    public function similarUpdateContSign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -489,10 +506,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function similarDeleteByImage($image, $options=array()){
+    public function similarDeleteByImage($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -508,10 +526,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function similarDeleteByUrl($url, $options=array()){
+    public function similarDeleteByUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -527,10 +546,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function similarDeleteBySign($contSign, $options=array()){
+    public function similarDeleteBySign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -549,10 +569,11 @@ class AipImageSearch extends AipBase {
      *   class_id2 商品分类维度1，支持1-65535范围内的整数。检索时可圈定该分类维度进行检索
      * @return array
      */
-    public function productAdd($image, $brief, $options=array()){
+    public function productAdd($image, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
         $data['brief'] = $brief;
 
@@ -572,10 +593,11 @@ class AipImageSearch extends AipBase {
      *   class_id2 商品分类维度1，支持1-65535范围内的整数。检索时可圈定该分类维度进行检索
      * @return array
      */
-    public function productAddUrl($url, $brief, $options=array()){
+    public function productAddUrl($url, $brief, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
         $data['brief'] = $brief;
 
@@ -596,10 +618,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function productSearch($image, $options=array()){
+    public function productSearch($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -619,10 +642,11 @@ class AipImageSearch extends AipBase {
      *   rn 分页功能，截取条数，例：250
      * @return array
      */
-    public function productSearchUrl($url, $options=array()){
+    public function productSearchUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -641,10 +665,11 @@ class AipImageSearch extends AipBase {
      *   class_id2 更新的商品分类2，支持1-65535范围内的整数。
      * @return array
      */
-    public function productUpdate($image, $options=array()){
+    public function productUpdate($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -663,10 +688,11 @@ class AipImageSearch extends AipBase {
      *   class_id2 更新的商品分类2，支持1-65535范围内的整数。
      * @return array
      */
-    public function productUpdateUrl($url, $options=array()){
+    public function productUpdateUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -685,10 +711,11 @@ class AipImageSearch extends AipBase {
      *   class_id2 更新的商品分类2，支持1-65535范围内的整数。
      * @return array
      */
-    public function productUpdateContSign($contSign, $options=array()){
+    public function productUpdateContSign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
@@ -704,10 +731,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function productDeleteByImage($image, $options=array()){
+    public function productDeleteByImage($image, $options = array())
+    {
 
         $data = array();
-        
+
         $data['image'] = base64_encode($image);
 
         $data = array_merge($data, $options);
@@ -723,10 +751,11 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function productDeleteByUrl($url, $options=array()){
+    public function productDeleteByUrl($url, $options = array())
+    {
 
         $data = array();
-        
+
         $data['url'] = $url;
 
         $data = array_merge($data, $options);
@@ -742,17 +771,17 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function productDeleteBySign($contSign, $options=array()){
+    public function productDeleteBySign($contSign, $options = array())
+    {
 
         $data = array();
-        
+
         $data['cont_sign'] = $contSign;
 
         $data = array_merge($data, $options);
 
         return $this->request($this->productDeleteUrl, $data);
     }
-
 
 
     /**
@@ -764,7 +793,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookAddImage($image, $brief, $options=array())
+    public function pictureBookAddImage($image, $brief, $options = array())
     {
         $data = array();
         $data['image'] = base64_encode($image);
@@ -782,7 +811,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookAddUrl($url, $brief, $options=array())
+    public function pictureBookAddUrl($url, $brief, $options = array())
     {
         $data = array();
         $data['url'] = $url;
@@ -799,7 +828,8 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookSearchImage($image, $options=array()) {
+    public function pictureBookSearchImage($image, $options = array())
+    {
         $data = array();
         $data['image'] = base64_encode($image);
         $data = array_merge($data, $options);
@@ -815,7 +845,8 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookSearchUrl($url, $options=array()) {
+    public function pictureBookSearchUrl($url, $options = array())
+    {
         $data = array();
         $data['url'] = $url;
         $data = array_merge($data, $options);
@@ -830,7 +861,8 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookUpdate($image, $options=array()) {
+    public function pictureBookUpdate($image, $options = array())
+    {
         $data = array();
         $data['image'] = base64_encode($image);
         $data = array_merge($data, $options);
@@ -845,7 +877,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookUpdateUrl($url, $options=array())
+    public function pictureBookUpdateUrl($url, $options = array())
     {
         $data = array();
         $data['url'] = $url;
@@ -861,7 +893,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookUpdateContSign($contSign, $options=array())
+    public function pictureBookUpdateContSign($contSign, $options = array())
     {
         $data = array();
         $data['cont_sign'] = $contSign;
@@ -877,7 +909,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookDeleteByImage($image, $options=array())
+    public function pictureBookDeleteByImage($image, $options = array())
     {
         $data = array();
         $data['image'] = base64_encode($image);
@@ -894,7 +926,7 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookDeleteByUrl($url, $options=array())
+    public function pictureBookDeleteByUrl($url, $options = array())
     {
         $data = array();
         $data['url'] = $url;
@@ -909,22 +941,13 @@ class AipImageSearch extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function  pictureBookDeleteBySign($contSign, $options=array())
+    public function pictureBookDeleteBySign($contSign, $options = array())
     {
         $data = array();
         $data['cont_sign'] = $contSign;
         $data = array_merge($data, $options);
         return $this->request($this->picturebookDelete, $data);
     }
-
-
-
-
-
-
-
-
-
 
 
 }

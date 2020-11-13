@@ -17,7 +17,8 @@
 
 require_once 'AipBase.php';
 
-class AipOcr extends AipBase {
+class AipOcr extends AipBase
+{
 
     /**
      * 通用文字识别 general_basic api url
@@ -272,7 +273,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function basicGeneral($image, $options=array()){
+    public function basicGeneral($image, $options = array())
+    {
 
         $data = array();
 
@@ -295,7 +297,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function basicGeneralUrl($url, $options=array()){
+    public function basicGeneralUrl($url, $options = array())
+    {
 
         $data = array();
 
@@ -316,7 +319,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function basicAccurate($image, $options=array()){
+    public function basicAccurate($image, $options = array())
+    {
 
         $data = array();
 
@@ -341,7 +345,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function general($image, $options=array()){
+    public function general($image, $options = array())
+    {
 
         $data = array();
 
@@ -366,7 +371,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function generalUrl($url, $options=array()){
+    public function generalUrl($url, $options = array())
+    {
 
         $data = array();
 
@@ -389,7 +395,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function accurate($image, $options=array()){
+    public function accurate($image, $options = array())
+    {
 
         $data = array();
 
@@ -412,7 +419,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function enhancedGeneral($image, $options=array()){
+    public function enhancedGeneral($image, $options = array())
+    {
 
         $data = array();
 
@@ -435,7 +443,8 @@ class AipOcr extends AipBase {
      *   probability 是否返回识别结果中每一行的置信度
      * @return array
      */
-    public function enhancedGeneralUrl($url, $options=array()){
+    public function enhancedGeneralUrl($url, $options = array())
+    {
 
         $data = array();
 
@@ -456,7 +465,8 @@ class AipOcr extends AipBase {
      *   detect_language 是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）
      * @return array
      */
-    public function webImage($image, $options=array()){
+    public function webImage($image, $options = array())
+    {
 
         $data = array();
 
@@ -477,7 +487,8 @@ class AipOcr extends AipBase {
      *   detect_language 是否检测语言，默认不检测。当前支持（中文、英语、日语、韩语）
      * @return array
      */
-    public function webImageUrl($url, $options=array()){
+    public function webImageUrl($url, $options = array())
+    {
 
         $data = array();
 
@@ -499,7 +510,8 @@ class AipOcr extends AipBase {
      *   detect_risk 是否开启身份证风险类型(身份证复印件、临时身份证、身份证翻拍、修改过的身份证)功能，默认不开启，即：false。可选值:true-开启；false-不开启
      * @return array
      */
-    public function idcard($image, $idCardSide, $options=array()){
+    public function idcard($image, $idCardSide, $options = array())
+    {
 
         $data = array();
 
@@ -519,7 +531,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function bankcard($image, $options=array()){
+    public function bankcard($image, $options = array())
+    {
 
         $data = array();
 
@@ -539,7 +552,8 @@ class AipOcr extends AipBase {
      *   detect_direction 是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。
      * @return array
      */
-    public function drivingLicense($image, $options=array()){
+    public function drivingLicense($image, $options = array())
+    {
 
         $data = array();
 
@@ -560,7 +574,8 @@ class AipOcr extends AipBase {
      *   accuracy normal 使用快速服务，1200ms左右时延；缺省或其它值使用高精度服务，1600ms左右时延
      * @return array
      */
-    public function vehicleLicense($image, $options=array()){
+    public function vehicleLicense($image, $options = array())
+    {
 
         $data = array();
 
@@ -580,7 +595,8 @@ class AipOcr extends AipBase {
      *   multi_detect 是否检测多张车牌，默认为false，当置为true的时候可以对一张图片内的多张车牌进行识别
      * @return array
      */
-    public function licensePlate($image, $options=array()){
+    public function licensePlate($image, $options = array())
+    {
 
         $data = array();
 
@@ -599,7 +615,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function businessLicense($image, $options=array()){
+    public function businessLicense($image, $options = array())
+    {
 
         $data = array();
 
@@ -622,7 +639,8 @@ class AipOcr extends AipBase {
      *   detect_direction 是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。
      * @return array
      */
-    public function receipt($image, $options=array()){
+    public function receipt($image, $options = array())
+    {
 
         $data = array();
 
@@ -641,7 +659,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function trainTicket($image, $options=array()){
+    public function trainTicket($image, $options = array())
+    {
 
         $data = array();
 
@@ -660,7 +679,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function taxiReceipt($image, $options=array()){
+    public function taxiReceipt($image, $options = array())
+    {
 
         $data = array();
 
@@ -679,7 +699,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function form($image, $options=array()){
+    public function form($image, $options = array())
+    {
 
         $data = array();
 
@@ -698,7 +719,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function tableRecognitionAsync($image, $options=array()){
+    public function tableRecognitionAsync($image, $options = array())
+    {
 
         $data = array();
 
@@ -718,7 +740,8 @@ class AipOcr extends AipBase {
      *   result_type 期望获取结果的类型，取值为“excel”时返回xls文件的地址，取值为“json”时返回json格式的字符串,默认为”excel”
      * @return array
      */
-    public function getTableRecognitionResult($requestId, $options=array()){
+    public function getTableRecognitionResult($requestId, $options = array())
+    {
 
         $data = array();
 
@@ -737,7 +760,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function vinCode($image, $options=array()){
+    public function vinCode($image, $options = array())
+    {
 
         $data = array();
 
@@ -756,7 +780,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function quotaInvoice($image, $options=array()){
+    public function quotaInvoice($image, $options = array())
+    {
 
         $data = array();
 
@@ -775,7 +800,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function householdRegister($image, $options=array()){
+    public function householdRegister($image, $options = array())
+    {
 
         $data = array();
 
@@ -794,7 +820,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function HKMacauExitentrypermit($image, $options=array()){
+    public function HKMacauExitentrypermit($image, $options = array())
+    {
 
         $data = array();
 
@@ -813,7 +840,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function taiwanExitentrypermit($image, $options=array()){
+    public function taiwanExitentrypermit($image, $options = array())
+    {
 
         $data = array();
 
@@ -832,7 +860,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function birthCertificate($image, $options=array()){
+    public function birthCertificate($image, $options = array())
+    {
 
         $data = array();
 
@@ -851,7 +880,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function vehicleInvoice($image, $options=array()){
+    public function vehicleInvoice($image, $options = array())
+    {
 
         $data = array();
 
@@ -870,7 +900,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function vehicleCertificate($image, $options=array()){
+    public function vehicleCertificate($image, $options = array())
+    {
 
         $data = array();
 
@@ -890,7 +921,8 @@ class AipOcr extends AipBase {
      *   location 是否输出位置信息，true：输出位置信息，false：不输出位置信息，默认false
      * @return array
      */
-    public function invoice($image, $options=array()){
+    public function invoice($image, $options = array())
+    {
 
         $data = array();
 
@@ -910,7 +942,8 @@ class AipOcr extends AipBase {
      *   location 是否输出位置信息，true：输出位置信息，false：不输出位置信息，默认false
      * @return array
      */
-    public function airTicket($image, $options=array()){
+    public function airTicket($image, $options = array())
+    {
 
         $data = array();
 
@@ -930,7 +963,8 @@ class AipOcr extends AipBase {
      *   rkv_business 是否进行商业逻辑处理，rue：进行商业逻辑处理，false：不进行商业逻辑处理，默认true
      * @return array
      */
-    public function insuranceDocuments($image, $options=array()){
+    public function insuranceDocuments($image, $options = array())
+    {
 
         $data = array();
 
@@ -949,7 +983,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function vatInvoice($image, $options=array()){
+    public function vatInvoice($image, $options = array())
+    {
 
         $data = array();
 
@@ -968,7 +1003,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function qrcode($image, $options=array()){
+    public function qrcode($image, $options = array())
+    {
 
         $data = array();
 
@@ -989,7 +1025,8 @@ class AipOcr extends AipBase {
      *   detect_direction 是否检测图像朝向，默认不检测，即：false。朝向是指输入图像是正常方向、逆时针旋转90/180/270度。可选值包括:<br>- true：检测朝向；<br>- false：不检测朝向。
      * @return array
      */
-    public function numbers($image, $options=array()){
+    public function numbers($image, $options = array())
+    {
 
         $data = array();
 
@@ -1009,7 +1046,8 @@ class AipOcr extends AipBase {
      *   recognize_granularity 是否定位单字符位置，big：不定位单字符位置，默认值；small：定位单字符位置
      * @return array
      */
-    public function lottery($image, $options=array()){
+    public function lottery($image, $options = array())
+    {
 
         $data = array();
 
@@ -1028,7 +1066,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function passport($image, $options=array()){
+    public function passport($image, $options = array())
+    {
 
         $data = array();
 
@@ -1047,7 +1086,8 @@ class AipOcr extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function businessCard($image, $options=array()){
+    public function businessCard($image, $options = array())
+    {
 
         $data = array();
 
@@ -1067,7 +1107,8 @@ class AipOcr extends AipBase {
      *   recognize_granularity 是否定位单字符位置，big：不定位单字符位置，默认值；small：定位单字符位置
      * @return array
      */
-    public function handwriting($image, $options=array()){
+    public function handwriting($image, $options = array())
+    {
 
         $data = array();
 
@@ -1088,7 +1129,8 @@ class AipOcr extends AipBase {
      *   classifierId 分类器Id。这个参数和templateSign至少存在一个，优先使用templateSign。存在templateSign时，表示使用指定模板；如果没有templateSign而有classifierId，表示使用分类器去判断使用哪个模板
      * @return array
      */
-    public function custom($image, $options=array()){
+    public function custom($image, $options = array())
+    {
 
         $data = array();
 
@@ -1101,21 +1143,22 @@ class AipOcr extends AipBase {
 
     /**
      * 同步请求
-     * @param  string $image 图像读取
-     * @param  options 接口可选参数
+     * @param string $image 图像读取
+     * @param options 接口可选参数
      * @return array
      */
-    public function tableRecognition($image, $options=array(), $timeout=10000){
+    public function tableRecognition($image, $options = array(), $timeout = 10000)
+    {
         $result = $this->tableRecognitionAsync($image);
-        if(isset($result['error_code'])){
+        if (isset($result['error_code'])) {
             return $result;
         }
         $requestId = $result['result'][0]['request_id'];
         $count = ceil($timeout / 1000);
-        for($i=0; $i<$count; $i++){
+        for ($i = 0; $i < $count; $i++) {
             $result = $this->getTableRecognitionResult($requestId, $options);
             // 完成
-            if($result['result']['ret_code'] == 3){
+            if ($result['result']['ret_code'] == 3) {
                 break;
             }
             sleep(1);
@@ -1136,7 +1179,8 @@ class AipOcr extends AipBase {
      * @param array $options
      * @return bool|mix|mixed|string|string[]
      */
-    public function docAnalysis($image, $languageType, $resultType, $options = array()) {
+    public function docAnalysis($image, $languageType, $resultType, $options = array())
+    {
 
         $data = array();
 

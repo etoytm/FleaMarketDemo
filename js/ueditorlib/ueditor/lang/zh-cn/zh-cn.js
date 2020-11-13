@@ -560,7 +560,7 @@ UE.I18N['zh-cn'] = {
             'lang_input_target':'是否在新窗口打开：'
         },
         'validLink':'只支持选中一个链接时生效',
-        'httpPrompt':'您输入的超链接中不包含http等协议名称，默认将为您添加http://前缀'
+        'httpPrompt':'您输入的超链接中不包含http等协议名称，默认将为您添加https://前缀'
     },
     'map':{
         'static':{

@@ -16,7 +16,9 @@
 */
 
 require_once 'lib/AipBase.php';
-class AipKg extends AipBase {
+
+class AipKg extends AipBase
+{
 
     /**
      * 创建任务 create_task api url
@@ -54,7 +56,6 @@ class AipKg extends AipBase {
      */
     private $taskStatusUrl = 'https://aip.baidubce.com/rest/2.0/kg/v1/pie/task_status';
 
-    
 
     /**
      * 创建任务接口
@@ -69,10 +70,11 @@ class AipKg extends AipBase {
      *   limit_count 限制解析数量limit_count为0时进行全量任务，limit_count&gt;0时只解析limit_count数量的页面
      * @return array
      */
-    public function createTask($name, $templateContent, $inputMappingFile, $outputFile, $urlPattern, $options=array()){
+    public function createTask($name, $templateContent, $inputMappingFile, $outputFile, $urlPattern, $options = array())
+    {
 
         $data = array();
-        
+
         $data['name'] = $name;
         $data['template_content'] = $templateContent;
         $data['input_mapping_file'] = $inputMappingFile;
@@ -97,10 +99,11 @@ class AipKg extends AipBase {
      *   output_file 输出文件名字
      * @return array
      */
-    public function updateTask($id, $options=array()){
+    public function updateTask($id, $options = array())
+    {
 
         $data = array();
-        
+
         $data['id'] = $id;
 
         $data = array_merge($data, $options);
@@ -116,10 +119,11 @@ class AipKg extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function getTaskInfo($id, $options=array()){
+    public function getTaskInfo($id, $options = array())
+    {
 
         $data = array();
-        
+
         $data['id'] = $id;
 
         $data = array_merge($data, $options);
@@ -139,10 +143,11 @@ class AipKg extends AipBase {
      *   per_page 页码
      * @return array
      */
-    public function getUserTasks($options=array()){
+    public function getUserTasks($options = array())
+    {
 
         $data = array();
-        
+
 
         $data = array_merge($data, $options);
 
@@ -157,10 +162,11 @@ class AipKg extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function startTask($id, $options=array()){
+    public function startTask($id, $options = array())
+    {
 
         $data = array();
-        
+
         $data['id'] = $id;
 
         $data = array_merge($data, $options);
@@ -176,10 +182,11 @@ class AipKg extends AipBase {
      * @description options列表:
      * @return array
      */
-    public function getTaskStatus($id, $options=array()){
+    public function getTaskStatus($id, $options = array())
+    {
 
         $data = array();
-        
+
         $data['id'] = $id;
 
         $data = array_merge($data, $options);

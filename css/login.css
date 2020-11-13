@@ -1,8 +1,9 @@
 /* 内容 */
-.login-bg{
+.login-bg {
     width: 100%;
 }
-.login-bg img{
+
+.login-bg img {
     background-size: 100% 100%;
     width: 100%;
     height: 100%;
@@ -14,11 +15,13 @@
     z-index: -1;
     cursor: pointer;
 }
-.login>h3{
+
+.login > h3 {
     color: #fff;
     font-size: 1.8rem;
     text-align: center;
 }
+
 .login {
     position: absolute;
     width: 700px;
@@ -27,20 +30,20 @@
     display: flex;
     flex-direction: column;
     /* border: 1px solid #ccc; */
-    padding:2% 30px;
+    padding: 2% 30px;
     border-radius: 20px;
-    background: rgba(0,0,0,.2);
+    background: rgba(0, 0, 0, .2);
     box-shadow: 2px 2px 6px #757575;
     transition: all .4s;
 }
 
 
-.login>div {
+.login > div {
     width: 100%;
     margin-top: 40px;
 }
 
-.login>div>input {
+.login > div > input {
     background: #fff;
     text-indent: 1rem;
     box-sizing: border-box;
@@ -51,7 +54,7 @@
     font-size: 18px;
 }
 
-.login-id>input {
+.login-id > input {
     width: 100%;
 }
 
@@ -61,11 +64,11 @@
     align-items: center;
 }
 
-.login-pwd>input {
+.login-pwd > input {
     width: 80%;
 }
 
-.login-pwd>span {
+.login-pwd > span {
     width: 16%;
     color: #d8d8d8;
     font-size: 18px;
@@ -77,7 +80,7 @@
     justify-content: space-between;
 }
 
-.login-code>input {
+.login-code > input {
     width: 63%;
 }
 
@@ -101,7 +104,7 @@
     cursor: pointer;
 }
 
-.login-btn>a {
+.login-btn > a {
     color: #fff;
     text-decoration: none;
 }
