@@ -20,7 +20,7 @@ $head = $arr['head'] == null ? 'images/NoHead.jpg' : $arr['head'];
     <meta name="keywords" content="搜索关键字，以半角英文逗号隔开"/>
     <!-- 搜索关键字 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>某经融公司股权众筹站点 - 个人中心</title>
+    <title>跳蚤市场 - 个人中心</title>
 
 
     <!-- CSS公共部分 开始 -->
