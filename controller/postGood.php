@@ -85,7 +85,7 @@ if ($xyk) {
             require_once '../include/email_utils.php';
             $re = sendEmail($t."@qq.com",
                 "YTU跳蚤市场",
-                "您的信用卡已经找回！"
+                "您的校园卡已经找回！请联系QQ：2905226519"
             );
             if ($re) {
                 alt("检测到该同学注册过FM账号，已将找回信息发送至该同学QQ邮箱", "../index.php");

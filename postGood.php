@@ -98,7 +98,7 @@ require_once('./include/echo_header.php');
                                                     <!--                                                    <button class="btn btn-primary">添加</button>-->
                                                     <input style="background-color: #00a0e9;width: 50px;" type="submit"
                                                            value="发布">
-                                                    <label for=""><input type="checkbox" name="type">置项发布</label>
+                                                    <label for=""><input type="checkbox" name="type">置顶发布</label>
                                                     <label for=""><input type="checkbox" name="xyk"
                                                                          id="xyk">归还捡到的校园卡</label>
                                                 </div>
