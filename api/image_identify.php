@@ -6,9 +6,21 @@ $arr = array(
     'cardNumber' => null
 );
 
+
+//检测登录状态
+if (!isset($_COOKIE['uid'])) {
+    $arr['status'] = 'notLogin';
+    die(json_encode($arr));
+}
+$arr['status'] = 'isLogin';
+
+
 $filepath = null;
 
-if ($_FILES['face']['error'] == 0) {  //上传正确
+if (!isset($_FILES['face'])) {
+    $arr['uploadInfo'] = 'upload is empty!';
+    die(json_encode($arr));
+} else if ($_FILES['face']['error'] === 0) {  //上传正确
     $path = '../upload/card/';
     if (!file_exists($path)) {//创建文件夹
         mkdir(iconv("UTF-8", "GBK", $path), 0777, true);
@@ -44,5 +56,8 @@ else {
     $arr['isTrueCard'] = true;
     $arr['cardNumber'] = $res;
 }
+
+//清空输出缓冲区, 保证只返回json数据
+ob_clean();
 
 die(json_encode($arr));
