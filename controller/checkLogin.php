@@ -1,7 +1,6 @@
 <?php
 session_start();
 $arr = array(
-    "passwordError" => null,
     "loginSuccess" => null
 );
 
@@ -15,6 +14,7 @@ $re = $db->query($sql);
 if ($re->num_rows == 1) {
     $arr['loginSuccess'] = true;
     $_SESSION['uid'] = $_POST['uid'];
+    setcookie('uid', $_POST['uid'], time() + 60 * 60, '/');
 }
 
 die(json_encode($arr));
