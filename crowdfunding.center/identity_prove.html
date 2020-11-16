@@ -34,7 +34,7 @@
     </ul>
 </div>
 <div id="not_identify">
-    <form action="../controller/indentify.php" enctype="multipart/form-data" method="post">
+    <form>
         <div class="my_info_content">
 
             <div class="my_info_content_care">
@@ -76,10 +76,10 @@
 </div>
 <div id="identified" style="display: none">
     <b id="suc_info">尊敬的 {{uid}} ,您已完成身份认证!<b><br><br>
-            <a onclick="return confirm('您确定要注销已有的认证信息吗？')" style='color: #ff0000'
-               href='../controller/removeIdentified.php'>
-                注销认证>>>
-            </a>
+        <a onclick="return confirm('您确定要注销已有的认证信息吗？')" style='color: #ff0000'
+           href='../controller/removeIdentified.php'>
+            注销认证>>>
+        </a>
 </div>
 
 <script src="https://lib.baomitu.com/jquery/3.5.1/jquery.js"></script>
@@ -92,24 +92,26 @@
         $("#sub_btn").attr('value', '正在认证...');
         let formData = new FormData();
         formData.append("face", $("#up_img").get(0).files[0])
-        $.ajax("../api/image_identify.php", {
+        $.ajax("../api/authentication.php", {
             method: 'post',
             processData: false,
             contentType: false,
             data: formData,
             dataType: 'json',
             success: function (data) {
-                if (data.status !== 'isLogin')
-                    alert('登录状态失效，请重新登录！');
-                else if (data.uploadInfo !== 'success')
-                    alert('错误信息' + data.uploadInfo);
-                else if (!data.isTrueCard)
-                    alert("未识别到有效的校园卡！");
-                else {
+                if (data.authSuccess) {
                     $("#sub_btn").attr('value', '认证成功');
                     alert("恭喜您认证成功！");
                     $("#not_identify").hide();
                     $("#identified").show();
+                } else if (data.status !== 'isLogin')
+                    alert('登录状态失效，请重新登录！');
+                else if (data.uploadInfo !== 'success')
+                    alert('错误信息（upload）:' + data.uploadInfo);
+                else if (!data.isTrueCard)
+                    alert("未识别到有效的校园卡！");
+                else {
+                    alert("异常错误，认证失败！");
                 }
                 $("#sub_btn").attr('value', '重新认证');
             },
