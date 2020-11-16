@@ -276,17 +276,7 @@ ETO;
                 ?>
 
 
-                <div class="judge01">
-                    <div class="idimg"><img src="images/shopdetail/detail102.png"></div>
-                    <div class="write">
-                        <p class="idname">怒***4</p>
-                        <p>特别好，必须赞👍，质量好，很漂亮，快递也好快的。还挺优惠。看图吧。</p>
-                        <p class="which">颜色:熊猫套装</p>
-                        <img src="images/shopdetail/detail108.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail109.jpg" width="40px" height="40px">
-                        <img src="images/shopdetail/detail110.jpg" width="40px" height="40px">
-                    </div>
-                </div>
+
             </div>
 
             <!--            历史发布-->
