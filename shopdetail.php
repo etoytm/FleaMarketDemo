@@ -85,7 +85,7 @@ require_once("./controller/getDetail.php");
 <div class="logobg">
     <div class="center">
         <div class="logo">
-            <img src="images/logo.png" width="249">
+            <img style="margin-left: 290px" src="images/logo.png" width="249">
         </div>
 
     </div>
