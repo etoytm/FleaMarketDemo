@@ -10,35 +10,35 @@ echo <<<ETO
 
     <ul class="footer-top">
         <li>
-            <div class="iconfont icon-wuyoushouhou"></div>
+            <div class=""><img src="./images/student.png" width="70px" alt=""></div>
             <div class="footer-top-tit">
                 <div><a href="shop.html">学生中心</a></div>
                 <div>学生中心、提供发票</div>
             </div>
         </li>
         <li>
-            <div class="iconfont icon-yunliankeji_gongyinglianfuben"></div>
+            <div class=""><img src="./images/deal.png" width="90px" alt=""></div>
             <div class="footer-top-tit">
                 <div><a href="shop.html">线下交易</a></div>
                 <div>线下交易，学生可靠</div>
             </div>
         </li>
         <li>
-            <div class="iconfont icon-shouhouwuyou"></div>
+            <div ><img src="./images/school.png" width="97px" alt=""></div>
             <div class="footer-top-tit">
                 <div><a href="shop.html">校内交易</a></div>
                 <div>有问题直接去宿舍找他</div>
             </div>
         </li>
         <li>
-            <div class="iconfont icon-tesefuwu"></div>
+            <div class=""><img src="./images/service.png" width="80px" alt=""></div>
             <div class="footer-top-tit">
                 <div><a href="shop.html">特色平台</a></div>
                 <div>客服25小时在线</div>
             </div>
         </li>
         <li>
-            <div class="iconfont icon-bangzhuzhongxin1"></div>
+            <div class=""><img src="./images/help.png" width="90px" alt=""></div>
             <div class="footer-top-tit">
                 <div><a href="shop.html">帮助中心</a></div>
                 <div>我被骗了怎么办</div>
