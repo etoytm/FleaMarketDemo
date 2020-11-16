@@ -72,7 +72,7 @@ if (!$is_identified)
                     </tr>
                     <tr>
                         <td align="center" class="color555" colspan="2">
-                        <input class="my_info_content_care_table_submit" onclick="confirm('认证需要大约8s，请不要刷新页面, 点击确认开始认证!')" type="submit" value="申请认证"></td>
+                        <input class="my_info_content_care_table_submit" onclick="return confirm('认证需要大约8s，请不要刷新页面, 点击确认开始认证!')" type="submit" value="申请认证"></td>
                     </tr>
                     </tbody>
                 </table>
