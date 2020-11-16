@@ -64,8 +64,24 @@ $description = FixPath($description);
 preg_match_all('/(?<=src=)\S+/', $description, $match);
 
 //首张图片
-$preview = $match[0][0];
-$preview1 = "." . explode('"', $preview)[1];
+$preview = '';
+//上传多张照片，把照片路径数组组合成字符串，路径之间使用||分隔，便于从数据库中取出之后split
+$paths = $match[0];
+//图片的个数
+$ImgNum = count($paths);
+if($ImgNum == 0){
+    $preview = "\"./images/NoPreview.png\"";
+}elseif ($ImgNum == 1){
+    $preview = $paths[0];
+}
+//多张图片
+else{
+    $preview = $paths[0];
+    for($i = 1;$i<$ImgNum;$i++){
+        $preview .= ("||".$paths[$i]);
+    }
+}
+$preview1 = "." . explode('"', $match[0][0])[1];
 
 session_start();
 require_once("../controller/goodsManage.php");
@@ -100,9 +116,7 @@ if ($xyk) {
 }
 
 
-if ($preview == '') {
-    $preview = "\"./images/NoPreview.png\"";
-}
+
 //描述中，文字与图片分离
 $description = preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i', '', $description);
 //只提取出文本

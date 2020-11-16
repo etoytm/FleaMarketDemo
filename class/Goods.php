@@ -157,7 +157,7 @@ class Goods
      */
     public function getPreview(): string
     {
-        return $this->preview;
+        return explode("||",$this->preview)[0];
     }
 
     /**

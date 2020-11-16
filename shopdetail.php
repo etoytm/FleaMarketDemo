@@ -129,9 +129,16 @@ require_once("./controller/getDetail.php");
         <div id="showbox">
             <!--            --><?php
             foreach ($imgs as $img) {
-                echo "<img width= \"400\" height=\"550\" src=" . $img . " >";
+                echo <<<ETO
+                  <img src={$img} width="400" height="400" />
+ETO;
                 echo PHP_EOL;
             }
+            //多图显示的话，这里必须再输出一次首图，否则显示异常
+                echo <<<ETO
+                    <img src={$img[0]} width="400" height="400" />
+ETO;
+
             //            ?>
 
 
@@ -149,7 +156,7 @@ require_once("./controller/getDetail.php");
     <div class="centerbox">
         <p class="imgname"><?php echo $name; ?></p>
         <p class="Aprice">入手价：<samp>￥<?php echo $price_old; ?></samp></p>
-        <p class="price">二手价：<samp>￥<?php echo $price_now; ?></samp></p>
+        <p class="price">二手价二手价：<samp>￥<?php echo $price_now; ?></samp></p>
         <p class="">货主说：</p>
 
         <div class="clear"><?php echo $description ?></div>
