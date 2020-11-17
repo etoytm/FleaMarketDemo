@@ -56,6 +56,7 @@ $title = $_POST['title'];
 $xyk = $_POST['xyk'] == 'on';
 
 $description = $_POST['description'];
+require_once ("../include/alert.php");
 // 路径修正
 $description = FixPath($description);
 
@@ -69,6 +70,8 @@ $preview = '';
 $paths = $match[0];
 //图片的个数
 $ImgNum = count($paths);
+
+
 if($ImgNum == 0){
     $preview = "\"./images/NoPreview.png\"";
 }elseif ($ImgNum == 1){
@@ -81,8 +84,8 @@ else{
         $preview .= ("||".$paths[$i]);
     }
 }
-$preview1 = "." . explode('"', $match[0][0])[1];
 
+$preview1 = "." . explode('"', $match[0][0])[1];
 session_start();
 require_once("../controller/goodsManage.php");
 require_once("../include/alert.php");
@@ -121,6 +124,7 @@ if ($xyk) {
 $description = preg_replace('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i', '', $description);
 //只提取出文本
 $description = getplaintextintrofromhtml($description);
+//die($preview);
 $good = new Goods(-1, $title, $price_now, $price_old, $description, $preview, 1, $type, $tag, $owner_id);
 $res = addGoods($good);
 if ($res == true) {
