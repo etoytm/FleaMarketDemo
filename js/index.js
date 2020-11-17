@@ -16,10 +16,9 @@ domSearchInput.addEventListener("click", () => {
     let val = domSearchInput.value;
     var strDefalut = "";
     if (val.length <= 0) {
-        strDefalut += "<li>" + "电影票" + "</li>";
-        strDefalut += "<li>" + "打印" + "</li>";
-        strDefalut += "<li>" + "二手垃圾篓" + "</li>";
-
+        // strDefalut += "<li>" + "电影票" + "</li>";
+        // strDefalut += "<li>" + "打印" + "</li>";
+        // strDefalut += "<li>" + "二手垃圾篓" + "</li>";
     }
     domSearchResult.innerHTML = strDefalut;
     domSearchResult.style.color = "red";

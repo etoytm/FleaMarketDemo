@@ -187,11 +187,11 @@ header > div {
 }
 
 .search {
+    position: relative;
     width: 600px;
-    margin-right: 10%;
+    margin-right: 25%;
     float: right;
     line-height: 150px;
-    position: relative;
 }
 
 .search-result {
@@ -852,7 +852,7 @@ del {
 
     .search {
         width: 60%;
-        margin-right: 0;
+        margin-right: 200px;
     }
 
     .search input {
