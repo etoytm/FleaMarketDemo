@@ -24,8 +24,8 @@
         <input type="text" placeholder="验证码" class="vcode-in">
         <div class="vcode"></div>
     </div>
-    <div class="login-btn"><a class="index"><input class="login-btn" type="submit" value="注册"
-                                                   onclick="return validateRepet()&&register()"></a></div>
+    <div class="reg-btn"><a class="index"><input class="reg-btn" type="submit" value="注册"
+                                                 onclick="return validate()&&validateCode()&&register()"></a></div>
 </div>
 <html>
 <head></head>
@@ -36,30 +36,40 @@
 <script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <!--    <script src="js/login.js"></script>-->
 <script>
-    function validateRepet() {
-        if ($("input#pw").val() !== $("input#pw").val()) {
-            alert("密码不一致!");
+    function validate() {
+        if ($("input#uid").val() === '') {
+            alert('用户名不能为空！');
+            return false;
+        }
+        if ($("input#pw").val() !== $("input#pw2").val()) {
+            alert("两次密码不一致!");
             return false;
         }
         return true;
     }
 
     function register() {
+        let reg_btn = $("input.reg-btn");
+        reg_btn.attr('value', '正在注册...');
         $.ajax({
             type: 'post',
-            url: "controller/register.php",
+            url: "api/register.php",
             data: {
                 uid: $('input#uid').val(),
                 password: $("input#pw").val()
             },
             success: function (data) {
-                if (data.nameRepetition)
-                    alert("用户名已存在！");
-                else if (data.regSuccess) {
-                    alert("注册成功！\n您的用户名：" + data.username + "\n您的密码：" + data.password);
-                    location.href = "login.html";
-                } else
-                    alert("后台服务异常！");
+                if (data.regSuccess) {
+                    reg_btn.attr('value', '注册成功');
+                    if (confirm("注册成功！\n您的用户名：" + data.username + "\n\n是否前往登录？"))
+                        location.href = "login.html";
+                } else {
+                    reg_btn.attr('value', '重新注册');
+                    if (data.nameRepetition)
+                        alert("用户名已存在！");
+                    else
+                        alert("后台服务异常！")
+                }
             },
             dataType: 'json'
         })

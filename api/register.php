@@ -2,8 +2,7 @@
 $arr = array(
     "nameRepetition" => null,
     "regSuccess" => null,
-    "username" => null,
-    "password" => null
+    "username" => null
 );
 
 require_once '../class/DB.php';
@@ -23,7 +22,6 @@ $re = $db->query($sql);
 if ($re) {
     $arr['regSuccess'] = true;
     $arr['username'] = $_POST['uid'];
-    $arr['password'] = $_POST['password'];
 } else {
     $arr['regSuccess'] = false;
 }

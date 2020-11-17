@@ -1,8 +1,7 @@
 <?php
 session_start();
 $arr = array(
-    "passwordError" => null,
-    "loginSuccess" => null
+    "status" => 'notLogin'
 );
 
 $sql = "SELECT uid FROM `users` WHERE `uid` = '{$_POST['uid']}' AND `password` = '{$_POST['password']}';";
@@ -13,8 +12,9 @@ $db = new DB();
 $re = $db->query($sql);
 
 if ($re->num_rows == 1) {
-    $arr['loginSuccess'] = true;
+    $arr['status'] = 'isLogin';
     $_SESSION['uid'] = $_POST['uid'];
+    setcookie('uid', $_POST['uid'], time() + 60 * 60, '/');
 }
 
 die(json_encode($arr));

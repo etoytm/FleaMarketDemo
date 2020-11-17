@@ -33,28 +33,26 @@ function isTrueCard($imgpath)
     //调用通用文字识别, 图片参数为本地图片
     $client->basicGeneral($image);
 
-// 如果有可选参数
+    // 如果有可选参数
     $options = array();
     $options["language_type"] = "CHN_ENG";
     $options["detect_direction"] = "true";
     $options["detect_language"] = "true";
     $options["probability"] = "true";
 
-// 带参数调用通用文字识别, 图片参数为本地图片
-//var_dump($client->basicGeneral($image, $options));
+    // 带参数调用通用文字识别, 图片参数为本地图片
     $res = $client->basicGeneral($image, $options);
 
     $res = $res['words_result'];
     $cardInfo = '';
     foreach ($res as $r) {
-//        echo $r['words'];
         $cardInfo = $cardInfo . $r['words'];
         echo $r['words'];
     }
     if (strpos($cardInfo, '学院') && strpos($cardInfo, '烟台')) {
         $t = null;
         preg_match('/[0-9]{16}/', $cardInfo, $t);
-        $t = substr($t[0],4);
+        $t = substr($t[0], 4);
         return $t;
     }
     return false;
