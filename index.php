@@ -10,7 +10,7 @@ require_once './controller/goodsManage.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>跳蚤市场</title>
+    <title>FleaMarket</title>
     <link href="css/index.css" rel="stylesheet">
     <link href="https://at.alicdn.com/t/font_1524886_uvkjm364bi.css" rel="stylesheet">
     <link href="css/public.css" rel="stylesheet">
