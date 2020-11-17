@@ -29,7 +29,8 @@
     </div>
     <div class="login-btn"><a class="index"><input class="login-btn" type="submit" value="登陆"
                                                    onclick="return validateCode()&&checkLogin()"></a></div>
-    <div class="reg-btn"><a class="index"><input class="reg-btn" value="前往注册" type="button" onclick="location.href='register.html'"></a></div>
+    <div class="reg-btn"><a class="index"><input class="reg-btn" value="前往注册" type="button"
+                                                 onclick="location.href='register.html'"></a></div>
 </div>
 <html>
 <head></head>
@@ -56,13 +57,13 @@
     function checkLogin() {
         $.ajax({
             type: 'post',
-            url: "controller/checkLogin.php",
+            url: "api/checkLogin.php",
             data: {
                 uid: $('input#uid').val(),
                 password: $("input#password").val()
             },
             success: function (data) {
-                if (data.loginSuccess)
+                if (data.status === 'isLogin')
                     location.href = 'index.php';
                 else
                     alert("用户名或密码错误！");

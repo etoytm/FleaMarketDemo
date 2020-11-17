@@ -47,7 +47,7 @@
     function register() {
         $.ajax({
             type: 'post',
-            url: "controller/register.php",
+            url: "api/register.php",
             data: {
                 uid: $('input#uid').val(),
                 password: $("input#pw").val()
@@ -56,7 +56,7 @@
                 if (data.nameRepetition)
                     alert("用户名已存在！");
                 else if (data.regSuccess) {
-                    alert("注册成功！\n您的用户名：" + data.username + "\n您的密码：" + data.password);
+                    alert("注册成功！\n您的用户名：" + data.username);
                     location.href = "login.html";
                 } else
                     alert("后台服务异常！");
