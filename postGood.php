@@ -30,13 +30,31 @@ offline_alert();
 <?php
 require_once('./include/echo_header.php');
 ?>
+<style>
+    .post_img{
+        width: 50px;
+        margin-left: 10px;
+        margin-right: 5px;
+    }
+    .opt{
+        display: inline;
+        float: right;
+    }
+</style>
 <div class="m-padded-tb-max">
     <div class="ui container">
         <div class="ui stackable grid">
             <!--左边-->
             <div style="height: 1000px;" class="eleven wide column">
                 <!--header-->
-
+                <div style="margin-bottom: -50px;">
+                    <img src="./images/logo.png" alt="">
+                    <img class="post_img" src="./images/post_lostandfound.png" alt="">
+                    <img style="width: 40px" class="post_img" src="./images/post_news.png" alt="">
+                    <img class="post_img" src="./images/post_taxi.png" alt="">
+                    <img style="width: 40px" class="post_img" src="./images/post_duplicate.png" alt="">
+                    <img style="display: inline-block;float: right"  src="./images/post.png" alt="">
+                </div>
                 <!--市场主题-->
                 <div style="min-height: 600px; margin-top: 50px;z-index: 0;" class="ui attached segment">
                     <div class="page-body">
@@ -48,33 +66,39 @@ require_once('./include/echo_header.php');
                                     <div class="widget-body">
                                         <form action="controller/postGood.php" method="post" class="form-horizontal">
                                             <div style="width: 100px;" class="wh">
-                                                <input name="tag" style="margin-left = 50px;float: left;"
-                                                       class="form-control" list="tag" placeholder="选择发布类型"/>
-                                                <datalist id="tag">
-                                                    <option value="生活用品">
-                                                    <option value="影票场票">
-                                                    <option value="美妆彩妆">
-                                                    <option value="取个快递">
-                                                    <option value="砍并夕夕">
-                                                    <option value="拼车组团">
-                                                </datalist>
-                                                <input name="price_now" style="margin-left = 50px;float: right;"
-                                                       class="form-control" list="price_now" placeholder="出手价"/>
-                                                <datalist id="price_now">
-                                                    <option value="0.5">
-                                                    <option value="1">
-                                                    <option value="5">
-                                                    <option value="10">
-                                                    <option value="20">
-                                                    <option value="50">
-                                                    <option value="议价">
-                                                </datalist>
-                                                <input name="price_old" style="margin-left = 50px;float: right;"
-                                                       class="form-control" list="price_old" placeholder="入手价"/>
-                                                <datalist id="price_old">
-                                                    <option value="20">
-                                                    <option value="50">
-                                                </datalist>
+                                                <div class="opt">
+                                                    <input  name="tag" style="margin-left = 50px;float: left;"
+                                                            class="form-control" list="tag" placeholder="选择发布类型"/>
+                                                    <datalist id="tag">
+                                                        <option value="生活用品">
+                                                        <option value="影票场票">
+                                                        <option value="美妆彩妆">
+                                                        <option value="取个快递">
+                                                        <option value="砍并夕夕">
+                                                        <option value="拼车组团">
+                                                    </datalist>
+                                                </div>
+                                                <div class="opt">
+                                                    <input  name="price_now" style="margin-left = 50px;float: right;"
+                                                            class="form-control" list="price_now" placeholder="出手价"/>
+                                                    <datalist id="price_now">
+                                                        <option value="0.5">
+                                                        <option value="1">
+                                                        <option value="5">
+                                                        <option value="10">
+                                                        <option value="20">
+                                                        <option value="50">
+                                                        <option value="议价">
+                                                    </datalist>
+                                                </div>
+                                                <div class="opt">
+                                                    <input name="price_old" style="margin-left = 50px;float: right;"
+                                                           class="form-control " list="price_old" placeholder="入手价"/>
+                                                    <datalist id="price_old">
+                                                        <option value="20">
+                                                        <option value="50">
+                                                    </datalist>
+                                                </div>
 
                                             </div>
                                             <div class="form-group wh">
@@ -117,7 +141,7 @@ require_once('./include/echo_header.php');
 
             </div>
             <!--右边-->
-            <div style="margin-top: 50px" class="five wide column">
+            <div style="margin-top: 90px" class="five wide column">
                 <?php
                 require_once("./controller/getPostHistory.php");
                 require_once("./class/DB.php");
