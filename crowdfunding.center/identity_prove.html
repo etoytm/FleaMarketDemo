@@ -88,6 +88,12 @@
 
 <script src="../js/my_info.js"></script>
 <script>
+    function authSuccessMode() {
+        $("#sub_btn").attr('value', '认证成功');
+        $("#not_identify").hide();
+        $("#identified").show();
+    }
+
     function sub() {
         $("#sub_btn").attr('value', '正在认证...');
         let formData = new FormData();
@@ -100,10 +106,8 @@
             dataType: 'json',
             success: function (data) {
                 if (data.authSuccess) {
-                    $("#sub_btn").attr('value', '认证成功');
+                    authSuccessMode();
                     alert("恭喜您认证成功！");
-                    $("#not_identify").hide();
-                    $("#identified").show();
                 } else if (data.status !== 'isLogin')
                     alert('登录状态失效，请重新登录！');
                 else if (data.uploadInfo !== 'success')
@@ -129,6 +133,12 @@
         }
     })
 </script>
-
+<script src="../js/api.js"></script>
+<script>
+    let userInfo=getUserInfo($.cookie('uid'));
+    console.log(userInfo)
+    if(userInfo.school_number!==null)
+        authSuccessMode();
+</script>
 </body>
 </html>
