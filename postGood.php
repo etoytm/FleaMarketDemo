@@ -117,7 +117,7 @@ require_once('./include/echo_header.php');
 
             </div>
             <!--右边-->
-            <div class="five wide column">
+            <div style="margin-top: 50px" class="five wide column">
                 <?php
                 require_once("./controller/getPostHistory.php");
                 require_once("./class/DB.php");
@@ -182,8 +182,8 @@ require_once("./include/echo_footer.php")
     });
 </script>
 <!--end-->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>-->
 
 <script>
     $('.menu.toggle').click(function () {
