@@ -17,4 +17,7 @@ if ($re->num_rows == 1) {
     setcookie('uid', $_POST['uid'], time() + 60 * 60, '/');
 }
 
+//让前台特效更明显一点
+sleep(1);
+
 die(json_encode($arr));

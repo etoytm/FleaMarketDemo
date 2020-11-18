@@ -25,4 +25,8 @@ if ($re) {
 } else {
     $arr['regSuccess'] = false;
 }
+
+//让前台特效更明显一点
+sleep(1);
+
 die(json_encode($arr));
