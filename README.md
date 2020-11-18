@@ -5,7 +5,7 @@
     如果未登陆，一切请求涉密操作都会返回 : {'status':'notLogin'}
 ### 登录接口
 #### url
-    api/checkLogin.php
+    api/login.php
 #### method: 
     post
 #### args:

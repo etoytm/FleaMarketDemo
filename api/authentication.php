@@ -1,21 +1,13 @@
 <?php
+require "include/checkLogin.php";
 $arr = array(
-    'status' => null,
     'uploadInfo' => null,
     'isTrueCard' => null,
     'cardNumber' => null,
     'authSuccess' => false
 );
 
-
-//检测登录状态
-if (!isset($_COOKIE['uid'])) {
-    $arr['status'] = 'notLogin';
-    die(json_encode($arr));
-}
-$arr['status'] = 'isLogin';
-
-//如果已经认证
+//是否已经认证
 require_once "../controller/userManage.php";
 $arr = getUserArrByUid($_SESSION['uid']);
 $identified = $arr['school_number'];

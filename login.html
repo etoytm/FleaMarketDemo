@@ -61,7 +61,7 @@
         loginBtn.attr('value', '正在校验...');
         $.ajax({
             type: 'post',
-            url: "api/checkLogin.php",
+            url: "api/login.php",
             data: {
                 uid: $('input#uid').val(),
                 password: $("input#password").val()
