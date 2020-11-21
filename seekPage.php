@@ -73,7 +73,6 @@ require_once './controller/goodsManage.php';
                     <h3 title="">{$good['name']}</h3>
                     <p>{$good['description']}</p>
                     <p><span>{$good['price_now']}元</span>
-                        <del>{$good['price_old']}元</del>
                     </p>
                     <button onclick="buy({$good['gid']})">去购买</button>
                 </div>
