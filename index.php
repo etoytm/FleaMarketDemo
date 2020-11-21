@@ -26,9 +26,9 @@ require_once './controller/goodsManage.php';
 <div class="right">
     <ul class="wrap1">
         <li><a href="myinfo.php"><span class="iconfont icon-ren-copy"></span></a></li>
-        <li><a href="cart.html"><span class="iconfont icon-gouwuche2"></span><span>购物车<b
-                            class="numc">0</b></span></a></li>
         <li><a href="shop.html"><span class="iconfont icon-shouhou1"></span><span>售后服务</span></a></li>
+        <li><a href="cart.html"><span class="iconfont icon-gouwuche2"></span><span><b
+                            class="numc">0</b></span></a></li>
     </ul>
 </div>
 
@@ -51,9 +51,10 @@ require_once './controller/goodsManage.php';
 <!-- 商品分类 -->
 <section class="section2">
     <div class="nav wrap">
-        <a href="shop.html"><span class="nav-li iconfont icon-tubiao1-copy"></span>全部商品分类</a>
+
+        <a href="shop.html"><span class="nav-li iconfont icon-tubiao1-copy"></span>二&nbsp;&nbsp;手&nbsp;&nbsp;热&nbsp;&nbsp;搜&nbsp;</a>
         <?php
-        $mass = array('今日烟大', '拼车', '表白墙', '出票', '活动组团', '拼多多砍一刀');
+        $mass = array('二手教材', '四六真题', '考研资料', '出票', '拼车', '拼多多砍一刀');
         foreach ($mass as $item) {
             echo "        <a href=\"seekPage.php?keyword={$item}\">{$item}</a>";
         }
