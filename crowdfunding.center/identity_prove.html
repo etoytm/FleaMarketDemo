@@ -108,7 +108,7 @@
                 if (data.authSuccess) {
                     authSuccessMode();
                     alert("恭喜您认证成功！");
-                } else if (data.status !== 'isLogin')
+                } else if (data.status === 'notLogin')
                     alert('登录状态失效，请重新登录！');
                 else if (data.uploadInfo !== 'success')
                     alert('错误信息（upload）:' + data.uploadInfo);
