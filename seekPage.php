@@ -61,16 +61,23 @@ require_once './controller/goodsManage.php';
             alt_back("输入关键词搜索哦！");
         }
         while ($good = mysqli_fetch_assoc($res)) {
+            $preview = '.'.substr($good['preview'],1);
             echo <<<ETO
-            <li class="main"><a href="shopdetail.php?gid={$good['gid']}" target="_blank"><img src={$good['preview']} alt=""></a>
-                <div class="main-detail">
-                    <div class="detail-title">{$good['name']}</div>
-                    <p style="font-size: small;color: cornflowerblue">{$good['description']}</p>
-                    <div class="detail-price"><b class="price">¥{$good['price_now']}</b>
-                        <div class="detail-car" onclick="buy({$good['gid']})">去看看</div>
-                    </div>
+<li class="rush-item">
+            <div class="shadow">
+                <div class="sec3-img">
+                    <a href="./shopdetail.php?gid={$good['gid']}"><img style="display: block;width: 190px;" src={$good['preview']} alt=""></a>    
+                    <div class="get-time" data-timenow="2019-11-30,10:00:00">距离抢购开始还有<br>1小时5分10秒</div>
                 </div>
-            </li>
+                <div class="info">
+                    <h3 title="">{$good['name']}</h3>
+                    <p>{$good['description']}</p>
+                    <p><span>{$good['price_now']}元</span>
+                    </p>
+                    <button onclick="buy({$good['gid']})">去购买</button>
+                </div>
+            </div>
+        </li>
 ETO;
         }
 

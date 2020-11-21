@@ -54,7 +54,7 @@ require_once './controller/goodsManage.php';
 
         <a href="shop.html"><span class="nav-li iconfont icon-tubiao1-copy"></span>二&nbsp;&nbsp;手&nbsp;&nbsp;热&nbsp;&nbsp;搜&nbsp;</a>
         <?php
-        $mass = array('二手教材', '四六真题', '考研资料', '出票', '拼车', '拼多多砍一刀');
+        $mass = array('二手教材', '四六真题', '考研资料', '车票', '拼车', '拼多多砍一刀');
         foreach ($mass as $item) {
             echo "        <a href=\"seekPage.php?keyword={$item}\">{$item}</a>";
         }
