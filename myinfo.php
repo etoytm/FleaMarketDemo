@@ -83,9 +83,7 @@ ETO;
                     <li id="listClick1" class="menu_list_on" onClick="listClick(1)"><img
                                 src="images/member_center/left_icon_1.png"> 基本信息
                     </li>
-                    <li id="listClick2" class="" onClick="click_head()"><img src="images/member_center/left_icon_2.png">
-                        修改头像
-                    </li>
+                    
                     <li id="listClick3" class="" onClick="listClick(3)"><img src="images/member_center/left_icon_2.png">
                         身份认证
                     </li>

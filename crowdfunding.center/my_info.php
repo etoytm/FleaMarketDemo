@@ -40,6 +40,7 @@ $grade = $arr['grade'];
     <ul>
         <li id="listClick_1" onClick="listClick(1)" style="border-bottom: 1px solid #C40521; color: #C40521;">基本资料</li>
         <li id="listClick_3" onClick="listClick(3)">身份认证</li>
+        <li id="listClick_5" onClick="listClick(5)">QQ绑定</li>
         <li id="listClick_4" onClick="listClick(4)">修改密码</li>
     </ul>
 </div>

@@ -22,6 +22,8 @@ function listClick(value) {
         $("#listClick_3").css("color", "#666");
         $("#listClick_4").css("border-bottom", "1px solid #CCC");
         $("#listClick_4").css("color", "#666");
+        $("#listClick_5").css("border-bottom", "1px solid #CCC");
+        $("#listClick_5").css("color", "#666");
 
         $("#crowdfunding_iframe").attr("src", "crowdfunding.center/my_info.php");
         $("#crowdfunding_iframe").attr("height", "1045");
@@ -73,6 +75,9 @@ function listClick(value) {
         $("#listClick_3").css("color", "#C40521");
         $("#listClick_4").css("border-bottom", "1px solid #CCC");
         $("#listClick_4").css("color", "#666");
+        $("#listClick_5").css("border-bottom", "1px solid #CCC");
+        $("#listClick_5").css("color", "#666");
+
 
         $("#crowdfunding_iframe").attr("src", "crowdfunding.center/identity_prove.html");
         $("#crowdfunding_iframe").attr("height", "1045");
@@ -102,8 +107,10 @@ function listClick(value) {
         $("#listClick_3").css("color", "#666");
         $("#listClick_4").css("border-bottom", "1px solid #C40521");
         $("#listClick_4").css("color", "#C40521");
+        $("#listClick_5").css("border-bottom", "1px solid #CCC");
+        $("#listClick_5").css("color", "#666");
 
-        $("#crowdfunding_iframe").attr("src", "crowdfunding.center/make_password.html");
+        $("#crowdfunding_iframe").attr("src", "crowdfunding.center/QQ_bind.php");
         $("#crowdfunding_iframe").attr("height", "1045");
         $("#vertical_navigation").css("height", "1050px");
 
@@ -125,7 +132,15 @@ function listClick(value) {
         $("#listClick16").attr("class", "");
     }
     if (value == 5) {
-        $("#crowdfunding_iframe").attr("src", "crowdfunding.center/apply_lingtou.html");
+        $("#listClick_1").css("border-bottom", "1px solid #CCC");
+        $("#listClick_1").css("color", "#666");
+        $("#listClick_3").css("border-bottom", "1px solid #CCC");
+        $("#listClick_3").css("color", "#666");
+        $("#listClick_4").css("border-bottom", "1px solid #C40521");
+        $("#listClick_4").css("color", "#666");
+        $("#listClick_5").css("border-bottom", "1px solid #CCC");
+        $("#listClick_5").css("color", "#C40521");
+        $("#crowdfunding_iframe").attr("src", "crowdfunding.center/make_password.html");
         $("#crowdfunding_iframe").attr("height", "1045");
         $("#vertical_navigation").css("height", "1050px");
 

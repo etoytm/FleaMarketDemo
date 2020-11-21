@@ -21,6 +21,7 @@ function listClick(value) {
         $("#listClick1", window.parent.document).attr("class", "menu_list_on");
         $("#listClick3", window.parent.document).attr("class", "");
         $("#listClick4", window.parent.document).attr("class", "");
+        $("#listClick5", window.parent.document).attr("class", "");
     }
     if (value == 3) {
         $("#crowdfunding_iframe", window.parent.document).attr("src", "crowdfunding.center/identity_prove.html");
@@ -28,6 +29,8 @@ function listClick(value) {
         $("#listClick1", window.parent.document).attr("class", "");
         $("#listClick3", window.parent.document).attr("class", "menu_list_on");
         $("#listClick4", window.parent.document).attr("class", "");
+        $("#listClick5", window.parent.document).attr("class", "");
+
     }
     if (value == 4) {
         $("#crowdfunding_iframe", window.parent.document).attr("src", "crowdfunding.center/make_password.html");
@@ -35,6 +38,17 @@ function listClick(value) {
         $("#listClick1", window.parent.document).attr("class", "");
         $("#listClick3", window.parent.document).attr("class", "");
         $("#listClick4", window.parent.document).attr("class", "menu_list_on");
+        $("#listClick5", window.parent.document).attr("class", "");
+
+    }
+    if (value == 5) {
+        $("#crowdfunding_iframe", window.parent.document).attr("src", "crowdfunding.center/QQ_bind.php");
+        $("#crowdfunding_iframe", window.parent.document).attr("height", 1045);
+        $("#listClick1", window.parent.document).attr("class", "");
+        $("#listClick3", window.parent.document).attr("class", "");
+        $("#listClick4", window.parent.document).attr("class", "");
+        $("#listClick5", window.parent.document).attr("class", "menu_list_on");
+
     }
     if (value == 11) {
         $("#crowdfunding_iframe", window.parent.document).attr("src", "crowdfunding.center/grade_integration.html");
